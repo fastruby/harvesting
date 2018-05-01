@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.harvestapp.com/v2/users/me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby Harvest API Sample
+      Host:
+      - api.harvestapp.com
+      Authorization:
+      - Bearer foo
+      Harvest-Account-Id:
+      - bar
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 01 May 2018 21:25:00 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '134'
+      Connection:
+      - keep-alive
+      Status:
+      - 401 Unauthorized
+      Www-Authenticate:
+      - Bearer realm="Rack::OAuth2 Protected Resources", error="invalid_token", error_description="The
+        access token provided is expired, revoked, malformed or invalid for other
+        reasons."
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - c5b96b264509a8266b0325a5d98c7ad9
+      X-Runtime:
+      - '0.055038'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"error":"invalid_token","error_description":"The access token provided
+        is expired, revoked, malformed or invalid for other reasons."}'
+    http_version: 
+  recorded_at: Tue, 01 May 2018 21:25:00 GMT
+recorded_with: VCR 4.0.0

@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.harvestapp.com/v2/clients
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby Harvest API Sample
+      Host:
+      - api.harvestapp.com
+      Authorization:
+      - Bearer 9999999.pt.abcdef
+      Harvest-Account-Id:
+      - '848484'
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 01 May 2018 21:25:01 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 403 Forbidden
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, no-store, no-cache, max-age=0, must-revalidate
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app1
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://js.appcenter.intuit.com
+        https://platform.twitter.com https://www.google.com https://www.googleadservices.com
+        https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
+        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com;
+        style-src ''self'' ''unsafe-inline'' ''unsafe-inline'' cache.harvestapp.com
+        https://js.appcenter.intuit.com https://www.google.com'
+      Hint:
+      - Not authorized!
+      X-Request-Id:
+      - 7c1c17d19a786b8cfa1955c9b15b6846
+      X-Runtime:
+      - '0.050123'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not authorized!"}'
+    http_version: 
+  recorded_at: Tue, 01 May 2018 21:25:01 GMT
+recorded_with: VCR 4.0.0

@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.harvestapp.com/v2/users/me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby Harvest API Sample
+      Host:
+      - api.harvestapp.com
+      Authorization:
+      - Bearer 9999999.pt.abcdef
+      Harvest-Account-Id:
+      - '848484'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 01 May 2018 21:25:01 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, no-store, no-cache, max-age=0, must-revalidate
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app19
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://js.appcenter.intuit.com
+        https://platform.twitter.com https://www.google.com https://www.googleadservices.com
+        https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
+        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com;
+        style-src ''self'' ''unsafe-inline'' ''unsafe-inline'' cache.harvestapp.com
+        https://js.appcenter.intuit.com https://www.google.com'
+      X-Request-Id:
+      - 1dac5c5757c8253f685bd6fe37883fc0
+      X-Runtime:
+      - '0.031381'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Server:
+      - lb2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":1969760,"first_name":"Ernesto","last_name":"Tagwerker","email":"ernesto@ombulabs.com","telephone":"","timezone":"Eastern
+        Time (US & Canada)","weekly_capacity":72000,"has_access_to_all_future_projects":false,"is_contractor":true,"is_admin":false,"is_project_manager":false,"can_see_rates":false,"can_create_projects":false,"can_create_invoices":false,"is_active":true,"created_at":"2018-01-26T22:59:16Z","updated_at":"2018-04-06T23:00:08Z","roles":[],"avatar_url":"https://cache.harvestapp.com/assets/profile_images/allen_bradley_clock_tower.png?1517007556"}'
+    http_version: 
+  recorded_at: Tue, 01 May 2018 21:25:01 GMT
+recorded_with: VCR 4.0.0
