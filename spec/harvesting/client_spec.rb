@@ -11,11 +11,28 @@ RSpec.describe Harvesting::Client do
       end
     end
 
-    context "when parameters are invalid" do
+    context "when parameters are invalid and ENV is not defined" do
       it "fails" do
         expect do
           Harvesting::Client.new
-        end.to raise_error(ArgumentError)
+        end.to raise_error(ArgumentError, "Access token and account id are required. Access token: ''. Account ID: ''.")
+      end
+
+      context "but ENV constants are defined" do
+        before do
+          stub_const("ENV", {'HARVEST_ACCESS_TOKEN' => "abc", 'HARVEST_ACCOUNT_ID' => "123"})
+        end
+
+        subject { Harvesting::Client.new }
+
+        it "defaults to the env variables" do
+          expect do
+            subject
+          end.not_to raise_error
+
+          expect(subject.access_token).to eq "abc"
+          expect(subject.account_id).to eq "123"
+        end
       end
     end
   end
