@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.harvestapp.com/v2/time_entries
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - Ruby Harvest API Sample
+      Authorization:
+      - Bearer 1484959.pt.abcdef
+      Harvest-Account-Id:
+      - '715808'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 15 May 2018 02:41:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 422 Unprocessable Entity
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, no-store, no-cache, max-age=0, must-revalidate
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app20
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://js.appcenter.intuit.com
+        https://platform.twitter.com https://www.google.com https://www.googleadservices.com
+        https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
+        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com;
+        style-src ''self'' ''unsafe-inline'' ''unsafe-inline'' cache.harvestapp.com
+        https://js.appcenter.intuit.com https://www.google.com'
+      X-Request-Id:
+      - 1fd8bb0233abb8f29e83560cd52459a1
+      X-Runtime:
+      - '0.063893'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"message":"Project can''t be blank, Task can''t be blank, Spent date
+        can''t be blank, Spent date is not a valid date"}'
+    http_version:
+  recorded_at: Tue, 15 May 2018 02:41:44 GMT
+recorded_with: VCR 4.0.0
