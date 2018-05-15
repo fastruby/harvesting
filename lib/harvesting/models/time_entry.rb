@@ -20,8 +20,13 @@ module Harvesting
                  :billable,
                  :budgeted,
                  :billable_rate,
-                 :cost_rate
+                 :cost_rate,
+                 :project_id,
+                 :task_id
 
+      def path
+        id.nil? ? "time_entries" : "time_entries/#{id}"
+      end
     end
   end
 end

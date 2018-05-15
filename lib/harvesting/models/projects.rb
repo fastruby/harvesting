@@ -1,6 +1,6 @@
 module Harvesting
   module Models
-    class TimeEntries < Base
+    class Projects < Base
       include Harvesting::Enumerable
       extend Forwardable
 
@@ -15,10 +15,10 @@ module Harvesting
       attr_reader :entries
 
       def initialize(attrs, opts = {})
-        super(attrs.reject {|k,v| k == "time_entries" }, opts)
+        super(attrs.reject {|k,v| k == "projects" }, opts)
         @api_page = attrs
-        @entries = attrs["time_entries"].map do |entry|
-          TimeEntry.new(entry, client: opts[:client])
+        @entries = attrs["projects"].map do |entry|
+          Project.new(entry, client: opts[:client])
         end
       end
 
@@ -37,7 +37,7 @@ module Harvesting
 
       def fetch_next_page
         new_page = page + 1
-        @entries += @client.time_entries(page: new_page).entries
+        @entries += client.projects(page: new_page).entries
         @attributes['page'] = new_page
       end
     end
