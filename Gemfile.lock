@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     harvesting (0.1.0)
-      http (~> 3.3.0)
+      http (~> 3.3, >= 3.3)
 
 GEM
   remote: https://rubygems.org/
@@ -40,7 +40,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    http-form_data (2.1.0)
+    http-form_data (2.1.1)
     http_parser.rb (0.6.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -91,13 +91,13 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
-  byebug
-  guard-rspec
+  byebug (~> 10.0, >= 10.0)
+  guard-rspec (~> 4.7, >= 4.7)
   harvesting!
   rake (~> 10.0)
   rspec (~> 3.0)
-  vcr
-  webmock
+  vcr (~> 4.0, >= 4.0)
+  webmock (~> 3.4, >= 3.4)
 
 BUNDLED WITH
    1.16.1
