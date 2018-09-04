@@ -27,8 +27,24 @@ account id:
     client.me
     > => #<Harvesting::Models::User:0x007ff8830658f0 @attributes={"id"=>2108614, "first_name"=>"Ernesto", "last_name"=>"Tagwerker", ... >
 
-If you don't specify a valid combination of token and account id, you will
-get this error:
+You can find these details over here: https://id.getharvest.com/developers
+
+If you don't specify values for `access_token` or `account_id`, it will default
+to these environment variables:
+
+* `ENV['HARVEST_ACCESS_TOKEN']`
+* `ENV['HARVEST_ACCOUNT_ID']`
+
+That means that you could build a client like this:
+
+    # $ export HARVEST_ACCESS_TOKEN=abc
+    # $ export HARVEST_ACCOUNT_ID=12345678
+    client = Harvesting::Client.new
+    client.me
+    > => #<Harvesting::Models::User:0x007ff8830658f0 @attributes={"id"=>2108614, "first_name"=>"Ernesto", "last_name"=>"Tagwerker", ... >
+
+If you don't specify a valid combination of token and account id, your code will
+raise this error:
 
     client = Harvesting::Client.new(access_token: "foo", account_id: "bar")
     client.me
