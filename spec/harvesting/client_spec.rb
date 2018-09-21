@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Harvesting::Client do
   let(:access_token) do
     "9999999.pt.abcdef"
