@@ -27,6 +27,10 @@ module Harvesting
       def path
         id.nil? ? "time_entries" : "time_entries/#{id}"
       end
+
+      def user
+        Models::User.new(@attributes['user'], client: @client)
+      end
     end
   end
 end
