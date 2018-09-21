@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Harvesting::Models::TimeEntry, :vcr do
   let(:attrs) { Hash.new }
   let(:time_entry) { Harvesting::Models::TimeEntry.new(attrs) }
