@@ -120,6 +120,12 @@ RSpec.describe Harvesting::Client do
       it "returns the time_entries associated with the account" do
         time_entries = subject.time_entries
         expect(time_entries.size).to eq(119)
+
+        # TODO: extract this into it's own spec - not easy to do without
+        #       the ability to create a new vcr cassette for this account
+        first_time_entry = time_entries.first
+        expect(first_time_entry.user.id).to eq(1969760)
+        expect(first_time_entry.user.name).to eq('Ernesto Tagwerker')
       end
     end
 
