@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "byebug", "~> 10.0", ">= 10.0"
   spec.add_development_dependency "vcr", "~> 4.0", ">= 4.0"
   spec.add_development_dependency "webmock", "~> 3.4", ">= 3.4"
+  spec.add_development_dependency "dotenv", "~> 2.5", ">= 2.5"
 end

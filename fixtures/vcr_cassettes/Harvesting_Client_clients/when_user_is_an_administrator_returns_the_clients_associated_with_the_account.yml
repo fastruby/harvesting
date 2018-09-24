@@ -4,21 +4,19 @@ http_interactions:
     method: get
     uri: https://api.harvestapp.com/v2/clients
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
       User-Agent:
       - Ruby Harvest API Sample
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
       Host:
       - api.harvestapp.com
-      Authorization:
-      - Bearer 9999999.pt.abcdef
-      Harvest-Account-Id:
-      - '919191'
   response:
     status:
       code: 200
@@ -27,13 +25,13 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 01 May 2018 21:25:01 GMT
+      - Wed, 26 Sep 2018 19:38:55 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
-      - keep-alive
+      - close
       Status:
       - 200 OK
       X-Frame-Options:
@@ -42,12 +40,18 @@ http_interactions:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
       Cache-Control:
-      - private, no-store, no-cache, max-age=0, must-revalidate
+      - no-cache, no-store
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app4
+      - app19
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -57,20 +61,20 @@ http_interactions:
         cache.harvestapp.com https://js-agent.newrelic.com https://js.appcenter.intuit.com
         https://platform.twitter.com https://www.google.com https://www.googleadservices.com
         https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
-        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com;
-        style-src ''self'' ''unsafe-inline'' ''unsafe-inline'' cache.harvestapp.com
-        https://js.appcenter.intuit.com https://www.google.com'
+        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com
+        https://cdn.plaid.com; style-src ''self'' ''unsafe-inline'' ''unsafe-inline''
+        cache.harvestapp.com https://js.appcenter.intuit.com https://www.google.com'
       X-Request-Id:
-      - 10a8058f4f6abfdc5390236fce5c2f07
+      - 13f165f94796d19d915383225f7ab67d
       X-Runtime:
-      - '0.078104'
+      - '0.028780'
       Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
+      - max-age=31536000; includeSubDomains
       X-Server:
       - lb2
     body:
-      encoding: ASCII-8BIT
-      string: '{"clients":[{"id":6760580,"name":"Toto","is_active":true,"address":"","created_at":"2018-05-01T18:38:40Z","updated_at":"2018-05-01T18:50:17Z","currency":"USD"},{"id":6760579,"name":"Pepe","is_active":true,"address":"","created_at":"2018-05-01T18:38:37Z","updated_at":"2018-05-01T18:50:05Z","currency":"USD"}],"per_page":100,"total_pages":1,"total_entries":2,"next_page":null,"previous_page":null,"page":1,"links":{"first":"https://api.harvestapp.com/v2/clients?page=1&per_page=100","next":null,"previous":null,"last":"https://api.harvestapp.com/v2/clients?page=1&per_page=100"}}'
+      encoding: UTF-8
+      string: '{"clients":[{"id":7247639,"name":"Toto","is_active":true,"address":null,"created_at":"2018-09-26T19:38:00Z","updated_at":"2018-09-26T19:38:02Z","currency":"USD"},{"id":7247638,"name":"Pepe","is_active":true,"address":null,"created_at":"2018-09-26T19:38:00Z","updated_at":"2018-09-26T19:38:01Z","currency":"USD"}],"per_page":100,"total_pages":1,"total_entries":2,"next_page":null,"previous_page":null,"page":1,"links":{"first":"https://api.harvestapp.com/v2/clients?page=1&per_page=100","next":null,"previous":null,"last":"https://api.harvestapp.com/v2/clients?page=1&per_page=100"}}'
     http_version: 
-  recorded_at: Tue, 01 May 2018 21:25:01 GMT
+  recorded_at: Wed, 26 Sep 2018 19:38:55 GMT
 recorded_with: VCR 4.0.0

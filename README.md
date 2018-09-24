@@ -88,6 +88,30 @@ this:
     project = projects.first
     > => #<Harvesting::Models::Project:0x007ff718e1c618 @attributes={"id"=>17367712, "name"=>"Foo", "code"=>"", "is_active"=>true, "is_billable"=>true, "is_fixed_fee"=>false, "bill_by"=>"none", "budget"=>nil, "budget_by"=>"none", "budget_is_monthly"=>false, "notify_when_over_budget"=>false, "over_budget_notification_percentage"=>80.0, "show_budget_to_all"=>false, "created_at"=>"2018-05-13T03:30:06Z", ... >
 
+## Tips
+
+### Deleting All Items
+
+When you need to delete all items, care needs to be taken, because the API uses pagination. The following code will only delete data from _every other_ page.
+
+```
+# WARNING - only deletes every other page
+client.time_entries.each do |time_entry|
+  time_entry.delete
+end
+```
+
+While iterating over items from the first page, all of those items will be deleted. This will result in moving items from the second page onto the first page. If there are only two pages, then the second page will be empty. If there are more than two pages, then the second page will now contain items which would have previously appeared on the third page. Deleting those items will move the items from the fourth page on to the third page, and so on.
+
+Instead you need to make sure you get access to all of the time entry objects before you try to delete any of them. The easiest way to do this is to convert the `Enumerable` instance into an `Array`, by calling `#to_a`, before you iterate over it.
+
+```
+# GOOD - This should do what you want
+client.time_entries.to_a.each do |time_entry|
+  time_entry.delete
+end
+```
+
 ## Roadmap
 
 There are many things to be developed for this gem. For now they are tracked here: [TODO.md](https://github.com/ombulabs/harvesting/blob/master/TODO.md)
@@ -97,6 +121,18 @@ There are many things to be developed for this gem. For now they are tracked her
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+### Running Tests
+
+The tests in this project use the [VCR gem](https://github.com/vcr/vcr) to record and playback all interactions with the Harvest API. This allows you to run the test suite without having an account at Harvest for testing.
+
+If you add a test that requires making an additional API call, then you'll need to make adjustments to the `.env` file to provide account details that are required by the test suite.
+
+*WARNING*: The test suite is destructive. It deletes all entities from the account before it runs. _DO NOT_ run it against a Harvest account which contains information that you need to preserve. Instead, create a Harvest account for testing.
+
+If you need to refresh the VCR cassettes, the easiest way is to delete all of the files located under [`fixtures/vcr_cassettes`](fixtures/vcr_cassettes). The next time the test suite is run, VCR will make actual calls against the Harvest API and record the responses into updated cassette files.
+
+Effort has been taken to ensure that private information is excluded from the recorded cassettes. To adjust this further, add additional `filter_sensitive_data` calls to [`spec/spec_helper.rb`](spec/spec_helper.rb).
 
 ## Contributing
 

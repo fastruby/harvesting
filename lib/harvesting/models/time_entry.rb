@@ -29,7 +29,11 @@ module Harvesting
       end
 
       def user
-        Models::User.new(@attributes['user'], client: @client)
+        Models::User.new(@attributes['user'], client: harvest_client)
+      end
+
+      def task
+        Models::Task.new(@attributes['task'], client: harvest_client)
       end
     end
   end

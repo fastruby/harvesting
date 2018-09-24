@@ -10,9 +10,9 @@ http_interactions:
       User-Agent:
       - Ruby Harvest API Sample
       Authorization:
-      - Bearer 1484959.pt.abcdef
+      - Bearer $HARVEST_ACCESS_TOKEN
       Harvest-Account-Id:
-      - '715808'
+      - "$HARVEST_ACCOUNT_ID"
       Connection:
       - close
       Content-Type:
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 15 May 2018 02:41:44 GMT
+      - Wed, 26 Sep 2018 19:39:04 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -42,12 +42,18 @@ http_interactions:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
       Cache-Control:
-      - private, no-store, no-cache, max-age=0, must-revalidate
+      - no-cache, no-store
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app20
+      - app1
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -57,19 +63,19 @@ http_interactions:
         cache.harvestapp.com https://js-agent.newrelic.com https://js.appcenter.intuit.com
         https://platform.twitter.com https://www.google.com https://www.googleadservices.com
         https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
-        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com;
-        style-src ''self'' ''unsafe-inline'' ''unsafe-inline'' cache.harvestapp.com
-        https://js.appcenter.intuit.com https://www.google.com'
+        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com
+        https://cdn.plaid.com; style-src ''self'' ''unsafe-inline'' ''unsafe-inline''
+        cache.harvestapp.com https://js.appcenter.intuit.com https://www.google.com'
       X-Request-Id:
-      - 1fd8bb0233abb8f29e83560cd52459a1
+      - d65cd1fea2830de86dd62b22c83b55ce
       X-Runtime:
-      - '0.063893'
+      - '0.075778'
       Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
+      - max-age=31536000; includeSubDomains
     body:
       encoding: UTF-8
       string: '{"message":"Project can''t be blank, Task can''t be blank, Spent date
         can''t be blank, Spent date is not a valid date"}'
-    http_version:
-  recorded_at: Tue, 15 May 2018 02:41:44 GMT
+    http_version: 
+  recorded_at: Wed, 26 Sep 2018 19:39:04 GMT
 recorded_with: VCR 4.0.0

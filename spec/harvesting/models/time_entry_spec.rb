@@ -1,21 +1,16 @@
 require 'spec_helper'
 
 RSpec.describe Harvesting::Models::TimeEntry, :vcr do
+  include_context "harvest data setup"
+
   let(:attrs) { Hash.new }
-  let(:time_entry) { Harvesting::Models::TimeEntry.new(attrs) }
+  let(:time_entry) { Harvesting::Models::TimeEntry.new(attrs, client: harvest_client) }
   let(:date) { "2018-05-14" }
   let(:started_time) { "8:00am" }
   let(:ended_time) { "9:00am" }
-  let(:project_id) { '17367712' }
-  let(:task_id) { '9713395' }
-  let(:user_id) { '2108614' }
-
-  before do
-    stub_const("ENV", {
-      'HARVEST_ACCESS_TOKEN' => "1484959.pt.abcdef",
-      'HARVEST_ACCOUNT_ID' => "715808"
-    })
-  end
+  let(:project_id) { project_castle_building.id }
+  let(:task_id) { task_coding.id }
+  let(:user_id) { user_me.id }
 
   describe "#save" do
     context "when id is nil" do
@@ -68,6 +63,8 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
 
         expect(time_entry.id).not_to be_nil
         expect(time_entry.hours).to eq 1
+
+        time_entry.delete
       end
     end
   end
