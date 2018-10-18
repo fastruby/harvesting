@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "byebug"
 require "http"
 require "json"
 
