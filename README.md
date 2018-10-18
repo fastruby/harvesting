@@ -18,6 +18,10 @@ Or install it yourself as:
 
     $ gem install harvesting
 
+## Documentation
+
+The API is documented [here](https://www.rubydoc.info/github/ombulabs/harvesting)
+
 ## Usage
 
 In order to start using this gem you will need your personal token and an
@@ -91,6 +95,10 @@ this:
 ## Roadmap
 
 There are many things to be developed for this gem. For now they are tracked here: [TODO.md](https://github.com/ombulabs/harvesting/blob/master/TODO.md)
+
+## Releases
+
+You can find more info [here](RELEASE_NOTES.md)
 
 ## Development
 
