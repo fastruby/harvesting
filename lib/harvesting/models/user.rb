@@ -20,6 +20,10 @@ module Harvesting
                  :updated_at,
                  :roles,
                  :avatar_url
+
+      def path
+        id.nil? ? "users" : "users/#{id}"
+      end
     end
   end
 end

@@ -49,6 +49,10 @@ module Harvesting
       Harvesting::Models::Tasks.new(get("tasks", opts), client: self)
     end
 
+    def users(opts = {})
+      Harvesting::Models::Users.new(get("users", opts), client: self)
+    end
+
     def create(entity)
       url = "#{DEFAULT_HOST}/#{entity.path}"
       uri = URI(url)
