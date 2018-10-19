@@ -22,11 +22,6 @@ module Harvesting
         end
       end
 
-      # def each
-      #   @entries.each_with_index do |user, index|
-      #     yield(user)
-      #   end
-      # end
       def page
         @attributes['page']
       end
