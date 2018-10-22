@@ -36,6 +36,15 @@ module Harvesting
       def to_hash
         @attributes
       end
+
+      def fetch
+        self.class.new(@client.get(path), client: @client)
+      end
+
+      def self.get(id, opts = {})
+        client = opts[:client] || Harvesting::Client.new(opts)
+        self.new({ 'id' => id }, opts).fetch
+      end
     end
   end
 end
