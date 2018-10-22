@@ -53,6 +53,16 @@ module Harvesting
       Harvesting::Models::Users.new(get("users", opts), client: self)
     end
 
+    def user_assignments(project = nil, opts = {})
+      path = project.nil? ? "user_assignments" : "projects/#{project.id}/user_assignments"
+      Harvesting::Models::ProjectUserAssignments.new(project, get(path, opts), client: self)
+    end
+
+    def task_assignments(project = nil, opts = {})
+      path = project.nil? ? "task_assignments" : "projects/#{project.id}/task_assignments"
+      Harvesting::Models::ProjectTaskAssignments.new(project, get(path, opts), client: self)
+    end
+
     def create(entity)
       url = "#{DEFAULT_HOST}/#{entity.path}"
       uri = URI(url)
