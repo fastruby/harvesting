@@ -22,7 +22,7 @@ module Harvesting
                  :avatar_url
 
       def path
-        id.nil? ? "users" : "users/#{id}"
+        @attributes['id'].nil? ? "users" : "users/#{@attributes['id']}"
       end
     end
   end

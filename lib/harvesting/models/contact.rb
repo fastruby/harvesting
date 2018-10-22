@@ -11,6 +11,10 @@ module Harvesting
                  :fax,
                  :created_at,
                  :updated_at
+
+      def path
+        @attributes['id'].nil? ? "contacts" : "contacts/#{@attributes['id']}"
+      end
     end
   end
 end

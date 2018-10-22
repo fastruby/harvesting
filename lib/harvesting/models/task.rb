@@ -11,7 +11,7 @@ module Harvesting
                  :updated_at
 
       def path
-        id.nil? ? "tasks" : "tasks/#{id}"
+        @attributes['id'].nil? ? "tasks" : "tasks/#{@attributes['id']}"
       end
     end
   end

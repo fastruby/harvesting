@@ -25,7 +25,7 @@ module Harvesting
                  :task_id
 
       def path
-        id.nil? ? "time_entries" : "time_entries/#{id}"
+        @attributes['id'].nil? ? "time_entries" : "time_entries/#{@attributes['id']}"
       end
 
       def user
