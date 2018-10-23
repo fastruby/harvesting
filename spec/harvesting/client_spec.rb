@@ -348,7 +348,7 @@ RSpec.describe Harvesting::Client, :vcr do
       end
 
       context 'with custom options' do
-        let(:result1) do
+        let(:page1_results) do
           entries = []
           100.times { entries.push({}) }
           {
@@ -362,7 +362,7 @@ RSpec.describe Harvesting::Client, :vcr do
           }
           end
 
-        let(:result2) do
+        let(:page2_results) do
           entries = []
           15.times { entries.push({}) }
           {
@@ -378,7 +378,7 @@ RSpec.describe Harvesting::Client, :vcr do
 
         it 'uses the custom options on subsequent page fetches' do
           stub_request(:get, /time_entries/).
-            to_return({ body: result1.to_json }, { body: result2.to_json })
+            to_return({ body: page1_results.to_json }, { body: page2_results.to_json })
 
           time_entries = subject.time_entries(from: "2018-02-15", to: "2018-04-27")
 
@@ -386,6 +386,156 @@ RSpec.describe Harvesting::Client, :vcr do
 
           expect(WebMock).to have_requested(:get, /time_entries/).
             with(query: {"from" => "2018-02-15", "page" => "2", "to" => "2018-04-27"})
+        end
+      end
+    end
+
+  end
+
+  describe "#users", :vcr do
+    subject { Harvesting::Client.new(access_token: access_token, account_id: account_id) }
+
+    context "when iterating over the next page" do
+
+      context 'with custom options' do
+        let(:page1_results) do
+          entries = []
+          100.times { entries.push({}) }
+          {
+              users: entries,
+              per_page: 100,
+              total_pages: 2,
+              total_entries: 115,
+              next_page: 2,
+              previous_page: nil,
+              page: 1
+          }
+        end
+
+        let(:page2_results) do
+          entries = []
+          15.times { entries.push({}) }
+          {
+              users: entries,
+              per_page: 100,
+              total_pages: 2,
+              total_entries: 115,
+              next_page: nil,
+              previous_page: 1,
+              page: 2
+          }
+        end
+
+        it 'uses the custom options on subsequent page fetches' do
+          stub_request(:get, /users/).
+              to_return({ body: page1_results.to_json }, { body: page2_results.to_json })
+
+          time_entries = subject.users(is_active: "true")
+
+          time_entries.each { |entry| }
+
+          expect(WebMock).to have_requested(:get, /users/).
+              with(query: {"is_active" => "true", "page" => "2"})
+        end
+      end
+    end
+
+  end
+
+  describe "#projects", :vcr do
+    subject { Harvesting::Client.new(access_token: access_token, account_id: account_id) }
+
+    context "when iterating over the next page" do
+
+      context 'with custom options' do
+        let(:page1_results) do
+          entries = []
+          100.times { entries.push({}) }
+          {
+              projects: entries,
+              per_page: 100,
+              total_pages: 2,
+              total_entries: 115,
+              next_page: 2,
+              previous_page: nil,
+              page: 1
+          }
+        end
+
+        let(:page2_results) do
+          entries = []
+          15.times { entries.push({}) }
+          {
+              projects: entries,
+              per_page: 100,
+              total_pages: 2,
+              total_entries: 115,
+              next_page: nil,
+              previous_page: 1,
+              page: 2
+          }
+        end
+
+        it 'uses the custom options on subsequent page fetches' do
+          stub_request(:get, /projects/).
+              to_return({ body: page1_results.to_json }, { body: page2_results.to_json })
+
+          time_entries = subject.projects(is_active: "true")
+
+          time_entries.each { |entry| }
+
+          expect(WebMock).to have_requested(:get, /projects/).
+              with(query: {"is_active" => "true", "page" => "2"})
+        end
+      end
+    end
+
+  end
+
+  describe "#tasks", :vcr do
+    subject { Harvesting::Client.new(access_token: access_token, account_id: account_id) }
+
+    context "when iterating over the next page" do
+
+      context 'with custom options' do
+        let(:page1_results) do
+          entries = []
+          100.times { entries.push({}) }
+          {
+              tasks: entries,
+              per_page: 100,
+              total_pages: 2,
+              total_entries: 115,
+              next_page: 2,
+              previous_page: nil,
+              page: 1
+          }
+        end
+
+        let(:page2_results) do
+          entries = []
+          15.times { entries.push({}) }
+          {
+              tasks: entries,
+              per_page: 100,
+              total_pages: 2,
+              total_entries: 115,
+              next_page: nil,
+              previous_page: 1,
+              page: 2
+          }
+        end
+
+        it 'uses the custom options on subsequent page fetches' do
+          stub_request(:get, /tasks/).
+              to_return({ body: page1_results.to_json }, { body: page2_results.to_json })
+
+          time_entries = subject.tasks(is_active: "true")
+
+          time_entries.each { |entry| }
+
+          expect(WebMock).to have_requested(:get, /tasks/).
+              with(query: {"is_active" => "true", "page" => "2"})
         end
       end
     end
