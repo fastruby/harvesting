@@ -153,6 +153,48 @@ RSpec.describe Harvesting::Client, :vcr do
 
         expect(ids.size).to eq(time_entries.size)
       end
+
+      context 'with custom options' do
+        let(:result1) do
+          entries = []
+          100.times { entries.push({}) }
+          {
+              time_entries: entries,
+              per_page: 100,
+              total_pages: 2,
+              total_entries: 115,
+              next_page: 2,
+              previous_page: nil,
+              page: 1
+          }
+          end
+
+        let(:result2) do
+          entries = []
+          15.times { entries.push({}) }
+          {
+              time_entries: entries,
+              per_page: 100,
+              total_pages: 2,
+              total_entries: 115,
+              next_page: nil,
+              previous_page: 1,
+              page: 2
+          }
+        end
+
+        it 'uses the custom options on subsequent page fetches' do
+          stub_request(:get, /time_entries/).
+            to_return({ body: result1.to_json }, { body: result2.to_json })
+
+          time_entries = subject.time_entries(from: "2018-02-15", to: "2018-04-27")
+
+          time_entries.each { |entry| }
+
+          expect(WebMock).to have_requested(:get, /time_entries/).
+            with(query: {"from" => "2018-02-15", "page" => "2", "to" => "2018-04-27"})
+        end
+      end
     end
   end
 end

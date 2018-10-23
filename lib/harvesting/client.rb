@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require "pry"
 require "http"
 require "json"
 
@@ -38,7 +38,7 @@ module Harvesting
     end
 
     def time_entries(opts = {})
-      Harvesting::Models::TimeEntries.new(get("time_entries", opts), client: self)
+      Harvesting::Models::TimeEntries.new(get("time_entries", opts), opts, client: self)
     end
 
     def projects(opts = {})

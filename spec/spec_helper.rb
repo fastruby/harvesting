@@ -2,6 +2,7 @@ require "bundler/setup"
 require 'dotenv/load'
 require "harvesting"
 require "webmock"
+require "webmock/rspec"
 require "vcr"
 
 VCR.configure do |config|

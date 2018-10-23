@@ -14,19 +14,15 @@ module Harvesting
 
       attr_reader :entries
 
-      def initialize(attrs, opts = {})
+      def initialize(attrs, query_opts = {}, opts = {})
         super(attrs.reject {|k,v| k == "time_entries" }, opts)
+        @query_opts = query_opts
         @api_page = attrs
         @entries = attrs["time_entries"].map do |entry|
           TimeEntry.new(entry, client: opts[:client])
         end
       end
 
-      # def each
-      #   @entries.each_with_index do |time_entry, index|
-      #     yield(time_entry)
-      #   end
-      # end
       def page
         @attributes['page']
       end
@@ -35,10 +31,13 @@ module Harvesting
         total_entries
       end
 
+      def next_page_query_opts
+        @query_opts.merge(page: page + 1)
+      end
+
       def fetch_next_page
-        new_page = page + 1
-        @entries += harvest_client.time_entries(page: new_page).entries
-        @attributes['page'] = new_page
+        @entries += harvest_client.time_entries(next_page_query_opts).entries
+        @attributes['page'] = page + 1
       end
     end
   end
