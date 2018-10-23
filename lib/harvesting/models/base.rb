@@ -14,6 +14,9 @@ module Harvesting
           Harvesting::Models::Base.send :define_method, attribute_name.to_s do
             @attributes[__method__.to_s]
           end
+          Harvesting::Models::Base.send :define_method, "#{attribute_name.to_s}=" do |value|
+            @attributes[__method__.to_s.chomp('=')] = value
+          end
         end
       end
 
