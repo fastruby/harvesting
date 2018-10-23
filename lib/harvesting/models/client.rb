@@ -1,6 +1,6 @@
 module Harvesting
   module Models
-    class Client < Base
+    class Client < HarvestRecord
       attributed :id,
                  :name,
                  :is_active,

@@ -1,6 +1,6 @@
 module Harvesting
   module Models
-    class TimeEntry < Base
+    class TimeEntry < HarvestRecord
       attributed :id,
                  :spent_date,
                  :hours,

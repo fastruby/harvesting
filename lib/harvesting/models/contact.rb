@@ -1,6 +1,6 @@
 module Harvesting
   module Models
-    class Contact < Base
+    class Contact < HarvestRecord
       attributed :id,
                  :title,
                  :first_name,

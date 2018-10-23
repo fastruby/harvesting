@@ -1,6 +1,6 @@
 module Harvesting
   module Models
-    class User < Base
+    class User < HarvestRecord
       attributed :id,
                  :first_name,
                  :last_name,
