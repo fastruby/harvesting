@@ -1,4 +1,3 @@
-require 'pry'
 module Harvesting
   module Models
     class Base
@@ -20,10 +19,10 @@ module Harvesting
       end
 
       def self.modeled(opts = {})
-        opts.each do |attribute_name, model_name|
+        opts.each do |attribute_name, model|
           attribute_name_string = attribute_name.to_s
           Harvesting::Models::Base.send :define_method, attribute_name_string do
-            @models[attribute_name_string] ||= model_name.new(@attributes[attribute_name_string] || {}, client: @client)
+            @models[attribute_name_string] ||= model.new(@attributes[attribute_name_string] || {}, client: @client)
           end
         end
       end

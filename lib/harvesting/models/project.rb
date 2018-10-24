@@ -22,12 +22,9 @@ module Harvesting
                  :starts_on,
                  :ends_on,
                  :created_at,
-                 :updated_at,
-                 {
-                  client: [
-                    :id
-                  ]
-                 }
+                 :updated_at
+
+      modeled client: Client
 
       def path
         id.nil? ? "projects" : "projects/#{id}"
