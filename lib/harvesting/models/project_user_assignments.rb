@@ -4,15 +4,13 @@ module Harvesting
       include Harvesting::Enumerable
       extend Forwardable
 
-      attributed :id,
-                 :project,
-                 :user,
-                 :is_active,
-                 :is_project_manager,
-                 :hourly_rate,
-                 :budget,
-                 :created_at,
-                 :updated_at
+      attributed :per_page,
+                 :total_pages,
+                 :total_entries,
+                 :next_page,
+                 :previous_page,
+                 :page,
+                 :links
 
       def initialize(ref_project, attrs, opts = {})
         super(attrs.reject {|k,v| k == "user_assignments" }, opts)
