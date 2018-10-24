@@ -105,12 +105,12 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
     end
 
     it 'creates accessors for nested attributes' do
-      expect(time_entry.project_name).to eq(project_name)
-      expect(time_entry.project_id).to eq(project_id)
+      expect(time_entry.project.name).to eq(project_name)
+      expect(time_entry.project.id).to eq(project_id)
     end
 
-    it 'returns nil for nested attributes when the parent is nil' do
-      expect(time_entry.user_assignment_budget).to eq(nil)
+    it 'does not throw when parent is nil' do
+      expect(time_entry.user.id).to eq(nil)
     end
   end
 end

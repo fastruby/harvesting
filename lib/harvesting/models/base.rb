@@ -1,3 +1,4 @@
+require 'pry'
 module Harvesting
   module Models
     class Base
@@ -5,24 +6,24 @@ module Harvesting
       attr_reader :client
 
       def initialize(attrs, opts = {})
+        @models = {}
         @attributes = attrs.dup
         @client = opts[:client] || Harvesting::Client.new(opts)
       end
 
       def self.attributed(*attribute_names)
         attribute_names.each do |attribute_name|
-          if attribute_name.is_a?(Symbol)
-            Harvesting::Models::Base.send :define_method, attribute_name.to_s do
-              @attributes[__method__.to_s]
-            end
+          Harvesting::Models::Base.send :define_method, attribute_name.to_s do
+            @attributes[__method__.to_s]
+          end
+        end
+      end
 
-          else
-            key = attribute_name.keys[0]
-            attribute_name[key].each do |sub_key|
-              Harvesting::Models::Base.send :define_method, "#{key}_#{sub_key}" do
-                @attributes.dig(key.to_s, sub_key.to_s)
-              end
-            end
+      def self.modeled(opts = {})
+        opts.each do |attribute_name, model_name|
+          attribute_name_string = attribute_name.to_s
+          Harvesting::Models::Base.send :define_method, attribute_name_string do
+            @models[attribute_name_string] ||= model_name.new(@attributes[attribute_name_string] || {}, client: @client)
           end
         end
       end

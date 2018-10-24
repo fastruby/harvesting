@@ -15,70 +15,15 @@ module Harvesting
                  :started_time,
                  :ended_time,
                  :is_running,
+                 :invoice,
+                 :external_reference,
                  :billable,
                  :budgeted,
                  :billable_rate,
                  :cost_rate,
-                 :task_id,
-                 {
-                  external_reference: [
-                    :id,
-                    :group_id,
-                    :permalink
-                  ]
-                 },
-                 {
-                  invoice: [
-                    :id,
-                    :number
-                  ]
-                 },
-                 {
-                  user: [
-                    :id,
-                    :name
-                  ]
-                 },
-                 {
-                  user_assignment: [
-                    :id,
-                    :is_project_manager,
-                    :is_active,
-                    :budget,
-                    :hourly_rate,
-                    :created_at,
-                    :updated_at
-                  ]
-                 },
-                 {
-                  client: [
-                    :id,
-                    :name
-                  ]
-                 },
-                 {
-                  task: [
-                    :id,
-                    :name
-                  ]
-                 },
-                 {
-                  task_assignment: [
-                    :id,
-                    :billable,
-                    :is_active,
-                    :hourly_rate,
-                    :budget,
-                    :created_at,
-                    :updated_at
-                  ]
-                 },
-                 {
-                  project: [
-                    :name,
-                    :id
-                  ]
-                 }
+                 :task_id
+
+      modeled project: Project
 
       def path
         id.nil? ? "time_entries" : "time_entries/#{id}"
