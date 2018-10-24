@@ -16,6 +16,7 @@ module Harvesting
 
       def initialize(ref_project, attrs, opts = {})
         super(attrs.reject {|k,v| k == "user_assignments" }, opts)
+        @ref_project = ref_project
         @api_page = attrs
         @entries = attrs["user_assignments"].map do |entry|
           ProjectUserAssignment.new(ref_project, entry, client: opts[:client])
@@ -32,7 +33,7 @@ module Harvesting
 
       def fetch_next_page
         new_page = page + 1
-        @entries += client.users(page: new_page).entries
+        @entries += client.user_assignments(@ref_project, page: new_page).entries
         @attributes['page'] = new_page
       end
     end
