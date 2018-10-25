@@ -11,6 +11,7 @@ module Harvesting
                  :hourly_rate,
                  :budget,
                  :budget_by,
+                 :budget_is_monthly,
                  :notify_when_over_budget,
                  :over_budget_notification_percentage,
                  :over_budget_notification_date,
