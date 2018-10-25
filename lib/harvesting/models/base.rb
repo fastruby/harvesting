@@ -12,7 +12,7 @@ module Harvesting
 
       def self.attributed(*attribute_names)
         attribute_names.each do |attribute_name|
-          Harvesting::Models::Base.send :define_method, attribute_name.to_s do
+          define_method(attribute_name) do
             @attributes[__method__.to_s]
           end
         end

@@ -129,5 +129,13 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
     it 'does not throw when parent is nil' do
       expect(time_entry.user.id).to eq(nil)
     end
+
+    it 'creates accessors on instances of this class' do
+      expect(time_entry).to respond_to(:spent_date)
+    end
+
+    it 'does not create accessors on instances of other classes' do
+      expect(time_entry.class.superclass.new(attrs)).not_to respond_to(:spent_date)
+    end
   end
 end

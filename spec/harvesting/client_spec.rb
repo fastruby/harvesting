@@ -130,16 +130,16 @@ RSpec.describe Harvesting::Client, :vcr do
         expect(time_entries.size).to eq(119)
       end
 
-      it 'time entries provide access to associated user' do
+      it 'provide access to associated user' do
         first_time_entry = time_entries.first
-        expect(first_time_entry.user.id).to be
-        expect(first_time_entry.user.name).to be
+        expect(first_time_entry.user).to respond_to(:id)
+        expect(first_time_entry.user).to respond_to(:first_name)
       end
 
-      it 'time entires provide access to associated task' do
+      it 'provide access to associated task' do
         first_time_entry = time_entries.first
-        expect(first_time_entry.task.id).to be
-        expect(first_time_entry.task.name).to eq('Coding')
+        expect(first_time_entry.task).to respond_to(:id)
+        expect(first_time_entry.task).to respond_to(:name)
       end
 
       it "correctly accesses all pages" do
