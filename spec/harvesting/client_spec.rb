@@ -1,10 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe Harvesting::Client do
-  let(:access_token) do
-    "9999999.pt.abcdef"
-  end
-  let(:account_id) { "848484" }
+RSpec.describe Harvesting::Client, :vcr do
+  include_context "harvest data setup"
 
   describe "#initialize" do
     context "when parameters are valid" do
@@ -14,6 +11,10 @@ RSpec.describe Harvesting::Client do
     end
 
     context "when parameters are invalid and ENV is not defined" do
+      before do
+        stub_const("ENV", {})
+      end
+
       it "fails" do
         expect do
           Harvesting::Client.new
@@ -63,7 +64,8 @@ RSpec.describe Harvesting::Client do
     end
 
     context "when user is an administrator" do
-      let(:account_id) { 919191 }
+      let(:access_token) { admin_access_token }
+      let(:account_id) { admin_account_id }
 
       it "returns the contacts associated with the account" do
         contacts = subject.contacts
@@ -86,7 +88,8 @@ RSpec.describe Harvesting::Client do
     end
 
     context "when user is an administrator" do
-      let(:account_id) { 919191 }
+      let(:access_token) { admin_access_token }
+      let(:account_id) { admin_account_id }
 
       it "returns the clients associated with the account" do
         clients = subject.clients
@@ -101,8 +104,8 @@ RSpec.describe Harvesting::Client do
 
     it "returns the authenticated user" do
       user = subject.me
-      expect(user.first_name).to eq("Ernesto")
-      expect(user.last_name).to eq("Tagwerker")
+      expect(user.first_name).to eq(account_first_name)
+      expect(user.last_name).to eq(account_last_name)
     end
   end
 
@@ -110,8 +113,6 @@ RSpec.describe Harvesting::Client do
     subject { Harvesting::Client.new(access_token: access_token, account_id: account_id) }
 
     context "when account has no entries" do
-      let(:account_id) { 919191 }
-
       it "returns the time_entries associated with the account" do
         time_entries = subject.time_entries
         expect(time_entries.map(&:id)).to be_empty
@@ -119,28 +120,38 @@ RSpec.describe Harvesting::Client do
     end
 
     context "when account has entries" do
+      let(:access_token) { admin_access_token }
+      let(:account_id) { admin_account_id }
+
       it "returns the time_entries associated with the account" do
         time_entries = subject.time_entries
         expect(time_entries.size).to eq(119)
-
-        # TODO: extract this into it's own spec - not easy to do without
-        #       the ability to create a new vcr cassette for this account
-        first_time_entry = time_entries.first
-        expect(first_time_entry.user.id).to eq(1969760)
-        expect(first_time_entry.user.name).to eq('Ernesto Tagwerker')
       end
-    end
 
-    context "when iterating over the next page" do
-      it "lets me" do
-        cursor = 0
+      it 'time entries provide access to associated user' do
+        first_time_entry = time_entries.first
+        expect(first_time_entry.user.id).to be
+        expect(first_time_entry.user.name).to be
+      end
+
+      it 'time entires provide access to associated task' do
+        first_time_entry = time_entries.first
+        expect(first_time_entry.task.id).to be
+        expect(first_time_entry.task.name).to eq('Coding')
+      end
+
+      it "correctly accesses all pages" do
+        ids = []
         time_entries = subject.time_entries
-        time_entries.each_with_index do |entry, index|
-          cursor = index
+        expect(time_entries.size).to be > 100
+
+        time_entries.each do |entry|
           expect(entry.id).to be
+          expect(ids).to_not include(entry.id)
+          ids << entry.id
         end
 
-        expect(cursor).to eq(118)
+        expect(ids.size).to eq(time_entries.size)
       end
     end
   end

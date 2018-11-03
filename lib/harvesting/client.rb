@@ -49,8 +49,15 @@ module Harvesting
       Harvesting::Models::Tasks.new(get("tasks", opts), client: self)
     end
 
+
     def users(opts = {})
       Harvesting::Models::Users.new(get("users", opts), client: self)
+    end
+
+    def invoices
+      get("invoices")["invoices"].map do |result|
+        Harvesting::Models::Invoice.new(result, client: self)
+      end
     end
 
     def create(entity)
@@ -69,6 +76,13 @@ module Harvesting
       entity
     end
 
+    def delete(entity)
+      url = "#{DEFAULT_HOST}/#{entity.path}"
+      uri = URI(url)
+      response = http_response(:delete, uri)
+      raise UnprocessableRequest(response.to_s) unless response.code.to_i == 200
+    end
+
     private
 
     def get(path, opts = {})
@@ -82,7 +96,7 @@ module Harvesting
     def http_response(method, uri, opts = {})
       response = nil
 
-      http = HTTP["User-Agent" => "Ruby Harvest API Sample",
+      http = HTTP["User-Agent" => "Harvesting Ruby Gem",
                   "Authorization" => "Bearer #{@access_token}",
                   "Harvest-Account-ID" => @account_id]
       params = {}

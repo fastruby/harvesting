@@ -1,31 +1,33 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://api.harvestapp.com/v2/time_entries
+    method: post
+    uri: https://api.harvestapp.com/v2/contacts
     body:
       encoding: UTF-8
-      string: ''
+      string: '{"first_name":"Jon","last_name":"Snow","client_id":7247638}'
     headers:
       User-Agent:
       - Ruby Harvest API Sample
       Authorization:
-      - Bearer $HARVEST_NON_ADMIN_ACCESS_TOKEN
+      - Bearer $HARVEST_ACCESS_TOKEN
       Harvest-Account-Id:
       - "$HARVEST_ACCOUNT_ID"
       Connection:
       - close
+      Content-Type:
+      - application/json; charset=UTF-8
       Host:
       - api.harvestapp.com
   response:
     status:
-      code: 200
-      message: OK
+      code: 201
+      message: Created
     headers:
       Server:
       - nginx
       Date:
-      - Wed, 26 Sep 2018 19:38:57 GMT
+      - Wed, 26 Sep 2018 19:38:01 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,7 +35,7 @@ http_interactions:
       Connection:
       - close
       Status:
-      - 200 OK
+      - 201 Created
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -51,7 +53,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app21
+      - app8
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -64,17 +66,19 @@ http_interactions:
         https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com
         https://cdn.plaid.com; style-src ''self'' ''unsafe-inline'' ''unsafe-inline''
         cache.harvestapp.com https://js.appcenter.intuit.com https://www.google.com'
+      Location:
+      - https://api.harvestapp.com/api/v2/contacts/6947840
       X-Request-Id:
-      - c10df64233cb80a2ba08605a883dbbb0
+      - 268eb7985f9cfd63e3d3c67ad1a580dd
       X-Runtime:
-      - '0.036537'
+      - '0.049506'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
       - lb2
     body:
       encoding: UTF-8
-      string: '{"time_entries":[],"per_page":100,"total_pages":1,"total_entries":0,"next_page":null,"previous_page":null,"page":1,"links":{"first":"https://api.harvestapp.com/v2/time_entries?page=1&per_page=100","next":null,"previous":null,"last":"https://api.harvestapp.com/v2/time_entries?page=1&per_page=100"}}'
+      string: '{"id":6947840,"title":null,"first_name":"Jon","last_name":"Snow","email":"","phone_office":"","phone_mobile":"","fax":"","created_at":"2018-09-26T19:38:01Z","updated_at":"2018-09-26T19:38:01Z","client":{"id":7247638,"name":"Pepe"}}'
     http_version: 
-  recorded_at: Wed, 26 Sep 2018 19:38:57 GMT
+  recorded_at: Wed, 26 Sep 2018 19:38:01 GMT
 recorded_with: VCR 4.0.0
