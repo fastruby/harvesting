@@ -52,6 +52,7 @@ module Harvesting
 
     def users(opts = {})
       Harvesting::Models::Users.new(get("users", opts), client: self)
+    end
 
     def invoices
       get("invoices")["invoices"].map do |result|
