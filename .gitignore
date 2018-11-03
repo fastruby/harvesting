@@ -8,7 +8,7 @@
 /tmp/
 
 # environment variables
-.env*
+.env
 
 # rspec failure tracking
 .rspec_status
