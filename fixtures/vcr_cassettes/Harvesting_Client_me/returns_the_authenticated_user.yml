@@ -74,8 +74,8 @@ http_interactions:
       - lb2
     body:
       encoding: UTF-8
-      string: '{"id":2358956,"first_name":"John","last_name":"Smith","email":"scott+harvested-employee@corgibytes.com","telephone":"","timezone":"Eastern
+      string: '{"id":2358956,"first_name":"123","last_name":"123","email":"scott+harvested-employee@corgibytes.com","telephone":"","timezone":"Eastern
         Time (US & Canada)","weekly_capacity":126000,"has_access_to_all_future_projects":false,"is_contractor":false,"is_admin":false,"is_project_manager":false,"can_see_rates":false,"can_create_projects":false,"can_create_invoices":false,"is_active":true,"created_at":"2018-09-24T13:47:23Z","updated_at":"2018-09-24T13:48:15Z","roles":[],"avatar_url":"https://cache.harvestapp.com/assets/profile_images/abraj_albait_towers.png?1537796843"}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 26 Sep 2018 19:38:56 GMT
 recorded_with: VCR 4.0.0
