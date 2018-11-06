@@ -33,6 +33,7 @@ module Harvesting
       def path
         id.nil? ? "time_entries" : "time_entries/#{id}"
       end
+
     end
   end
 end

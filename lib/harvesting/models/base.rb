@@ -2,12 +2,12 @@ module Harvesting
   module Models
     class Base
       attr_accessor :attributes
-      attr_reader :client
+      attr_reader :harvest_client
 
       def initialize(attrs, opts = {})
         @models = {}
         @attributes = attrs.dup
-        @client = opts[:client] || Harvesting::Client.new(opts)
+        @harvest_client = opts[:client] || Harvesting::Client.new(opts)
       end
 
       def self.attributed(*attribute_names)
@@ -32,11 +32,15 @@ module Harvesting
       end
 
       def create
-        @client.create(self)
+        @harvest_client.create(self)
       end
 
       def update
-        @client.update(self)
+        @harvest_client.update(self)
+      end
+
+      def delete
+        @harvest_client.delete(self)
       end
 
       def to_hash
