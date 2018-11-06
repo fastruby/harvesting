@@ -161,6 +161,37 @@ If you need to refresh the VCR cassettes, the easiest way is to delete all of th
 
 Effort has been taken to ensure that private information is excluded from the recorded cassettes. To adjust this further, add additional `filter_sensitive_data` calls to [`spec/spec_helper.rb`](spec/spec_helper.rb).
 
+### Models
+
+The models in this project reflect the Harvest v2 API endpoints:
+
+ * client
+ * contact
+ * task
+ * task_assignment
+ * project
+ * user
+ * time_entry
+ 
+There are also models for the Harvest v2 API collection endpoints:
+
+ * clients
+ * contacts
+ * tasks
+ * task_assignments
+ * projects
+ * users
+ * time_entries
+
+These collection models handle the Harvest v2 API pagination automatically, making it easy to enumerate through all the instances of each type.
+
+The models try to reduce code duplication through base class helper functions to automatically define accessors for the attributes included in each type returned by the Harvest v2 API. 
+The `Harvesting::Base::attributed` method will define accessors for each simple attribute included in an array passed as an argument. Data is returned from these accessors as strings. 
+
+Some data is returned from Harvest as nested JSON (e.g. time_entry.project.name). A base class helper to expose this using the available models
+is also present. The `Harvesting::Base::modeled` method will define accessors for each object attribute included in options. Both the name of the attribute and the model to use in accessing that data is supplied. 
+Data is returned from these accessors as model objects. 
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/ombulabs/harvesting. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
