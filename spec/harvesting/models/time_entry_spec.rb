@@ -84,4 +84,30 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
       end
     end
   end
+
+  describe "initialize" do
+    let(:project_name) { 'Harvesting' }
+    let(:attrs) do
+        {
+          'spent_date' => date,
+          'project' => {
+            'name' => project_name,
+            'id' => project_id
+          }
+        }
+      end
+
+    it 'creates accessors for top-level attributes' do
+      expect(time_entry.spent_date).to eq(date)
+    end
+
+    it 'creates accessors for nested attributes' do
+      expect(time_entry.project.name).to eq(project_name)
+      expect(time_entry.project.id).to eq(project_id)
+    end
+
+    it 'does not throw when parent is nil' do
+      expect(time_entry.user.id).to eq(nil)
+    end
+  end
 end

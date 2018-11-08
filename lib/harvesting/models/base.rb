@@ -5,6 +5,7 @@ module Harvesting
       attr_reader :harvest_client
 
       def initialize(attrs, opts = {})
+        @models = {}
         @attributes = attrs.dup
         @harvest_client = opts[:client] || Harvesting::Client.new(opts)
       end
@@ -13,6 +14,15 @@ module Harvesting
         attribute_names.each do |attribute_name|
           Harvesting::Models::Base.send :define_method, attribute_name.to_s do
             @attributes[__method__.to_s]
+          end
+        end
+      end
+
+      def self.modeled(opts = {})
+        opts.each do |attribute_name, model|
+          attribute_name_string = attribute_name.to_s
+          Harvesting::Models::Base.send :define_method, attribute_name_string do
+            @models[attribute_name_string] ||= model.new(@attributes[attribute_name_string] || {}, client: @client)
           end
         end
       end

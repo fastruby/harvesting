@@ -2,7 +2,6 @@ module Harvesting
   module Models
     class Project < Base
       attributed :id,
-                 :client,
                  :name,
                  :code,
                  :is_active,
@@ -24,6 +23,8 @@ module Harvesting
                  :ends_on,
                  :created_at,
                  :updated_at
+
+      modeled client: Client
 
       def path
         id.nil? ? "projects" : "projects/#{id}"

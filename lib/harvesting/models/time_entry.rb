@@ -15,26 +15,25 @@ module Harvesting
                  :started_time,
                  :ended_time,
                  :is_running,
-                 :invoice,
-                 :external_reference,
                  :billable,
                  :budgeted,
                  :billable_rate,
                  :cost_rate,
-                 :project_id,
-                 :task_id
+                 :task_id,
+                 :invoice,
+                 :external_reference,
+                 :user_assignment, # temporarily return the hash itself until the model is added
+                 :task_assignment # temporarily return the hash itself until the model is added
+
+      modeled project: Project,
+              user: User,
+              task: Task,
+              client: Client
 
       def path
         id.nil? ? "time_entries" : "time_entries/#{id}"
       end
 
-      def user
-        Models::User.new(@attributes['user'], client: harvest_client)
-      end
-
-      def task
-        Models::Task.new(@attributes['task'], client: harvest_client)
-      end
     end
   end
 end

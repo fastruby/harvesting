@@ -78,7 +78,7 @@ this:
 
     entry = time_entries.first
     > => #<Harvesting::Models::TimeEntry:0x007ff71913dfe0 @attributes={"id"=>792860513, "spent_date"=>"2018-05-14", "hours"=>1.0, "notes"=>"hacked the things", "is_locked"=>false, "locked_reason"=>nil, "is_closed"=>false, "is_billed"=>false, "timer_started_at"=>nil, "started_time"=>nil, "ended_time"=>nil, "is_running"=>false, "billable"=>true, "budgeted"=>false, "billable_rate"=>nil, "cost_rate ... >
-
+    
 ### Tasks
 
     tasks = client.tasks
@@ -92,6 +92,17 @@ this:
     project = projects.first
     > => #<Harvesting::Models::Project:0x007ff718e1c618 @attributes={"id"=>17367712, "name"=>"Foo", "code"=>"", "is_active"=>true, "is_billable"=>true, "is_fixed_fee"=>false, "bill_by"=>"none", "budget"=>nil, "budget_by"=>"none", "budget_is_monthly"=>false, "notify_when_over_budget"=>false, "over_budget_notification_percentage"=>80.0, "show_budget_to_all"=>false, "created_at"=>"2018-05-13T03:30:06Z", ... >
 
+### Nested Attributes
+
+The Harvest v2 API embeds some data in JSON objects. You can access nested attributes quite naturally. 
+For example, to access the user id for a time entry instance, `entry`, use:
+
+    entry.user.id
+    
+Or to access the name of the client on a project instance, `project`:
+
+    project.client.name
+    
 ## Tips
 
 ### Deleting All Items
@@ -149,6 +160,37 @@ If you add a test that requires making an additional API call, then you'll need 
 If you need to refresh the VCR cassettes, the easiest way is to delete all of the files located under [`fixtures/vcr_cassettes`](fixtures/vcr_cassettes). The next time the test suite is run, VCR will make actual calls against the Harvest API and record the responses into updated cassette files.
 
 Effort has been taken to ensure that private information is excluded from the recorded cassettes. To adjust this further, add additional `filter_sensitive_data` calls to [`spec/spec_helper.rb`](spec/spec_helper.rb).
+
+### Models
+
+The models in this project reflect the Harvest v2 API endpoints:
+
+ * client
+ * contact
+ * task
+ * task_assignment
+ * project
+ * user
+ * time_entry
+ 
+There are also models for the Harvest v2 API collection endpoints:
+
+ * clients
+ * contacts
+ * tasks
+ * task_assignments
+ * projects
+ * users
+ * time_entries
+
+These collection models handle the Harvest v2 API pagination automatically, making it easy to enumerate through all the instances of each type.
+
+The models try to reduce code duplication through base class helper functions to automatically define accessors for the attributes included in each type returned by the Harvest v2 API. 
+The `Harvesting::Base::attributed` method will define accessors for each simple attribute included in an array passed as an argument. Data is returned from these accessors as strings. 
+
+Some data is returned from Harvest as nested JSON (e.g. time_entry.project.name). A base class helper to expose this using the available models
+is also present. The `Harvesting::Base::modeled` method will define accessors for each object attribute included in options. Both the name of the attribute and the model to use in accessing that data is supplied. 
+Data is returned from these accessors as model objects. 
 
 ## Contributing
 
