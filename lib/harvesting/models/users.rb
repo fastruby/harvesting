@@ -36,7 +36,7 @@ module Harvesting
       end
 
       def fetch_next_page
-        @entries += @client.users(next_page_query_opts).entries
+        @entries += harvest_client.users(next_page_query_opts).entries
         @attributes['page'] = page + 1
       end
     end
