@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require "http"
 require "json"
 
@@ -38,20 +37,20 @@ module Harvesting
     end
 
     def time_entries(opts = {})
-      Harvesting::Models::TimeEntries.new(get("time_entries", opts), client: self)
+      Harvesting::Models::TimeEntries.new(get("time_entries", opts), opts, client: self)
     end
 
     def projects(opts = {})
-      Harvesting::Models::Projects.new(get("projects", opts), client: self)
+      Harvesting::Models::Projects.new(get("projects", opts), opts, client: self)
     end
 
     def tasks(opts = {})
-      Harvesting::Models::Tasks.new(get("tasks", opts), client: self)
+      Harvesting::Models::Tasks.new(get("tasks", opts), opts, client: self)
     end
 
 
     def users(opts = {})
-      Harvesting::Models::Users.new(get("users", opts), client: self)
+      Harvesting::Models::Users.new(get("users", opts), opts, client: self)
     end
 
     def invoices
