@@ -102,10 +102,12 @@ RSpec.describe Harvesting::Client, :vcr do
   describe "#me", :vcr do
     subject { Harvesting::Client.new(access_token: access_token, account_id: account_id) }
 
+    # vcr cassette here:
+    # fixtures/vcr_cassettes/Harvesting_Client_me/returns_the_authenticated_user.yml
     it "returns the authenticated user" do
       user = subject.me
-      expect(user.first_name).to eq(account_first_name)
-      expect(user.last_name).to eq(account_last_name)
+      expect(user.first_name).to eq("123")
+      expect(user.last_name).to eq("123")
     end
   end
 
