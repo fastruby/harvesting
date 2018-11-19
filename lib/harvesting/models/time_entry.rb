@@ -22,13 +22,13 @@ module Harvesting
                  :task_id,
                  :invoice,
                  :external_reference,
-                 :user_assignment, # temporarily return the hash itself until the model is added
-                 :task_assignment # temporarily return the hash itself until the model is added
+                 :user_assignment # temporarily return the hash itself until the model is added
 
       modeled project: Project,
               user: User,
               task: Task,
-              client: Client
+              client: Client,
+              task_assignment: TaskAssignment
 
       def path
         id.nil? ? "time_entries" : "time_entries/#{id}"

@@ -6,14 +6,27 @@ RSpec.describe Harvesting::Models::TaskAssignment, :vcr do
 
   describe '#path' do
     context 'without a task assignment id' do
-      let(:attrs) { { 'project_id' => '1234' } }
+      let(:attrs) do
+        {
+            'project' => {
+                'id' => '1234'
+            }
+        }
+      end
       it 'includes the project id' do
         expect(task_assignment.path).to eq('projects/1234/task_assignments')
       end
     end
 
     context 'with a task assignment id' do
-      let(:attrs) { { 'id' => '1111', 'project_id' => '2222' } }
+      let(:attrs) do
+        {
+            'id' => '1111',
+            'project' => {
+                'id' => '2222'
+            }
+        }
+      end
       it 'includes project id and task assignment id' do
         expect(task_assignment.path).to eq(
           'projects/2222/task_assignments/1111'

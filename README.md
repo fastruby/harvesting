@@ -192,6 +192,8 @@ Some data is returned from Harvest as nested JSON (e.g. time_entry.project.name)
 is also present. The `Harvesting::Base::modeled` method will define accessors for each object attribute included in options. Both the name of the attribute and the model to use in accessing that data is supplied. 
 Data is returned from these accessors as model objects. 
 
+NOTE: Nesting model objects requires that the nested model types be defined before the nesting model type. E.g. if `project` contains a nested `client`, then `client` must be defined *before* `project` in the `harvesting.rb` include list. 
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/ombulabs/harvesting. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.

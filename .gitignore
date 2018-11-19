@@ -21,3 +21,5 @@
 
 # ruby versions
 .ruby-version
+
+.idea/
