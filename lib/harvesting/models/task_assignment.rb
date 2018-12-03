@@ -1,5 +1,3 @@
-require 'pry'
-
 module Harvesting
   module Models
     class TaskAssignment < HarvestRecord
