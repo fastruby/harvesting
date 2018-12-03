@@ -46,6 +46,7 @@ module Harvesting
       def to_hash
         @attributes
       end
+
     end
   end
 end

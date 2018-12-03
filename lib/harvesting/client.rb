@@ -8,9 +8,7 @@ module Harvesting
 
     attr_accessor :access_token, :account_id
 
-    #
     # @param opts
-    #
     def initialize(access_token: ENV['HARVEST_ACCESS_TOKEN'], account_id: ENV['HARVEST_ACCOUNT_ID'])
       @access_token = access_token.to_s
       @account_id = account_id.to_s

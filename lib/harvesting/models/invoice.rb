@@ -1,6 +1,6 @@
 module Harvesting
   module Models
-    class Invoice < Base
+    class Invoice < HarvestRecord
       attributed :id,
                  :client_key,
                  :number,

@@ -1,6 +1,6 @@
 module Harvesting
   module Models
-    class Project < Base
+    class Project < HarvestRecord
       attributed :id,
                  :name,
                  :code,

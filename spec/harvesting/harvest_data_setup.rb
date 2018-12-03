@@ -54,7 +54,7 @@ RSpec.shared_context "harvest data setup" do
     VCR.use_cassette('harvest_data_setup/client_pepe', :record => :once, :allow_playback_repeats => true) do
       pepe = Harvesting::Models::Client.new(
         {
-          name: "Pepe"
+          "name" => "Pepe"
         },
         client: harvest_client
       )
@@ -67,7 +67,7 @@ RSpec.shared_context "harvest data setup" do
     VCR.use_cassette('harvest_data_setup/client_toto', :record => :once, :allow_playback_repeats => true) do
       toto = Harvesting::Models::Client.new(
         {
-          name: "Toto"
+          "name" => "Toto"
         },
         client: harvest_client
       )
@@ -86,9 +86,11 @@ RSpec.shared_context "harvest data setup" do
     VCR.use_cassette('harvest_data_setup/contact_jon_snow', :record => :once, :allow_playback_repeats => true) do
       jon_snow = Harvesting::Models::Contact.new(
         {
-          first_name: "Jon",
-          last_name: "Snow",
-          client_id: client_pepe.id
+          "first_name" => "Jon",
+          "last_name" => "Snow",
+          "client" => {
+              "id" => client_pepe.id.to_s
+          }
         },
         client: harvest_client
       )
@@ -101,11 +103,13 @@ RSpec.shared_context "harvest data setup" do
     VCR.use_cassette('harvest_data_setup/project_castle_building', :record => :once, :allow_playback_repeats => true) do
       castle_building = Harvesting::Models::Project.new(
         {
-          client_id: client_pepe.id,
-          name: "Castle Building",
-          is_billable: true,
-          bill_by: "Tasks",
-          budget_by: "person"
+          "client" => {
+              "id" => client_pepe.id.to_s
+          },
+          "name" => "Castle Building",
+          "is_billable" => "true",
+          "bill_by" => "Tasks",
+          "budget_by" => "person"
         },
         client: harvest_client
       )
@@ -118,7 +122,7 @@ RSpec.shared_context "harvest data setup" do
     VCR.use_cassette('harvest_data_setup/task_coding', :record => :once, :allow_playback_repeats => true) do
       coding = Harvesting::Models::Task.new(
         {
-          name: "Coding"
+          "name" => "Coding"
         },
         client: harvest_client
       )
@@ -131,8 +135,12 @@ RSpec.shared_context "harvest data setup" do
     VCR.use_cassette('harvest_data_setup/task_assigment_castle_building_coding', :record => :once, :allow_playback_repeats => true) do
       castle_building_coding = Harvesting::Models::TaskAssignment.new(
         {
-          "project_id" => project_castle_building.id,
-          "task_id" => task_coding.id
+            "project" => {
+                "id" => project_castle_building.id.to_s
+            },
+            "task" => {
+                "id" => task_coding.id.to_s
+            }
         },
         client: harvest_client
       )
@@ -145,9 +153,11 @@ RSpec.shared_context "harvest data setup" do
     VCR.use_cassette('harvest_data_setup/contact_cersei_lannister', :record => :once, :allow_playback_repeats => true) do
       cersei_lannister = Harvesting::Models::Contact.new(
         {
-          first_name: "Cersei",
-          last_name: "Lannister",
-          client_id: client_toto.id
+          "first_name" => "Cersei",
+          "last_name" => "Lannister",
+          "client" => {
+              "id" => client_toto.id.to_s
+          }
         },
         client: harvest_client
       )
@@ -162,10 +172,14 @@ RSpec.shared_context "harvest data setup" do
       119.times do |iteration|
         time = Harvesting::Models::TimeEntry.new(
           {
-            project_id: project_castle_building.id,
-            task_id: task_coding.id,
-            spent_date: (Time.now - one_day * (iteration + 1)).iso8601,
-            hours: 6
+            "project" => {
+                "id" => project_castle_building.id.to_s
+            },
+            "task" => {
+                "id" => task_coding.id.to_s
+            },
+            "spent_date" => (Time.now - one_day * (iteration + 1)).iso8601.to_s,
+            "hours" => 6.to_s
           },
           client: harvest_client
         )

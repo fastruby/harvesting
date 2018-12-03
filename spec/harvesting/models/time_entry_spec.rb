@@ -52,9 +52,19 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
     context "when trying to create a time entry with the required attributes" do
       let(:attrs) do
         {
-          'project_id' => project_id, 'task_id' => task_id, 'spent_date' => date,
-          'hours' => '1.0', 'user_id' => user_id,
-          'is_running' => 'false', 'notes' => 'hacked the things'
+            project: {
+                id: project_id
+            },
+            task: {
+                id: task_id
+            },
+            spent_date: date,
+            hours: '1.0',
+            user: {
+                id: user_id
+            },
+            is_running: 'false',
+            notes: 'hacked the things'
         }
       end
 
@@ -72,9 +82,19 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
   describe "#update" do
     let(:attrs) do
       {
-        'project_id' => project_id, 'task_id' => task_id, 'spent_date' => date,
-        'hours' => '1.0', 'user_id' => user_id,
-        'is_running' => 'false', 'notes' => 'hacked the things'
+          project: {
+              id: project_id
+          },
+          task: {
+              id: task_id
+          },
+          spent_date: date,
+          hours: '1.0',
+          user: {
+              id: user_id
+          },
+          is_running: 'false',
+          notes: 'hacked the things'
       }
     end
 
