@@ -5,8 +5,6 @@ module Harvesting
                  :spent_date,
                  :hours,
                  :notes,
-                 :created_at,
-                 :updated_at,
                  :is_locked,
                  :locked_reason,
                  :is_closed,
@@ -19,9 +17,10 @@ module Harvesting
                  :budgeted,
                  :billable_rate,
                  :cost_rate,
-                 :task_id,
                  :invoice,
                  :external_reference,
+                 :created_at,
+                 :updated_at,
                  :user_assignment # temporarily return the hash itself until the model is added
 
       modeled project: Project,
@@ -29,6 +28,7 @@ module Harvesting
               task: Task,
               client: Client,
               task_assignment: TaskAssignment
+
 
       def path
         id.nil? ? "time_entries" : "time_entries/#{id}"
