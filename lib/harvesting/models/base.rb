@@ -48,7 +48,7 @@ module Harvesting
       end
 
       def fetch
-        self.class.new(@client.get(path), client: @client)
+        self.class.new(@harvest_client.get(path), client: @harvest_client)
       end
 
       # Retrieves an instance of the object by ID
