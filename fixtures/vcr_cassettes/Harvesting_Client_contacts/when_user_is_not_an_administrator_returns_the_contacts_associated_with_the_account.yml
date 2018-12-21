@@ -4,21 +4,19 @@ http_interactions:
     method: get
     uri: https://api.harvestapp.com/v2/contacts
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
       User-Agent:
       - Ruby Harvest API Sample
+      Authorization:
+      - Bearer $HARVEST_NON_ADMIN_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
       Host:
       - api.harvestapp.com
-      Authorization:
-      - Bearer 9999999.pt.abcdef
-      Harvest-Account-Id:
-      - '848484'
   response:
     status:
       code: 403
@@ -27,13 +25,13 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 01 May 2018 21:25:00 GMT
+      - Wed, 26 Sep 2018 19:38:52 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
-      - keep-alive
+      - close
       Status:
       - 403 Forbidden
       X-Frame-Options:
@@ -42,12 +40,18 @@ http_interactions:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
       Cache-Control:
-      - private, no-store, no-cache, max-age=0, must-revalidate
+      - no-cache, no-store
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app4
+      - app10
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -57,20 +61,20 @@ http_interactions:
         cache.harvestapp.com https://js-agent.newrelic.com https://js.appcenter.intuit.com
         https://platform.twitter.com https://www.google.com https://www.googleadservices.com
         https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
-        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com;
-        style-src ''self'' ''unsafe-inline'' ''unsafe-inline'' cache.harvestapp.com
-        https://js.appcenter.intuit.com https://www.google.com'
+        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com
+        https://cdn.plaid.com; style-src ''self'' ''unsafe-inline'' ''unsafe-inline''
+        cache.harvestapp.com https://js.appcenter.intuit.com https://www.google.com'
       Hint:
       - Not authorized!
       X-Request-Id:
-      - 5674fc5532e854124fb1b31960ccc535
+      - ccc8daecaf8a65c3a268beb9beeb9be0
       X-Runtime:
-      - '0.061276'
+      - '0.069781'
       Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
+      - max-age=31536000; includeSubDomains
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"message":"Not authorized!"}'
     http_version: 
-  recorded_at: Tue, 01 May 2018 21:25:00 GMT
+  recorded_at: Wed, 26 Sep 2018 19:38:52 GMT
 recorded_with: VCR 4.0.0

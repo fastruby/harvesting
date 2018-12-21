@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.harvestapp.com/v2/users/me
+    uri: https://api.harvestapp.com/v2/time_entries?from=2018-02-15&to=2018-04-27
     body:
       encoding: UTF-8
       string: ''
@@ -10,9 +10,9 @@ http_interactions:
       User-Agent:
       - Ruby Harvest API Sample
       Authorization:
-      - Bearer foo
+      - Bearer 9999999.pt.abcdef
       Harvest-Account-Id:
-      - bar
+      - '848484'
       Connection:
       - close
       Host:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 26 Sep 2018 19:38:51 GMT
+      - Tue, 23 Oct 2018 18:32:30 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -41,9 +41,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - a3b34520d8588cd596d9db683f297a63
+      - 693e294652454cb9f160248b5d3dc082
       X-Runtime:
-      - '0.015327'
+      - '0.013503'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
     body:
@@ -51,5 +51,5 @@ http_interactions:
       string: '{"error":"invalid_token","error_description":"The access token provided
         is expired, revoked, malformed or invalid for other reasons."}'
     http_version: 
-  recorded_at: Wed, 26 Sep 2018 19:38:51 GMT
+  recorded_at: Tue, 23 Oct 2018 18:32:30 GMT
 recorded_with: VCR 4.0.0

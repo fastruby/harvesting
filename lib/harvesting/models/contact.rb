@@ -1,6 +1,6 @@
 module Harvesting
   module Models
-    class Contact < Base
+    class Contact < HarvestRecord
       attributed :id,
                  :title,
                  :first_name,
@@ -11,6 +11,8 @@ module Harvesting
                  :fax,
                  :created_at,
                  :updated_at
+
+      modeled client: Client
 
       def path
         @attributes['id'].nil? ? "contacts" : "contacts/#{@attributes['id']}"

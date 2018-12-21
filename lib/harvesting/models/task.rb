@@ -1,6 +1,6 @@
 module Harvesting
   module Models
-    class Task < Base
+    class Task < HarvestRecord
       attributed :id,
                  :name,
                  :billable_by_default, 

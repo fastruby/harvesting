@@ -7,6 +7,9 @@
 /spec/reports/
 /tmp/
 
+# environment variables
+.env
+
 # rspec failure tracking
 .rspec_status
 
@@ -18,3 +21,5 @@
 
 # ruby versions
 .ruby-version
+
+.idea/
