@@ -80,8 +80,6 @@ module Harvesting
       raise UnprocessableRequest(response.to_s) unless response.code.to_i == 200
     end
 
-    private
-
     def get(path, opts = {})
       url = "#{DEFAULT_HOST}/#{path}"
       url += "?#{opts.map {|k, v| "#{k}=#{v}"}.join("&")}" if opts.any?
@@ -89,6 +87,8 @@ module Harvesting
       response = http_response(:get, uri)
       JSON.parse(response.body)
     end
+
+    private
 
     def http_response(method, uri, opts = {})
       response = nil

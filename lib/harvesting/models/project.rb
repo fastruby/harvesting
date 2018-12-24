@@ -28,7 +28,7 @@ module Harvesting
       modeled client: Client
 
       def path
-        id.nil? ? "projects" : "projects/#{id}"
+        @attributes['id'].nil? ? "projects" : "projects/#{@attributes['id']}"
       end
     end
   end

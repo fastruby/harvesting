@@ -4,6 +4,8 @@ RSpec.describe Harvesting::Models::Contact, :vcr do
   let(:attrs) { Hash.new }
   let(:contact) { Harvesting::Models::Contact.new(attrs) }
 
+  include_context "harvest data setup"
+
   describe '.new' do
     context 'with client attributes in attrs' do
       let(:contact_id) { '1235' }
@@ -15,6 +17,16 @@ RSpec.describe Harvesting::Models::Contact, :vcr do
         expect(contact.client.id).to eq(contact_id)
         expect(contact.client.name).to eq(contact_name)
       end
+    end
+  end
+
+  describe '.get' do
+    it 'provides direct access to a specific contact' do
+      contact = Harvesting::Models::Contact.get(contact_jon_snow.id)
+      expect(contact.id).to eq(contact_jon_snow.id)
+      expect(contact.first_name).to eq(contact_jon_snow.first_name)
+      expect(contact.last_name).to eq(contact_jon_snow.last_name)
+      expect(contact.client.id).to eq(contact_jon_snow.client.id)
     end
   end
 

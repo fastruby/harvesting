@@ -47,6 +47,19 @@ module Harvesting
         @attributes
       end
 
+      def fetch
+        self.class.new(@harvest_client.get(path), client: @harvest_client)
+      end
+
+      # Retrieves an instance of the object by ID
+      #
+      # @param id [Integer] the id of the object to retrieve
+      # @param opts [Hash] options to pass along to the `Harvesting::Client`
+      #   instance
+      def self.get(id, opts = {})
+        client = opts[:client] || Harvesting::Client.new(opts)
+        self.new({ 'id' => id }, opts).fetch
+      end
     end
   end
 end

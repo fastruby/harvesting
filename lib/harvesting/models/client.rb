@@ -10,7 +10,7 @@ module Harvesting
                  :currency
 
       def path
-        id.nil? ? "clients" : "clients/#{id}"
+        @attributes['id'].nil? ? "clients" : "clients/#{@attributes['id']}"
       end
     end
   end
