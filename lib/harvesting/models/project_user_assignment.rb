@@ -1,9 +1,7 @@
 module Harvesting
   module Models
-    class ProjectUserAssignment < Base
+    class ProjectUserAssignment < HarvestRecord
       attributed :id,
-                 :project,
-                 :user,
                  :is_active,
                  :is_project_manager,
                  :hourly_rate,
@@ -11,13 +9,12 @@ module Harvesting
                  :created_at,
                  :updated_at
 
-      def initialize(ref_project, attrs, opts = {})
-        super(attrs, opts)
-        @ref_project = ref_project
-      end
+      modeled project: Project,
+              user: User
 
       def path
-        id.nil? ? "projects/#{@ref_project.id}/user_assignments" : "projects/#{@ref_project.id}/user_assignments/#{id}"
+        base_url = "projects/#{project.id}/user_assignments"
+        @attributes['id'].nil? ? base_url : "#{base_url}/#{@attributes['id']}"
       end
     end
   end

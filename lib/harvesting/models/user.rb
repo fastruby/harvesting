@@ -2,6 +2,7 @@ module Harvesting
   module Models
     class User < HarvestRecord
       attributed :id,
+                 :name,
                  :first_name,
                  :last_name,
                  :email,
@@ -25,6 +26,10 @@ module Harvesting
 
       def path
         @attributes['id'].nil? ? "users" : "users/#{@attributes['id']}"
+      end
+
+      def name
+        @attributes['name'].nil? ? "#{first_name} #{last_name}" : @attributes['name']
       end
     end
   end

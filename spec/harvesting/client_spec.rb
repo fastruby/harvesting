@@ -539,6 +539,19 @@ RSpec.describe Harvesting::Client, :vcr do
         end
       end
     end
+  end
 
+  describe "#user_assignments", :vcr do
+    context "as an admin user" do
+      subject { Harvesting::Client.new(access_token: admin_access_token, account_id: account_id) }
+
+      it 'retreives the accounts user assignments' do
+        user_assignments = subject.user_assignments
+        user_assignments.each do |user_assignment|
+          expect(user_assignment.project.name).to eq(project_castle_building.name)
+          puts user_assignment.user.name
+        end
+      end
+    end
   end
 end

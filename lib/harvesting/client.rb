@@ -59,7 +59,7 @@ module Harvesting
 
     def user_assignments(project = nil, opts = {})
       path = project.nil? ? "user_assignments" : "projects/#{project.id}/user_assignments"
-      Harvesting::Models::ProjectUserAssignments.new(project, get(path, opts), client: self)
+      Harvesting::Models::ProjectUserAssignments.new(get(path, opts), opts, client: self)
     end
 
     def task_assignments(project = nil, opts = {})
