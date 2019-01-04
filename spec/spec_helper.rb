@@ -1,11 +1,18 @@
 require "bundler/setup"
+require 'dotenv/load'
 require "harvesting"
 require "webmock"
+require "webmock/rspec"
 require "vcr"
 
 VCR.configure do |config|
   config.cassette_library_dir = "fixtures/vcr_cassettes"
   config.hook_into :webmock # or :fakeweb
+
+  config.filter_sensitive_data('$HARVEST_ACCESS_TOKEN') { ENV['HARVEST_ACCESS_TOKEN'] }
+  config.filter_sensitive_data('$HARVEST_NON_ADMIN_ACCESS_TOKEN') { ENV['HARVEST_NON_ADMIN_ACCESS_TOKEN'] }
+  config.filter_sensitive_data('$HARVEST_ACCOUNT_ID') { ENV['HARVEST_ACCOUNT_ID'] }
+  config.filter_sensitive_data('$HARVEST_NON_ADMIN_ACCOUNT_ID') { ENV['HARVEST_NON_ADMIN_ACCOUNT_ID'] }
 end
 
 RSpec.configure do |config|
@@ -25,3 +32,5 @@ RSpec.configure do |config|
     VCR.use_cassette(name) { example.call }
   end
 end
+
+require_relative './harvesting/harvest_data_setup'

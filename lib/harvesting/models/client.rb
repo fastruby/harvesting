@@ -1,6 +1,6 @@
 module Harvesting
   module Models
-    class Client < Base
+    class Client < HarvestRecord
       attributed :id,
                  :name,
                  :is_active,
@@ -9,6 +9,9 @@ module Harvesting
                  :updated_at,
                  :currency
 
+      def path
+        @attributes['id'].nil? ? "clients" : "clients/#{@attributes['id']}"
+      end
     end
   end
 end

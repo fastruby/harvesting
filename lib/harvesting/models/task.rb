@@ -1,6 +1,6 @@
 module Harvesting
   module Models
-    class Task < Base
+    class Task < HarvestRecord
       attributed :id,
                  :name,
                  :billable_by_default, 
@@ -11,7 +11,7 @@ module Harvesting
                  :updated_at
 
       def path
-        id.nil? ? "tasks" : "tasks/#{id}"
+        @attributes['id'].nil? ? "tasks" : "tasks/#{@attributes['id']}"
       end
     end
   end

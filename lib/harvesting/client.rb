@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require "http"
 require "json"
 
@@ -9,9 +8,7 @@ module Harvesting
 
     attr_accessor :access_token, :account_id
 
-    #
     # @param opts
-    #
     def initialize(access_token: ENV['HARVEST_ACCESS_TOKEN'], account_id: ENV['HARVEST_ACCOUNT_ID'])
       @access_token = access_token.to_s
       @account_id = account_id.to_s
@@ -38,19 +35,26 @@ module Harvesting
     end
 
     def time_entries(opts = {})
-      Harvesting::Models::TimeEntries.new(get("time_entries", opts), client: self)
+      Harvesting::Models::TimeEntries.new(get("time_entries", opts), opts, client: self)
     end
 
     def projects(opts = {})
-      Harvesting::Models::Projects.new(get("projects", opts), client: self)
+      Harvesting::Models::Projects.new(get("projects", opts), opts, client: self)
     end
 
     def tasks(opts = {})
-      Harvesting::Models::Tasks.new(get("tasks", opts), client: self)
+      Harvesting::Models::Tasks.new(get("tasks", opts), opts, client: self)
     end
 
+
     def users(opts = {})
-      Harvesting::Models::Users.new(get("users", opts), client: self)
+      Harvesting::Models::Users.new(get("users", opts), opts, client: self)
+    end
+
+    def invoices
+      get("invoices")["invoices"].map do |result|
+        Harvesting::Models::Invoice.new(result, client: self)
+      end
     end
 
     def user_assignments(project = nil, opts = {})
@@ -79,7 +83,12 @@ module Harvesting
       entity
     end
 
-    private
+    def delete(entity)
+      url = "#{DEFAULT_HOST}/#{entity.path}"
+      uri = URI(url)
+      response = http_response(:delete, uri)
+      raise UnprocessableRequest(response.to_s) unless response.code.to_i == 200
+    end
 
     def get(path, opts = {})
       url = "#{DEFAULT_HOST}/#{path}"
@@ -89,10 +98,12 @@ module Harvesting
       JSON.parse(response.body)
     end
 
+    private
+
     def http_response(method, uri, opts = {})
       response = nil
 
-      http = HTTP["User-Agent" => "Ruby Harvest API Sample",
+      http = HTTP["User-Agent" => "Harvesting Ruby Gem",
                   "Authorization" => "Bearer #{@access_token}",
                   "Harvest-Account-ID" => @account_id]
       params = {}

@@ -1,8 +1,7 @@
 module Harvesting
   module Models
-    class Project < Base
+    class Project < HarvestRecord
       attributed :id,
-                 :client,
                  :name,
                  :code,
                  :is_active,
@@ -12,6 +11,7 @@ module Harvesting
                  :hourly_rate,
                  :budget,
                  :budget_by,
+                 :budget_is_monthly,
                  :notify_when_over_budget,
                  :over_budget_notification_percentage,
                  :over_budget_notification_date,
@@ -25,8 +25,10 @@ module Harvesting
                  :created_at,
                  :updated_at
 
+      modeled client: Client
+
       def path
-        id.nil? ? "projects" : "projects/#{id}"
+        @attributes['id'].nil? ? "projects" : "projects/#{@attributes['id']}"
       end
     end
   end

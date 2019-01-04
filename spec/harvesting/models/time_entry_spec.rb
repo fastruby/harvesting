@@ -1,21 +1,16 @@
 require 'spec_helper'
 
 RSpec.describe Harvesting::Models::TimeEntry, :vcr do
+  include_context "harvest data setup"
+
   let(:attrs) { Hash.new }
-  let(:time_entry) { Harvesting::Models::TimeEntry.new(attrs) }
+  let(:time_entry) { Harvesting::Models::TimeEntry.new(attrs, client: harvest_client) }
   let(:date) { "2018-05-14" }
   let(:started_time) { "8:00am" }
   let(:ended_time) { "9:00am" }
-  let(:project_id) { '17367712' }
-  let(:task_id) { '9713395' }
-  let(:user_id) { '2108614' }
-
-  before do
-    stub_const("ENV", {
-      'HARVEST_ACCESS_TOKEN' => "1484959.pt.abcdef",
-      'HARVEST_ACCOUNT_ID' => "715808"
-    })
-  end
+  let(:project_id) { project_castle_building.id }
+  let(:task_id) { task_coding.id }
+  let(:user_id) { user_me.id }
 
   describe "#save" do
     context "when id is nil" do
@@ -57,9 +52,19 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
     context "when trying to create a time entry with the required attributes" do
       let(:attrs) do
         {
-          'project_id' => project_id, 'task_id' => task_id, 'spent_date' => date,
-          'hours' => '1.0', 'user_id' => user_id,
-          'is_running' => 'false', 'notes' => 'hacked the things'
+            project: {
+                id: project_id
+            },
+            task: {
+                id: task_id
+            },
+            spent_date: date,
+            hours: '1.0',
+            user: {
+                id: user_id
+            },
+            is_running: 'false',
+            notes: 'hacked the things'
         }
       end
 
@@ -68,6 +73,8 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
 
         expect(time_entry.id).not_to be_nil
         expect(time_entry.hours).to eq 1
+
+        time_entry.delete
       end
     end
   end
@@ -75,9 +82,19 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
   describe "#update" do
     let(:attrs) do
       {
-        'project_id' => project_id, 'task_id' => task_id, 'spent_date' => date,
-        'hours' => '1.0', 'user_id' => user_id,
-        'is_running' => 'false', 'notes' => 'hacked the things'
+          project: {
+              id: project_id
+          },
+          task: {
+              id: task_id
+          },
+          spent_date: date,
+          hours: '1.0',
+          user: {
+              id: user_id
+          },
+          is_running: 'false',
+          notes: 'hacked the things'
       }
     end
 
@@ -85,6 +102,40 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
       xit "updates the amount of hours" do
         # TODO: fixme
       end
+    end
+  end
+
+  describe "initialize" do
+    let(:project_name) { 'Harvesting' }
+    let(:attrs) do
+        {
+          'spent_date' => date,
+          'project' => {
+            'name' => project_name,
+            'id' => project_id
+          }
+        }
+      end
+
+    it 'creates accessors for top-level attributes' do
+      expect(time_entry.spent_date).to eq(date)
+    end
+
+    it 'creates accessors for nested attributes' do
+      expect(time_entry.project.name).to eq(project_name)
+      expect(time_entry.project.id).to eq(project_id)
+    end
+
+    it 'does not throw when parent is nil' do
+      expect(time_entry.user.id).to eq(nil)
+    end
+
+    it 'creates accessors on instances of this class' do
+      expect(time_entry).to respond_to(:spent_date)
+    end
+
+    it 'does not create accessors on instances of other classes' do
+      expect(time_entry.class.superclass.new(attrs)).not_to respond_to(:spent_date)
     end
   end
 end
