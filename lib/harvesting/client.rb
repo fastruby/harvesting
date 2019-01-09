@@ -25,10 +25,8 @@ module Harvesting
       Harvesting::Models::User.new(get("users/me"), client: self)
     end
 
-    def clients
-      get("clients")["clients"].map do |result|
-        Harvesting::Models::Client.new(result, client: self)
-      end
+    def clients(opts = {})
+      Harvesting::Models::Clients.new(get("clients", opts), client: self)
     end
 
     def contacts
@@ -79,8 +77,6 @@ module Harvesting
       entity
     end
 
-    private
-
     def get(path, opts = {})
       url = "#{DEFAULT_HOST}/#{path}"
       url += "?#{opts.map {|k, v| "#{k}=#{v}"}.join("&")}" if opts.any?
@@ -88,6 +84,8 @@ module Harvesting
       response = http_response(:get, uri)
       JSON.parse(response.body)
     end
+
+    private
 
     def http_response(method, uri, opts = {})
       response = nil

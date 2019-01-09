@@ -9,6 +9,9 @@ module Harvesting
                  :updated_at,
                  :currency
 
+      def path
+        @attributes['id'].nil? ? "clients" : "clients/#{@attributes['id']}"
+      end
     end
   end
 end
