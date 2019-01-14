@@ -99,8 +99,13 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
     end
 
     context "when updating an existing time entry" do
-      xit "updates the amount of hours" do
-        # TODO: fixme
+      it "updates the amount of hours" do
+        time_entry.save
+        time_entry.hours = '4.0'
+        time_entry.save
+
+        final_time_entry = Harvesting::Models::TimeEntry.get(time_entry.id)
+        expect(final_time_entry.hours.to_s).to eq('4.0')
       end
     end
   end
