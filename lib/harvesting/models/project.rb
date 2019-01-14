@@ -30,6 +30,10 @@ module Harvesting
       def path
         @attributes['id'].nil? ? "projects" : "projects/#{@attributes['id']}"
       end
+
+      def to_hash
+        { client_id: client.id }.merge(super)
+      end
     end
   end
 end
