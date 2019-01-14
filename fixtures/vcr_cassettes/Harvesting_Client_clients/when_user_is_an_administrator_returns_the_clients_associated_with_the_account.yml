@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Ruby Harvest API Sample
+      - Harvesting Ruby Gem
       Authorization:
       - Bearer $HARVEST_ACCESS_TOKEN
       Harvest-Account-Id:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 26 Sep 2018 19:38:55 GMT
+      - Mon, 14 Jan 2019 05:29:38 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -51,30 +51,29 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app19
+      - app1
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
       - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
         https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
         https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
-        cache.harvestapp.com https://js-agent.newrelic.com https://js.appcenter.intuit.com
-        https://platform.twitter.com https://www.google.com https://www.googleadservices.com
-        https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
-        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com
-        https://cdn.plaid.com; style-src ''self'' ''unsafe-inline'' ''unsafe-inline''
-        cache.harvestapp.com https://js.appcenter.intuit.com https://www.google.com'
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       X-Request-Id:
-      - 13f165f94796d19d915383225f7ab67d
+      - 1bc7ff98c49933ab413971d166ebaef4
       X-Runtime:
-      - '0.028780'
+      - '0.075856'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
       - lb2
     body:
       encoding: UTF-8
-      string: '{"clients":[{"id":7247639,"name":"Toto","is_active":true,"address":null,"created_at":"2018-09-26T19:38:00Z","updated_at":"2018-09-26T19:38:02Z","currency":"USD"},{"id":7247638,"name":"Pepe","is_active":true,"address":null,"created_at":"2018-09-26T19:38:00Z","updated_at":"2018-09-26T19:38:01Z","currency":"USD"}],"per_page":100,"total_pages":1,"total_entries":2,"next_page":null,"previous_page":null,"page":1,"links":{"first":"https://api.harvestapp.com/v2/clients?page=1&per_page=100","next":null,"previous":null,"last":"https://api.harvestapp.com/v2/clients?page=1&per_page=100"}}'
+      string: '{"clients":[{"id":7664503,"name":"Toto","is_active":true,"address":null,"created_at":"2019-01-14T05:28:45Z","updated_at":"2019-01-14T05:28:47Z","currency":"USD"},{"id":7664502,"name":"Pepe","is_active":true,"address":null,"created_at":"2019-01-14T05:28:45Z","updated_at":"2019-01-14T05:28:46Z","currency":"USD"}],"per_page":100,"total_pages":1,"total_entries":2,"next_page":null,"previous_page":null,"page":1,"links":{"first":"https://api.harvestapp.com/v2/clients?page=1&per_page=100","next":null,"previous":null,"last":"https://api.harvestapp.com/v2/clients?page=1&per_page=100"}}'
     http_version: 
-  recorded_at: Wed, 26 Sep 2018 19:38:55 GMT
+  recorded_at: Mon, 14 Jan 2019 05:29:38 GMT
 recorded_with: VCR 4.0.0
