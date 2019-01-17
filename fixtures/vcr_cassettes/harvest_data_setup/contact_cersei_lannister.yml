@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.harvestapp.com/v2/contacts
     body:
       encoding: UTF-8
-      string: '{"first_name":"Cersei","last_name":"Lannister","client_id":7247639}'
+      string: '{"client_id":"7664503","first_name":"Cersei","last_name":"Lannister","client":{"id":"7664503"}}'
     headers:
       User-Agent:
-      - Ruby Harvest API Sample
+      - Harvesting Ruby Gem
       Authorization:
       - Bearer $HARVEST_ACCESS_TOKEN
       Harvest-Account-Id:
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 26 Sep 2018 19:38:03 GMT
+      - Mon, 14 Jan 2019 05:28:47 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -53,32 +53,31 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app3
+      - app6
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
       - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
         https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
         https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
-        cache.harvestapp.com https://js-agent.newrelic.com https://js.appcenter.intuit.com
-        https://platform.twitter.com https://www.google.com https://www.googleadservices.com
-        https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
-        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com
-        https://cdn.plaid.com; style-src ''self'' ''unsafe-inline'' ''unsafe-inline''
-        cache.harvestapp.com https://js.appcenter.intuit.com https://www.google.com'
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       Location:
-      - https://api.harvestapp.com/api/v2/contacts/6947842
+      - https://api.harvestapp.com/api/v2/contacts/7114871
       X-Request-Id:
-      - 1c08df8dbe38252a4e8d475f7a5ec96d
+      - 2f386efca7b1b026659a9e7551c6723b
       X-Runtime:
-      - '0.094830'
+      - '0.038563'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
       - lb2
     body:
       encoding: UTF-8
-      string: '{"id":6947842,"title":null,"first_name":"Cersei","last_name":"Lannister","email":"","phone_office":"","phone_mobile":"","fax":"","created_at":"2018-09-26T19:38:02Z","updated_at":"2018-09-26T19:38:02Z","client":{"id":7247639,"name":"Toto"}}'
+      string: '{"id":7114871,"title":null,"first_name":"Cersei","last_name":"Lannister","email":"","phone_office":"","phone_mobile":"","fax":"","created_at":"2019-01-14T05:28:47Z","updated_at":"2019-01-14T05:28:47Z","client":{"id":7664503,"name":"Toto"}}'
     http_version: 
-  recorded_at: Wed, 26 Sep 2018 19:38:03 GMT
+  recorded_at: Mon, 14 Jan 2019 05:28:47 GMT
 recorded_with: VCR 4.0.0

@@ -21,6 +21,15 @@ module Harvesting
         base_url = "projects/#{project.id}/task_assignments"
         id.nil? ? base_url : "#{base_url}/#{id}"
       end
+
+      # def project_id
+      #   # TODO: handle case where project's id is part of json object
+      #   @attributes["project_id"]
+      # end
+
+      def to_hash
+        { project_id: project.id, task_id: task.id }.merge(super)
+      end
     end
   end
 end

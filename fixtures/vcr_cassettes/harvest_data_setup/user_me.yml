@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Ruby Harvest API Sample
+      - Harvesting Ruby Gem
       Authorization:
       - Bearer $HARVEST_ACCESS_TOKEN
       Harvest-Account-Id:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 26 Sep 2018 19:38:01 GMT
+      - Mon, 14 Jan 2019 05:28:46 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -51,31 +51,30 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app4
+      - app1
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
       - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
         https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
         https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
-        cache.harvestapp.com https://js-agent.newrelic.com https://js.appcenter.intuit.com
-        https://platform.twitter.com https://www.google.com https://www.googleadservices.com
-        https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
-        https://app.intercom.io https://widget.intercom.io https://js.intercomcdn.com
-        https://cdn.plaid.com; style-src ''self'' ''unsafe-inline'' ''unsafe-inline''
-        cache.harvestapp.com https://js.appcenter.intuit.com https://www.google.com'
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       X-Request-Id:
-      - c37a47fb2ce04c246755d8a80a81578b
+      - dbe0f207b7d00e93113871a4e2c00d67
       X-Runtime:
-      - '0.105092'
+      - '0.071321'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
       - lb2
     body:
       encoding: UTF-8
-      string: '{"id":2348607,"first_name":"M. Scott","last_name":"Ford","email":"scott+harvested@corgibytes.com","telephone":"","timezone":"Eastern
-        Time (US & Canada)","weekly_capacity":126000,"has_access_to_all_future_projects":false,"is_contractor":false,"is_admin":true,"is_project_manager":false,"can_see_rates":true,"can_create_projects":true,"can_create_invoices":true,"is_active":true,"created_at":"2018-09-13T15:00:54Z","updated_at":"2018-09-13T15:01:28Z","default_hourly_rate":null,"cost_rate":null,"roles":[],"avatar_url":"https://cache.harvestapp.com/assets/profile_images/big_ben.png?1536850854"}'
+      string: '{"id":2348607,"first_name":"Alexander","last_name":"Hamilton","email":"scott+harvested@corgibytes.com","telephone":"","timezone":"Eastern
+        Time (US & Canada)","weekly_capacity":126000,"has_access_to_all_future_projects":false,"is_contractor":false,"is_admin":true,"is_project_manager":false,"can_see_rates":true,"can_create_projects":true,"can_create_invoices":true,"is_active":true,"created_at":"2018-09-13T15:00:54Z","updated_at":"2019-01-14T03:42:13Z","default_hourly_rate":null,"cost_rate":null,"roles":[],"avatar_url":"https://cache.harvestapp.com/assets/profile_images/big_ben.png?1536850854"}'
     http_version: 
-  recorded_at: Wed, 26 Sep 2018 19:38:01 GMT
+  recorded_at: Mon, 14 Jan 2019 05:28:46 GMT
 recorded_with: VCR 4.0.0
