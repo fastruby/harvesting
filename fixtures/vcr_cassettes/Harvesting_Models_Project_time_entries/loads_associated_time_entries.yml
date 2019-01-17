@@ -1,0 +1,235 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.harvestapp.com/v2/projects/19815868
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Jan 2019 15:42:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app8
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      X-Request-Id:
+      - 3aef181b10da5eb978cb961ef835105d
+      X-Runtime:
+      - '0.090765'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb1
+    body:
+      encoding: UTF-8
+      string: '{"id":19815868,"name":"X","code":"","is_active":true,"is_billable":true,"is_fixed_fee":false,"bill_by":"none","budget":null,"budget_by":"none","budget_is_monthly":false,"notify_when_over_budget":false,"over_budget_notification_percentage":80.0,"show_budget_to_all":false,"created_at":"2019-01-17T15:41:13Z","updated_at":"2019-01-17T15:41:13Z","starts_on":null,"ends_on":null,"over_budget_notification_date":null,"notes":"","cost_budget":null,"cost_budget_include_expenses":false,"hourly_rate":null,"fee":null,"client":{"id":6760579,"name":"Pepe","currency":"USD"}}'
+    http_version: 
+  recorded_at: Thu, 17 Jan 2019 15:42:33 GMT
+- request:
+    method: get
+    uri: https://api.harvestapp.com/v2/time_entries?project_id=19815868
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Jan 2019 15:42:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app1
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      X-Request-Id:
+      - 6d1fd2ccb0031be05b4d36ab859f4243
+      X-Runtime:
+      - '0.102806'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb1
+    body:
+      encoding: UTF-8
+      string: '{"time_entries":[{"id":927969055,"spent_date":"2019-01-17","hours":1.25,"notes":"All
+        your base are belong to us","is_locked":false,"locked_reason":null,"is_closed":false,"is_billed":false,"timer_started_at":null,"started_time":null,"ended_time":null,"is_running":false,"billable":true,"budgeted":false,"billable_rate":null,"cost_rate":100.0,"created_at":"2019-01-17T15:41:47Z","updated_at":"2019-01-17T15:41:47Z","user":{"id":2108614,"name":"Ernesto
+        Tagwerker"},"client":{"id":6760579,"name":"Pepe","currency":"USD"},"project":{"id":19815868,"name":"X","code":""},"task":{"id":9713392,"name":"Programming"},"user_assignment":{"id":185838254,"is_project_manager":true,"is_active":true,"budget":null,"created_at":"2019-01-17T15:41:13Z","updated_at":"2019-01-17T15:41:13Z","hourly_rate":200.0},"task_assignment":{"id":213986102,"billable":true,"is_active":true,"created_at":"2019-01-17T15:41:13Z","updated_at":"2019-01-17T15:41:13Z","hourly_rate":null,"budget":null},"invoice":null,"external_reference":null}],"per_page":100,"total_pages":1,"total_entries":1,"next_page":null,"previous_page":null,"page":1,"links":{"first":"https://api.harvestapp.com/v2/time_entries?page=1&per_page=100&project_id=19815868","next":null,"previous":null,"last":"https://api.harvestapp.com/v2/time_entries?page=1&per_page=100&project_id=19815868"}}'
+    http_version: 
+  recorded_at: Thu, 17 Jan 2019 15:42:33 GMT
+- request:
+    method: get
+    uri: https://api.harvestapp.com/v2/time_entries?project_id=19815868
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Jan 2019 15:42:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app3
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      X-Request-Id:
+      - 56875f1a74e37a92f93b14eaa48b6a0f
+      X-Runtime:
+      - '0.111498'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb1
+    body:
+      encoding: UTF-8
+      string: '{"time_entries":[{"id":927969055,"spent_date":"2019-01-17","hours":1.25,"notes":"All
+        your base are belong to us","is_locked":false,"locked_reason":null,"is_closed":false,"is_billed":false,"timer_started_at":null,"started_time":null,"ended_time":null,"is_running":false,"billable":true,"budgeted":false,"billable_rate":null,"cost_rate":100.0,"created_at":"2019-01-17T15:41:47Z","updated_at":"2019-01-17T15:41:47Z","user":{"id":2108614,"name":"Ernesto
+        Tagwerker"},"client":{"id":6760579,"name":"Pepe","currency":"USD"},"project":{"id":19815868,"name":"X","code":""},"task":{"id":9713392,"name":"Programming"},"user_assignment":{"id":185838254,"is_project_manager":true,"is_active":true,"budget":null,"created_at":"2019-01-17T15:41:13Z","updated_at":"2019-01-17T15:41:13Z","hourly_rate":200.0},"task_assignment":{"id":213986102,"billable":true,"is_active":true,"created_at":"2019-01-17T15:41:13Z","updated_at":"2019-01-17T15:41:13Z","hourly_rate":null,"budget":null},"invoice":null,"external_reference":null}],"per_page":100,"total_pages":1,"total_entries":1,"next_page":null,"previous_page":null,"page":1,"links":{"first":"https://api.harvestapp.com/v2/time_entries?page=1&per_page=100&project_id=19815868","next":null,"previous":null,"last":"https://api.harvestapp.com/v2/time_entries?page=1&per_page=100&project_id=19815868"}}'
+    http_version: 
+  recorded_at: Thu, 17 Jan 2019 15:42:33 GMT
+recorded_with: VCR 4.0.0
