@@ -34,6 +34,10 @@ module Harvesting
         @attributes['id'].nil? ? "time_entries" : "time_entries/#{@attributes['id']}"
       end
 
+      def to_hash
+        { project_id: project.id, task_id: task.id, user_id: user.id }.merge(super)
+      end
+
     end
   end
 end

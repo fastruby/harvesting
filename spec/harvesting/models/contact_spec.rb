@@ -26,7 +26,7 @@ RSpec.describe Harvesting::Models::Contact, :vcr do
       expect(contact.id).to eq(contact_jon_snow.id)
       expect(contact.first_name).to eq(contact_jon_snow.first_name)
       expect(contact.last_name).to eq(contact_jon_snow.last_name)
-      expect(contact.client.id).to eq(contact_jon_snow.client.id)
+      expect(contact.client.id.to_i).to eq(contact_jon_snow.client.id.to_i)
     end
   end
 
