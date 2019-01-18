@@ -76,6 +76,10 @@ RSpec.shared_context "harvest data setup" do
       harvest_client.clients.to_a.each do |client|
         client.delete
       end
+
+      harvest_client.users.to_a.each do |user|
+        user.delete unless user.name == admin_full_name
+      end
     end
   end
 
