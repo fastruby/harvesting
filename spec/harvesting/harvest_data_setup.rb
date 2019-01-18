@@ -158,6 +158,25 @@ RSpec.shared_context "harvest data setup" do
     end
   end
 
+  let!(:project_road_building) do
+    VCR.use_cassette('harvest_data_setup/project_road_building', :record => :once, :allow_playback_repeats => true) do
+      castle_building = Harvesting::Models::Project.new(
+        {
+          "client" => {
+              "id" => client_toto.id.to_s
+          },
+          "name" => "Road Building",
+          "is_billable" => "true",
+          "bill_by" => "Tasks",
+          "budget_by" => "person"
+        },
+        client: harvest_client
+      )
+      castle_building.save
+      castle_building
+    end
+  end
+
   let!(:project_castle_building) do
     VCR.use_cassette('harvest_data_setup/project_castle_building', :record => :once, :allow_playback_repeats => true) do
       castle_building = Harvesting::Models::Project.new(
