@@ -83,6 +83,32 @@ RSpec.shared_context "harvest data setup" do
     end
   end
 
+  cassette_let!(:user_john_smith) do
+    john_smith = Harvesting::Models::User.new(
+      {
+        "first_name" => "John",
+        "last_name" => "Smith",
+        "email" => "john.smith@example.com"
+      },
+      client: harvest_client
+    )
+    john_smith.save
+    john_smith
+  end
+
+  cassette_let!(:user_jane_doe) do
+    jane_doe = Harvesting::Models::User.new(
+      {
+        "first_name" => "Jane",
+        "last_name" => "Doe",
+        "email" => "jane.doe@example.com"
+      },
+      client: harvest_client
+    )
+    jane_doe.save
+    jane_doe
+  end
+
   let!(:client_pepe) do
     VCR.use_cassette('harvest_data_setup/client_pepe', :record => :once, :allow_playback_repeats => true) do
       pepe = Harvesting::Models::Client.new(
