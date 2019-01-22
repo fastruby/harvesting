@@ -1,5 +1,8 @@
 # Harvesting
 
+[![Build Status](https://travis-ci.org/ombulabs/harvesting.svg?branch=master)](https://travis-ci.org/ombulabs/harvesting)
+[![Code Climate](https://codeclimate.com/github/ombulabs/harvesting/badges/gpa.svg)](https://codeclimate.com/github/DatabaseCleaner/database_cleaner)
+
 A Ruby gem to interact with the Harvest API v2.0 and forward.
 
 ## Installation
