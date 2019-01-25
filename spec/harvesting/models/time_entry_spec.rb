@@ -105,7 +105,7 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
         time_entry.save
 
         final_time_entry = Harvesting::Models::TimeEntry.get(time_entry.id)
-        expect(final_time_entry.hours.to_s).to eq('4.0')
+        expect(final_time_entry.hours).to eq(4.0)
       end
     end
   end
