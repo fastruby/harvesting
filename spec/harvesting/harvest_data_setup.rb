@@ -230,15 +230,15 @@ RSpec.shared_context "harvest data setup" do
     end
   end
 
-  let!(:project_assignment_castle_building_non_admin) do
-    VCR.use_cassette('harvest_data_setup/project_assignment_castle_building_non_admin', :record => :once, :allow_playback_repeats => true) do
+  let!(:project_assignment_castle_building) do
+    VCR.use_cassette('harvest_data_setup/project_assignment_castle_building', :record => :once, :allow_playback_repeats => true) do
       project_assignment = Harvesting::Models::ProjectUserAssignment.new(
         {
           "project" => {
             "id" => project_castle_building.id.to_s
           },
           "user" => {
-            "id" => non_admin_account_id.to_s
+            "id" => user_john_smith.id.to_s
           }
         },
         client: harvest_client
