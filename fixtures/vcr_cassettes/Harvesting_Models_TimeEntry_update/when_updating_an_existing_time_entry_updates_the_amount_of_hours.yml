@@ -1,0 +1,250 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.harvestapp.com/v2/time_entries
+    body:
+      encoding: UTF-8
+      string: '{"project_id":"19758856","task_id":"11308412","user_id":"2348607","project":{"id":"19758856"},"task":{"id":"11308412"},"spent_date":"2018-05-14","hours":"1.0","user":{"id":"2348607"},"is_running":"false","notes":"hacked
+        the things"}'
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 14 Jan 2019 05:30:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 201 Created
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app19
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      Location:
+      - https://api.harvestapp.com/api/v2/time_entries/925120573
+      X-Request-Id:
+      - 7d832a2d6abb4846871eb9cea95f3265
+      X-Runtime:
+      - '0.072969'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb2
+    body:
+      encoding: UTF-8
+      string: '{"id":925120573,"spent_date":"2018-05-14","hours":1.0,"notes":"hacked
+        the things","is_locked":false,"locked_reason":null,"is_closed":false,"is_billed":false,"timer_started_at":null,"started_time":null,"ended_time":null,"is_running":false,"billable":true,"budgeted":false,"billable_rate":null,"cost_rate":null,"created_at":"2019-01-14T05:30:03Z","updated_at":"2019-01-14T05:30:03Z","user":{"id":2348607,"name":"Alexander
+        Hamilton"},"client":{"id":7664502,"name":"Pepe","currency":"USD"},"project":{"id":19758856,"name":"Castle
+        Building","code":null},"task":{"id":11308412,"name":"Coding"},"user_assignment":{"id":185245986,"is_project_manager":true,"is_active":true,"budget":null,"created_at":"2019-01-14T05:28:46Z","updated_at":"2019-01-14T05:28:46Z","hourly_rate":null},"task_assignment":{"id":213359852,"billable":true,"is_active":true,"created_at":"2019-01-14T05:28:47Z","updated_at":"2019-01-14T05:28:47Z","hourly_rate":null,"budget":null},"invoice":null,"external_reference":null}'
+    http_version: 
+  recorded_at: Mon, 14 Jan 2019 05:30:03 GMT
+- request:
+    method: patch
+    uri: https://api.harvestapp.com/v2/time_entries/925120573
+    body:
+      encoding: UTF-8
+      string: '{"project_id":"19758856","task_id":"11308412","user_id":"2348607","id":925120573,"spent_date":"2018-05-14","hours":"4.0","notes":"hacked
+        the things","is_locked":false,"locked_reason":null,"is_closed":false,"is_billed":false,"timer_started_at":null,"started_time":null,"ended_time":null,"is_running":false,"billable":true,"budgeted":false,"billable_rate":null,"cost_rate":null,"created_at":"2019-01-14T05:30:03Z","updated_at":"2019-01-14T05:30:03Z","user":{"id":2348607,"name":"Alexander
+        Hamilton"},"client":{"id":7664502,"name":"Pepe","currency":"USD"},"project":{"id":19758856,"name":"Castle
+        Building","code":null},"task":{"id":11308412,"name":"Coding"},"user_assignment":{"id":185245986,"is_project_manager":true,"is_active":true,"budget":null,"created_at":"2019-01-14T05:28:46Z","updated_at":"2019-01-14T05:28:46Z","hourly_rate":null},"task_assignment":{"id":213359852,"billable":true,"is_active":true,"created_at":"2019-01-14T05:28:47Z","updated_at":"2019-01-14T05:28:47Z","hourly_rate":null,"budget":null},"invoice":null,"external_reference":null}'
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 14 Jan 2019 05:30:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app19
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      X-Request-Id:
+      - 8b50835565854d72226e1a30095c03af
+      X-Runtime:
+      - '0.081816'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb2
+    body:
+      encoding: UTF-8
+      string: '{"id":925120573,"spent_date":"2018-05-14","hours":4.0,"notes":"hacked
+        the things","is_locked":false,"locked_reason":null,"is_closed":false,"is_billed":false,"timer_started_at":null,"started_time":null,"ended_time":null,"is_running":false,"billable":true,"budgeted":false,"billable_rate":null,"cost_rate":null,"created_at":"2019-01-14T05:30:03Z","updated_at":"2019-01-14T05:30:03Z","user":{"id":2348607,"name":"Alexander
+        Hamilton"},"client":{"id":7664502,"name":"Pepe","currency":"USD"},"project":{"id":19758856,"name":"Castle
+        Building","code":null},"task":{"id":11308412,"name":"Coding"},"user_assignment":{"id":185245986,"is_project_manager":true,"is_active":true,"budget":null,"created_at":"2019-01-14T05:28:46Z","updated_at":"2019-01-14T05:28:46Z","hourly_rate":null},"task_assignment":{"id":213359852,"billable":true,"is_active":true,"created_at":"2019-01-14T05:28:47Z","updated_at":"2019-01-14T05:28:47Z","hourly_rate":null,"budget":null},"invoice":null,"external_reference":null}'
+    http_version: 
+  recorded_at: Mon, 14 Jan 2019 05:30:03 GMT
+- request:
+    method: get
+    uri: https://api.harvestapp.com/v2/time_entries/925120573
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 14 Jan 2019 05:30:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app12
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      X-Request-Id:
+      - '038cb71d6d2d9c45d2fe06b7f91a6b28'
+      X-Runtime:
+      - '0.086258'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb2
+    body:
+      encoding: UTF-8
+      string: '{"id":925120573,"spent_date":"2018-05-14","hours":4.0,"notes":"hacked
+        the things","is_locked":false,"locked_reason":null,"is_closed":false,"is_billed":false,"timer_started_at":null,"started_time":null,"ended_time":null,"is_running":false,"billable":true,"budgeted":false,"billable_rate":null,"cost_rate":null,"created_at":"2019-01-14T05:30:03Z","updated_at":"2019-01-14T05:30:03Z","user":{"id":2348607,"name":"Alexander
+        Hamilton"},"client":{"id":7664502,"name":"Pepe","currency":"USD"},"project":{"id":19758856,"name":"Castle
+        Building","code":null},"task":{"id":11308412,"name":"Coding"},"user_assignment":{"id":185245986,"is_project_manager":true,"is_active":true,"budget":null,"created_at":"2019-01-14T05:28:46Z","updated_at":"2019-01-14T05:28:46Z","hourly_rate":null},"task_assignment":{"id":213359852,"billable":true,"is_active":true,"created_at":"2019-01-14T05:28:47Z","updated_at":"2019-01-14T05:28:47Z","hourly_rate":null,"budget":null},"invoice":null,"external_reference":null}'
+    http_version: 
+  recorded_at: Mon, 14 Jan 2019 05:30:03 GMT
+recorded_with: VCR 4.0.0
