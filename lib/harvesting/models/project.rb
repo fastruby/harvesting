@@ -1,5 +1,8 @@
 module Harvesting
   module Models
+    # A project record from your Harvest account.
+    #
+    # For more information: https://help.getharvest.com/api-v2/projects-api/projects/projects/
     class Project < HarvestRecord
       attributed :id,
                  :name,
@@ -26,6 +29,8 @@ module Harvesting
                  :updated_at
 
       modeled client: Client
+
+      private
 
       def path
         @attributes['id'].nil? ? "projects" : "projects/#{@attributes['id']}"

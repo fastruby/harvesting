@@ -1,5 +1,8 @@
 module Harvesting
   module Models
+    # A client record from your Harvest account.
+    #
+    # For more information: https://help.getharvest.com/api-v2/clients-api/clients/clients/
     class Client < HarvestRecord
       attributed :id,
                  :name,
@@ -8,6 +11,8 @@ module Harvesting
                  :created_at,
                  :updated_at,
                  :currency
+
+      private
 
       def path
         @attributes['id'].nil? ? "clients" : "clients/#{@attributes['id']}"
