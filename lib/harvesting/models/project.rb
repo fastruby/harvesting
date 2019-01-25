@@ -34,6 +34,10 @@ module Harvesting
       def to_hash
         { client_id: client.id }.merge(super)
       end
+
+      def time_entries
+        harvest_client.time_entries(project_id: self.id)
+      end
     end
   end
 end

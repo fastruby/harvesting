@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    harvesting (0.2.0)
+    harvesting (0.3.0)
       http (~> 3.3, >= 3.3)
 
 GEM
@@ -102,4 +102,4 @@ DEPENDENCIES
   webmock (~> 3.4, >= 3.4)
 
 BUNDLED WITH
-   1.16.1
+   1.17.2

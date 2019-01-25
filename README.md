@@ -1,5 +1,8 @@
 # Harvesting
 
+[![Build Status](https://travis-ci.org/ombulabs/harvesting.svg?branch=master)](https://travis-ci.org/ombulabs/harvesting)
+[![Code Climate](https://codeclimate.com/github/ombulabs/harvesting/badges/gpa.svg)](https://codeclimate.com/github/DatabaseCleaner/database_cleaner)
+
 A Ruby gem to interact with the Harvest API v2.0 and forward.
 
 ## Installation
@@ -78,7 +81,7 @@ this:
 
     entry = time_entries.first
     > => #<Harvesting::Models::TimeEntry:0x007ff71913dfe0 @attributes={"id"=>792860513, "spent_date"=>"2018-05-14", "hours"=>1.0, "notes"=>"hacked the things", "is_locked"=>false, "locked_reason"=>nil, "is_closed"=>false, "is_billed"=>false, "timer_started_at"=>nil, "started_time"=>nil, "ended_time"=>nil, "is_running"=>false, "billable"=>true, "budgeted"=>false, "billable_rate"=>nil, "cost_rate ... >
-    
+
 ### Tasks
 
     tasks = client.tasks
@@ -94,15 +97,15 @@ this:
 
 ### Nested Attributes
 
-The Harvest v2 API embeds some data in JSON objects. You can access nested attributes quite naturally. 
+The Harvest v2 API embeds some data in JSON objects. You can access nested attributes quite naturally.
 For example, to access the user id for a time entry instance, `entry`, use:
 
     entry.user.id
-    
+
 Or to access the name of the client on a project instance, `project`:
 
     project.client.name
-    
+
 ## Tips
 
 ### Deleting All Items
@@ -137,13 +140,14 @@ You can find more info [here](RELEASE_NOTES.md)
 
 ## Development
 
-### Without Docker
-
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+    ./bin/setup
+    rake
 
-### With Docker
+To install this gem onto your local machine, run `bundle exec rake install`.
+
+### Using Docker
 
 This setup allows you to create a completely isolated development environment for working on this gem. The version of ruby used for development and the gems that it depends on will remain inside the container.
 
@@ -172,7 +176,7 @@ The models in this project reflect the Harvest v2 API endpoints:
  * project
  * user
  * time_entry
- 
+
 There are also models for the Harvest v2 API collection endpoints:
 
  * clients
@@ -185,18 +189,24 @@ There are also models for the Harvest v2 API collection endpoints:
 
 These collection models handle the Harvest v2 API pagination automatically, making it easy to enumerate through all the instances of each type.
 
-The models try to reduce code duplication through base class helper functions to automatically define accessors for the attributes included in each type returned by the Harvest v2 API. 
-The `Harvesting::Base::attributed` method will define accessors for each simple attribute included in an array passed as an argument. Data is returned from these accessors as strings. 
+The models try to reduce code duplication through base class helper functions to automatically define accessors for the attributes included in each type returned by the Harvest v2 API.
+The `Harvesting::Base::attributed` method will define accessors for each simple attribute included in an array passed as an argument. Data is returned from these accessors as strings.
 
 Some data is returned from Harvest as nested JSON (e.g. time_entry.project.name). A base class helper to expose this using the available models
-is also present. The `Harvesting::Base::modeled` method will define accessors for each object attribute included in options. Both the name of the attribute and the model to use in accessing that data is supplied. 
-Data is returned from these accessors as model objects. 
+is also present. The `Harvesting::Base::modeled` method will define accessors for each object attribute included in options. Both the name of the attribute and the model to use in accessing that data is supplied.
+Data is returned from these accessors as model objects.
 
-NOTE: Nesting model objects requires that the nested model types be defined before the nesting model type. E.g. if `project` contains a nested `client`, then `client` must be defined *before* `project` in the `harvesting.rb` include list. 
+NOTE: Nesting model objects requires that the nested model types be defined before the nesting model type. E.g. if `project` contains a nested `client`, then `client` must be defined *before* `project` in the `harvesting.rb` include list.
+
+## Releases
+
+To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+We follow semantic versioning for version numbers: [https://semver.org](https://semver.org)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/ombulabs/harvesting. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/ombulabs/harvesting](https://github.com/ombulabs/harvesting). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
