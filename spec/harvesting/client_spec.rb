@@ -547,10 +547,25 @@ RSpec.describe Harvesting::Client, :vcr do
 
       it 'retreives the accounts user assignments' do
         user_assignments = subject.user_assignments
-        user_assignments.each do |user_assignment|
-          expect(user_assignment.project.name).to eq(project_castle_building.name)
-          puts user_assignment.user.name
-        end
+
+        projects = user_assignments.map { |ua| ua.project.id }.uniq
+        expect(projects).to contain_exactly(
+          project_castle_building.id,
+          project_road_building.id
+        )
+
+        users = user_assignments.map { |ua| ua.user.id }.uniq
+        expect(users).to contain_exactly(
+          user_john_smith.id,
+          user_jane_doe.id,
+          user_me.id
+        )
+      end
+
+      it 'retrieves project user assignments for castle building project' do
+        user_assignments = subject.user_assignments(project_castle_building)
+        users = user_assignments.map { |ua| ua.user.id }.uniq
+        expect(users).to contain_exactly(user_john_smith.id, user_me.id)
       end
     end
   end
