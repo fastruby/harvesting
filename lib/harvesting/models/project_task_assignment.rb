@@ -1,24 +1,31 @@
 module Harvesting
   module Models
-    class ProjectTaskAssignment < Base
+    class ProjectTaskAssignment < HarvestRecord
       attributed :id,
-                 :project,
-                 :user,
                  :is_active,
-                 :is_project_manager,
+                 :billable,
                  :hourly_rate,
                  :budget,
                  :created_at,
                  :updated_at
 
-      def initialize(ref_project, attrs, opts = {})
-        super(attrs, opts)
-        @ref_project = ref_project
-      end
+      modeled project: Project,
+              task: Task
 
       def path
-        id.nil? ? "projects/#{@ref_project.id}/task_assignments" : "projects/#{@ref_project.id}/task_assignments/#{id}"
+        base_url = "projects/#{project.id}/task_assignments"
+        id.nil? ? base_url : "#{base_url}/#{id}"
       end
+
+      # def project_id
+      #   # TODO: handle case where project's id is part of json object
+      #   @attributes["project_id"]
+      # end
+
+      def to_hash
+        { project_id: project.id, task_id: task.id }.merge(super)
+      end
+
     end
   end
 end

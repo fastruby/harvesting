@@ -20,14 +20,14 @@ module Harvesting
                  :invoice,
                  :external_reference,
                  :created_at,
-                 :updated_at,
-                 :user_assignment # temporarily return the hash itself until the model is added
+                 :updated_at
 
       modeled project: Project,
               user: User,
               task: Task,
               client: Client,
-              task_assignment: TaskAssignment
+              task_assignment: ProjectTaskAssignment,
+              user_assignment: ProjectUserAssignment
 
 
       def path
