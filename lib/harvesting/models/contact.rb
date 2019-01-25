@@ -1,5 +1,8 @@
 module Harvesting
   module Models
+    # A contact record from your Harvest account.
+    #
+    # For more information: https://help.getharvest.com/api-v2/clients-api/clients/contacts/
     class Contact < HarvestRecord
       attributed :id,
                  :title,
@@ -13,6 +16,8 @@ module Harvesting
                  :updated_at
 
       modeled client: Client
+
+      private
 
       def path
         @attributes['id'].nil? ? "contacts" : "contacts/#{@attributes['id']}"
