@@ -9,6 +9,9 @@
 
 # environment variables
 .env
+.env.*
+!.env.sample
+
 
 # rspec failure tracking
 .rspec_status
