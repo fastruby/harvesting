@@ -212,9 +212,20 @@ RSpec.shared_context "harvest data setup" do
     end
   end
 
+  cassette_let!(:task_writing) do
+    writing = Harvesting::Models::Task.new(
+      {
+        "name" => "Writing"
+      },
+      client: harvest_client
+    )
+    writing.save
+    writing
+  end
+
   let!(:task_assigment_castle_building_coding) do
     VCR.use_cassette('harvest_data_setup/task_assigment_castle_building_coding', :record => :once, :allow_playback_repeats => true) do
-      castle_building_coding = Harvesting::Models::TaskAssignment.new(
+      castle_building_coding = Harvesting::Models::ProjectTaskAssignment.new(
         {
             "project" => {
                 "id" => project_castle_building.id.to_s
@@ -228,6 +239,22 @@ RSpec.shared_context "harvest data setup" do
       castle_building_coding.save
       castle_building_coding
     end
+  end
+
+  cassette_let!(:task_assignment_roading_building_writing) do
+    road_building_writing = Harvesting::Models::ProjectTaskAssignment.new(
+      {
+          "project" => {
+              "id" => project_road_building.id.to_s
+          },
+          "task" => {
+              "id" => task_writing.id.to_s
+          }
+      },
+      client: harvest_client
+    )
+    road_building_writing.save
+    road_building_writing
   end
 
   let!(:project_assignment_castle_building) do

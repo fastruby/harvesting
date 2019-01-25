@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.harvestapp.com/v2/projects/19919747/task_assignments
+    body:
+      encoding: UTF-8
+      string: '{"project_id":"19919747","task_id":"11399470","project":{"id":"19919747"},"task":{"id":"11399470"}}'
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 25 Jan 2019 19:05:24 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 201 Created
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app5
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      Location:
+      - https://api.harvestapp.com/api/v2/projects/19919747/task_assignments/215018912
+      X-Request-Id:
+      - 9d2fde089050ebf8e41e713cb3dd5c14
+      X-Runtime:
+      - '0.120101'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb2
+    body:
+      encoding: UTF-8
+      string: '{"id":215018912,"billable":true,"is_active":true,"created_at":"2019-01-25T19:05:24Z","updated_at":"2019-01-25T19:05:24Z","hourly_rate":null,"budget":null,"project":{"id":19919747,"name":"Road
+        Building","code":null},"task":{"id":11399470,"name":"Writing"}}'
+    http_version: 
+  recorded_at: Fri, 25 Jan 2019 19:05:24 GMT
+recorded_with: VCR 4.0.0
