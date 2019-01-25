@@ -248,6 +248,22 @@ RSpec.shared_context "harvest data setup" do
     end
   end
 
+  cassette_let!(:project_assignment_road_building) do
+    project_assignment = Harvesting::Models::ProjectUserAssignment.new(
+      {
+        "project" => {
+          "id" => project_road_building.id.to_s
+        },
+        "user" => {
+          "id" => user_jane_doe.id.to_s
+        }
+      },
+      client: harvest_client
+    )
+    project_assignment.save
+    project_assignment
+  end
+
   let!(:contact_cersei_lannister) do
     VCR.use_cassette('harvest_data_setup/contact_cersei_lannister', :record => :once, :allow_playback_repeats => true) do
       cersei_lannister = Harvesting::Models::Contact.new(
