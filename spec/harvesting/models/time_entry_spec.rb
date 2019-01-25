@@ -100,7 +100,10 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
 
     context "when updating an existing time entry" do
       it "updates the amount of hours" do
+        # trigger time entry creation
         time_entry.save
+
+        # update with a different number of hours
         time_entry.hours = '4.0'
         time_entry.save
 
