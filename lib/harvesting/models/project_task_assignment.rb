@@ -15,8 +15,6 @@ module Harvesting
       modeled project: Project,
               task: Task
 
-      private
-
       def path
         base_url = "projects/#{project.id}/task_assignments"
         id.nil? ? base_url : "#{base_url}/#{id}"

@@ -9,8 +9,6 @@ module Harvesting
         end
       end
 
-      private
-      
       def fetch_next_page
         @entries += harvest_client.projects(next_page_query_opts).entries
         @attributes['page'] = page + 1

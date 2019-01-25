@@ -32,7 +32,6 @@ module Harvesting
               task_assignment: ProjectTaskAssignment,
               user_assignment: ProjectUserAssignment
 
-      private
 
       def path
         @attributes['id'].nil? ? "time_entries" : "time_entries/#{@attributes['id']}"

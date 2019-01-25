@@ -13,8 +13,6 @@ module Harvesting
                  :created_at,
                  :updated_at
 
-      private
-
       def path
         @attributes['id'].nil? ? "tasks" : "tasks/#{@attributes['id']}"
       end
