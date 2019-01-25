@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.harvestapp.com/v2/projects/19815868
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Jan 2019 15:42:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app4
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      X-Request-Id:
+      - c6fed7230654f9df792cfc40132dfd63
+      X-Runtime:
+      - '0.123959'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb1
+    body:
+      encoding: UTF-8
+      string: '{"id":19815868,"name":"X","code":"","is_active":true,"is_billable":true,"is_fixed_fee":false,"bill_by":"none","budget":null,"budget_by":"none","budget_is_monthly":false,"notify_when_over_budget":false,"over_budget_notification_percentage":80.0,"show_budget_to_all":false,"created_at":"2019-01-17T15:41:13Z","updated_at":"2019-01-17T15:41:13Z","starts_on":null,"ends_on":null,"over_budget_notification_date":null,"notes":"","cost_budget":null,"cost_budget_include_expenses":false,"hourly_rate":null,"fee":null,"client":{"id":6760579,"name":"Pepe","currency":"USD"}}'
+    http_version: 
+  recorded_at: Thu, 17 Jan 2019 15:42:32 GMT
+recorded_with: VCR 4.0.0
