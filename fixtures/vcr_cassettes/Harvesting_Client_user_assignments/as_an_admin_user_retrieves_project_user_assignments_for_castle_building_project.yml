@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://api.harvestapp.com/v2/projects/19919748/task_assignments
+    method: get
+    uri: https://api.harvestapp.com/v2/projects/19919748/user_assignments
     body:
       encoding: UTF-8
-      string: '{"project_id":"19919748","task_id":"11399145","project":{"id":"19919748"},"task":{"id":"11399145"}}'
+      string: ''
     headers:
       User-Agent:
       - Harvesting Ruby Gem
@@ -15,19 +15,17 @@ http_interactions:
       - "$HARVEST_ACCOUNT_ID"
       Connection:
       - close
-      Content-Type:
-      - application/json; charset=UTF-8
       Host:
       - api.harvestapp.com
   response:
     status:
-      code: 201
-      message: Created
+      code: 200
+      message: OK
     headers:
       Server:
       - nginx
       Date:
-      - Fri, 25 Jan 2019 18:31:11 GMT
+      - Fri, 25 Jan 2019 18:32:27 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,7 +33,7 @@ http_interactions:
       Connection:
       - close
       Status:
-      - 201 Created
+      - 200 OK
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -53,7 +51,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app1
+      - app21
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -65,20 +63,19 @@ http_interactions:
         https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
         https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
         style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
-      Location:
-      - https://api.harvestapp.com/api/v2/projects/19919748/task_assignments/215014748
       X-Request-Id:
-      - a41e44a4e52ef52223fa8b9eb9bda942
+      - 83d2ba587d0847342b8bf771b2622b0b
       X-Runtime:
-      - '0.118818'
+      - '0.036556'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
-      - lb2
+      - lb4
     body:
       encoding: UTF-8
-      string: '{"id":215014748,"billable":true,"is_active":true,"created_at":"2019-01-25T18:31:11Z","updated_at":"2019-01-25T18:31:11Z","hourly_rate":null,"budget":null,"project":{"id":19919748,"name":"Castle
-        Building","code":null},"task":{"id":11399145,"name":"Coding"}}'
+      string: '{"user_assignments":[{"id":186878707,"is_project_manager":false,"is_active":true,"budget":null,"created_at":"2019-01-25T18:31:11Z","updated_at":"2019-01-25T18:31:11Z","hourly_rate":null,"project":{"id":19919748,"name":"Castle
+        Building","code":null},"user":{"id":2527915,"name":"John Smith"}},{"id":186878706,"is_project_manager":true,"is_active":true,"budget":null,"created_at":"2019-01-25T18:31:10Z","updated_at":"2019-01-25T18:31:10Z","hourly_rate":null,"project":{"id":19919748,"name":"Castle
+        Building","code":null},"user":{"id":2348607,"name":"Alexander Hamilton"}}],"per_page":100,"total_pages":1,"total_entries":2,"next_page":null,"previous_page":null,"page":1,"links":{"first":"https://api.harvestapp.com/v2/projects/19919748/user_assignments?page=1&per_page=100","next":null,"previous":null,"last":"https://api.harvestapp.com/v2/projects/19919748/user_assignments?page=1&per_page=100"}}'
     http_version: 
-  recorded_at: Fri, 25 Jan 2019 18:31:11 GMT
+  recorded_at: Fri, 25 Jan 2019 18:32:27 GMT
 recorded_with: VCR 4.0.0

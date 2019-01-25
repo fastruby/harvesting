@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 14 Jan 2019 05:29:37 GMT
+      - Fri, 25 Jan 2019 18:32:07 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -51,7 +51,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app4
+      - app8
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -66,14 +66,14 @@ http_interactions:
       Hint:
       - Not authorized!
       X-Request-Id:
-      - ba3e232f6c345aa40bf2e1c05f374383
+      - 73b545ad8aef05af1a3c44cae7a298ae
       X-Runtime:
-      - '0.026518'
+      - '0.089403'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
     body:
       encoding: UTF-8
       string: '{"message":"Not authorized!"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 05:29:37 GMT
+  recorded_at: Fri, 25 Jan 2019 18:32:07 GMT
 recorded_with: VCR 4.0.0

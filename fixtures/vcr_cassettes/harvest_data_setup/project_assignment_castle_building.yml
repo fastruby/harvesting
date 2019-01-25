@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.harvestapp.com/v2/projects/19919748/task_assignments
+    uri: https://api.harvestapp.com/v2/projects/19919748/user_assignments
     body:
       encoding: UTF-8
-      string: '{"project_id":"19919748","task_id":"11399145","project":{"id":"19919748"},"task":{"id":"11399145"}}'
+      string: '{"project_id":"19919748","user_id":"2527915","project":{"id":"19919748"},"user":{"id":"2527915"}}'
     headers:
       User-Agent:
       - Harvesting Ruby Gem
@@ -53,7 +53,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app1
+      - app7
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -66,19 +66,19 @@ http_interactions:
         https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
         style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       Location:
-      - https://api.harvestapp.com/api/v2/projects/19919748/task_assignments/215014748
+      - https://api.harvestapp.com/api/v2/projects/19919748/user_assignments/186878707
       X-Request-Id:
-      - a41e44a4e52ef52223fa8b9eb9bda942
+      - b5bb2aa35e08230229b999e3c8c28222
       X-Runtime:
-      - '0.118818'
+      - '0.096077'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
       - lb2
     body:
       encoding: UTF-8
-      string: '{"id":215014748,"billable":true,"is_active":true,"created_at":"2019-01-25T18:31:11Z","updated_at":"2019-01-25T18:31:11Z","hourly_rate":null,"budget":null,"project":{"id":19919748,"name":"Castle
-        Building","code":null},"task":{"id":11399145,"name":"Coding"}}'
+      string: '{"id":186878707,"is_project_manager":false,"is_active":true,"budget":null,"created_at":"2019-01-25T18:31:11Z","updated_at":"2019-01-25T18:31:11Z","hourly_rate":null,"project":{"id":19919748,"name":"Castle
+        Building","code":null},"user":{"id":2527915,"name":"John Smith"}}'
     http_version: 
   recorded_at: Fri, 25 Jan 2019 18:31:11 GMT
 recorded_with: VCR 4.0.0

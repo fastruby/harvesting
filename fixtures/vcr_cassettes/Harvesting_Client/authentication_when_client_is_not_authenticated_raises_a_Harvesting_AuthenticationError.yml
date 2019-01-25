@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 14 Jan 2019 05:29:34 GMT
+      - Fri, 25 Jan 2019 18:32:03 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -41,9 +41,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - cf712b0e9854dbb7642ba70cbe101d8a
+      - de3649500e5cbf9bfc035b2695be0ccf
       X-Runtime:
-      - '0.029367'
+      - '0.049054'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
     body:
@@ -51,5 +51,5 @@ http_interactions:
       string: '{"error":"invalid_token","error_description":"The access token provided
         is expired, revoked, malformed or invalid for other reasons."}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 05:29:34 GMT
+  recorded_at: Fri, 25 Jan 2019 18:32:03 GMT
 recorded_with: VCR 4.0.0

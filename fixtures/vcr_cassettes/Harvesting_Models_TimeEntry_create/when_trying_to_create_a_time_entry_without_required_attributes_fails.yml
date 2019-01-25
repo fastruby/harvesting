@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 14 Jan 2019 05:29:59 GMT
+      - Fri, 25 Jan 2019 18:32:32 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -53,7 +53,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app5
+      - app1
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -66,9 +66,9 @@ http_interactions:
         https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
         style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       X-Request-Id:
-      - 075e356ad7b3062fcb47aed0bd13873c
+      - 8489a0157ae517fc7849f6385223ccde
       X-Runtime:
-      - '0.077806'
+      - '0.130450'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
     body:
@@ -76,5 +76,5 @@ http_interactions:
       string: '{"message":"Project can''t be blank, Task can''t be blank, Spent date
         can''t be blank, Spent date is not a valid date"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 05:29:59 GMT
+  recorded_at: Fri, 25 Jan 2019 18:32:32 GMT
 recorded_with: VCR 4.0.0

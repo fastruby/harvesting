@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 14 Jan 2019 05:28:47 GMT
+      - Fri, 25 Jan 2019 18:31:11 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -53,7 +53,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app1
+      - app9
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -66,18 +66,18 @@ http_interactions:
         https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
         style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       Location:
-      - https://api.harvestapp.com/api/v2/tasks/11308412
+      - https://api.harvestapp.com/api/v2/tasks/11399145
       X-Request-Id:
-      - 369e2ea99116e9052e5112b04e449363
+      - f27ddbdd49cb53010b5fb18ae1d90135
       X-Runtime:
-      - '0.106523'
+      - '0.109184'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
       - lb2
     body:
       encoding: UTF-8
-      string: '{"id":11308412,"name":"Coding","billable_by_default":true,"default_hourly_rate":null,"is_default":false,"is_active":true,"created_at":"2019-01-14T05:28:46Z","updated_at":"2019-01-14T05:28:46Z"}'
+      string: '{"id":11399145,"name":"Coding","billable_by_default":true,"default_hourly_rate":null,"is_default":false,"is_active":true,"created_at":"2019-01-25T18:31:11Z","updated_at":"2019-01-25T18:31:11Z"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 05:28:47 GMT
+  recorded_at: Fri, 25 Jan 2019 18:31:11 GMT
 recorded_with: VCR 4.0.0
