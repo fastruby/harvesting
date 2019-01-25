@@ -39,6 +39,7 @@ RSpec.shared_context "harvest data setup" do
   let(:non_admin_access_token) { ENV["HARVEST_NON_ADMIN_ACCESS_TOKEN"] }
 
   let(:admin_full_name) { ENV["HARVEST_ADMIN_FULL_NAME"] }
+  let(:non_admin_full_name) { ENV["HARVEST_NON_ADMIN_FULL_NAME"] }
 
   let(:access_token) { non_admin_access_token }
   let(:account_id) { non_admin_account_id }
@@ -78,7 +79,9 @@ RSpec.shared_context "harvest data setup" do
       end
 
       harvest_client.users.to_a.each do |user|
-        user.delete unless user.name == admin_full_name
+        unless [admin_full_name, non_admin_full_name].include?(user.name)
+          user.delete
+        end
       end
     end
   end
