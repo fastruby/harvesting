@@ -32,7 +32,6 @@ module Harvesting
               client: Client,
               task_assignment: TaskAssignment
 
-      private
 
       def path
         @attributes['id'].nil? ? "time_entries" : "time_entries/#{@attributes['id']}"

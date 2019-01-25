@@ -26,8 +26,6 @@ module Harvesting
                  :created_at,
                  :updated_at
 
-      private
-
       def path
         @attributes['id'].nil? ? "users" : "users/#{@attributes['id']}"
       end

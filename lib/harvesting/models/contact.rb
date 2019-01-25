@@ -17,12 +17,11 @@ module Harvesting
 
       modeled client: Client
 
-      private
 
       def path
         @attributes['id'].nil? ? "contacts" : "contacts/#{@attributes['id']}"
       end
-
+      
       def to_hash
         { client_id: client.id }.merge(super)
       end
