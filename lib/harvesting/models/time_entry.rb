@@ -1,5 +1,8 @@
 module Harvesting
   module Models
+    # A time entry record from your Harvest account.
+    #
+    # For more information: https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries/
     class TimeEntry < HarvestRecord
       attributed :id,
                  :spent_date,
@@ -29,6 +32,7 @@ module Harvesting
               task_assignment: ProjectTaskAssignment,
               user_assignment: ProjectUserAssignment
 
+      private
 
       def path
         @attributes['id'].nil? ? "time_entries" : "time_entries/#{@attributes['id']}"
