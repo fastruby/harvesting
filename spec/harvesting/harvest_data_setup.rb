@@ -1,5 +1,21 @@
 require 'rspec/core'
+
 module RSpec::Core::MemoizedHelpers::ClassMethods
+  # Helper method to simplify defining let methods that are wrapped in a VCR
+  # cassette. Calling this method is equivalent to calling:
+  # ```
+  # let!(variable_name) do
+  #   VCR.use_cassette('harvest_data_setup/variable_name', :record => :once, :allow_playback_repeats => true) do
+  #     contents
+  #   end
+  # end
+  # ```
+  # The equivalent call would look like this:
+  # ```
+  # cassette_let!(variable_name) do
+  #   contents
+  # end
+  # ```
   def cassette_let!(name, &block)
     let!(name, &block)
 
