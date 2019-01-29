@@ -561,12 +561,6 @@ RSpec.describe Harvesting::Client, :vcr do
           user_me.id
         )
       end
-
-      it 'retrieves project user assignments for castle building project' do
-        user_assignments = project_castle_building.user_assignments
-        users = user_assignments.map { |ua| ua.user.id }.uniq
-        expect(users).to contain_exactly(user_john_smith.id, user_me.id)
-      end
     end
   end
 
@@ -588,12 +582,6 @@ RSpec.describe Harvesting::Client, :vcr do
           task_coding.id,
           task_writing.id
         )
-      end
-
-      it 'retrieves project task assignments for the castle building project' do
-        task_assignments = project_castle_building.task_assignments
-        tasks = task_assignments.map { |ta| ta.task.id }.uniq
-        expect(tasks).to contain_exactly(task_coding.id)
       end
     end
   end
