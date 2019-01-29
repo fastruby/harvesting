@@ -89,6 +89,9 @@ module Harvesting
           define_method(attribute_name) do
             @attributes[__method__.to_s]
           end
+          define_method("#{attribute_name}=") do |value|
+            @attributes[__method__.to_s.chop] = value
+          end
         end
       end
 
