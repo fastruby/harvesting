@@ -5,25 +5,14 @@ module RSpec::Core::MemoizedHelpers::ClassMethods
 
     # partially duplicates the implementation found at:
     # https://github.com/rspec/rspec-core/blob/58f38210492cd369784d3fe1a849c0e81342a2f2/lib/rspec/core/memoized_helpers.rb
-    if block.arity == 1
-      define_method(name) {
-        __memoized.fetch_or_store(name) {
-          VCR.insert_cassette("harvest_data_setup/#{name}", :record => :once, :allow_playback_repeats => true)
-          result = super(RSpec.current_example, &nil)
-          VCR.eject_cassette
-          result
-        }
+    define_method(name) {
+      __memoized.fetch_or_store(name) {
+        VCR.insert_cassette("harvest_data_setup/#{name}", :record => :once, :allow_playback_repeats => true)
+        result = super(&nil)
+        VCR.eject_cassette
+        result
       }
-    else
-      define_method(name) {
-        __memoized.fetch_or_store(name) {
-          VCR.insert_cassette("harvest_data_setup/#{name}", :record => :once, :allow_playback_repeats => true)
-          result = super(&nil)
-          VCR.eject_cassette
-          result
-        }
-      }
-    end
+    }
   end
 end
 
