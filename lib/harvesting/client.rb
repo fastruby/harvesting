@@ -65,11 +65,9 @@ module Harvesting
       Harvesting::Models::Users.new(get("users", opts), opts, client: self)
     end
 
-    # @return [Array<Harvesting::Models::Invoice>]
-    def invoices
-      get("invoices")["invoices"].map do |result|
-        Harvesting::Models::Invoice.new(result, client: self)
-      end
+    # @return [Array<Harvesting::Models::Invoices>]
+    def invoices(opts = {})
+      Harvesting::Models::Invoices.new(get("invoices", opts), opts, client: self)
     end
 
     # Creates an `entity` in your Harvest account.

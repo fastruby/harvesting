@@ -33,8 +33,17 @@ module Harvesting
                  :created_at,
                  :updated_at
 
+      modeled client: Client,
+              creator: Client
+
       def path
         @attributes['id'].nil? ? "invoices" : "invoices/#{@attributes['id']}"
+      end
+
+      def line_items
+        @attributes["line_items"].map do |item|
+          Harvesting::Models::LineItem.new(item, client: @harvest_client)
+        end
       end
     end
   end
