@@ -62,33 +62,33 @@ RSpec.shared_context "harvest data setup" do
   end
 
   before do
-    VCR.use_cassette('harvest_data_setup/clear_data', :record => :once, :allow_playback_repeats => true) do
-      harvest_client.time_entries.to_a.each do |time_entry|
-        time_entry.delete
-      end
-
-      harvest_client.tasks.to_a.each do |task|
-        task.delete
-      end
-
-      harvest_client.projects.to_a.each do |project|
-        project.delete
-      end
-
-      harvest_client.invoices.to_a.each do |invoice|
-        invoice.delete
-      end
-
-      harvest_client.clients.to_a.each do |client|
-        client.delete
-      end
-
-      harvest_client.users.to_a.each do |user|
-        unless [admin_full_name, non_admin_full_name].include?(user.name)
-          user.delete
-        end
-      end
-    end
+    # VCR.use_cassette('harvest_data_setup/clear_data', :record => :once, :allow_playback_repeats => true) do
+    #   harvest_client.time_entries.to_a.each do |time_entry|
+    #     time_entry.delete
+    #   end
+    #
+    #   harvest_client.tasks.to_a.each do |task|
+    #     task.delete
+    #   end
+    #
+    #   harvest_client.projects.to_a.each do |project|
+    #     project.delete
+    #   end
+    #
+    #   harvest_client.invoices.to_a.each do |invoice|
+    #     invoice.delete
+    #   end
+    #
+    #   harvest_client.clients.to_a.each do |client|
+    #     client.delete
+    #   end
+    #
+    #   harvest_client.users.to_a.each do |user|
+    #     unless [admin_full_name, non_admin_full_name].include?(user.name)
+    #       user.delete
+    #     end
+    #   end
+    # end
   end
 
   cassette_let!(:user_john_smith) do
