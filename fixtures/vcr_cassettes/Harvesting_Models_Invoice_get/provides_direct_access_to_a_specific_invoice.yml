@@ -1,0 +1,166 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.harvestapp.com/v2/invoices/19154996
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 06 Feb 2019 19:11:48 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app10
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      Etag:
+      - W/"89679b015350ba4dcde77d34ff3b870e"
+      Last-Modified:
+      - Wed, 06 Feb 2019 19:00:45 GMT
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6f95f31d50a822e7f3caf95aa3453ecb
+      X-Runtime:
+      - '0.096586'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb3
+    body:
+      encoding: UTF-8
+      string: '{"id":19154996,"client_key":"d271e3938bbabe53a4fdbfc42ca609abf3ef7707","number":"1","purchase_order":null,"amount":120.0,"due_amount":120.0,"tax":null,"tax_amount":0.0,"tax2":null,"tax2_amount":0.0,"discount":null,"discount_amount":0.0,"subject":null,"notes":null,"state":"draft","period_start":"2018-10-07","period_end":"2019-02-02","issue_date":"2019-02-07","due_date":"2019-02-07","payment_term":"custom","sent_at":null,"paid_at":null,"closed_at":null,"created_at":"2019-02-06T19:00:45Z","updated_at":"2019-02-06T19:00:45Z","paid_date":null,"currency":"USD","client":{"id":7754039,"name":"Pepe"},"estimate":null,"retainer":null,"creator":{"id":2528520,"name":"Chim
+        takpa"},"line_items":[{"id":84912311,"kind":"Service","description":"Castle
+        Building: Coding (07/10/2018 - 02/02/2019)","quantity":714.0,"unit_price":0.0,"amount":0.0,"taxed":false,"taxed2":false,"project":{"id":20017226,"name":"Castle
+        Building","code":null}},{"id":84912312,"kind":"Product","description":"Castle
+        Building: Meals ","quantity":1.0,"unit_price":100.0,"amount":100.0,"taxed":false,"taxed2":false,"project":{"id":20017226,"name":"Castle
+        Building","code":null}},{"id":84912313,"kind":"Product","description":"Castle
+        Building: Transportation ","quantity":1.0,"unit_price":20.0,"amount":20.0,"taxed":false,"taxed2":false,"project":{"id":20017226,"name":"Castle
+        Building","code":null}}]}'
+    http_version: 
+  recorded_at: Wed, 06 Feb 2019 19:11:48 GMT
+- request:
+    method: get
+    uri: https://api.harvestapp.com/v2/users/me
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 06 Feb 2019 19:11:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app5
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      X-Request-Id:
+      - 597ee4c0913fb87292d6e55d76b53ca9
+      X-Runtime:
+      - '0.065338'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb1
+    body:
+      encoding: UTF-8
+      string: '{"id":2528520,"first_name":"Chim","last_name":"takpa","email":"chimedp@iitrpr.ac.in","telephone":"","timezone":"Kolkata","weekly_capacity":126000,"has_access_to_all_future_projects":false,"is_contractor":false,"is_admin":true,"is_project_manager":false,"can_see_rates":true,"can_create_projects":true,"can_create_invoices":true,"is_active":true,"created_at":"2019-01-26T06:55:58Z","updated_at":"2019-02-06T10:25:57Z","default_hourly_rate":175.0,"cost_rate":60.0,"roles":[],"avatar_url":"https://cache.harvestapp.com/assets/profile_images/abraj_albait_towers.png?1548485758"}'
+    http_version: 
+  recorded_at: Wed, 06 Feb 2019 19:11:50 GMT
+recorded_with: VCR 4.0.0

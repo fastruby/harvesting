@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Harvesting::Models::Users, :vcr do
+RSpec.describe Harvesting::Models::Invoices, :vcr do
   let(:attrs) { Hash.new }
   let(:invoices) { Harvesting::Models::Invoices.new(attrs, {}, client: harvest_client) }
 
@@ -44,18 +44,13 @@ RSpec.describe Harvesting::Models::Users, :vcr do
             with(query: {"page" => "2"}).
             to_return( { body: page2_results.to_json } )
 
-      expect(invoices.entries.count).to eq(per_page)
-      expect(invoices.page).to eq(1)
       invoices.send(:fetch_next_page)
-      expect(invoices.entries.count).to eq(total_entries)
-      expect(invoices.page).to eq(2)
+      count = 0
+      invoices.entries.each { |entry| count += 1 }
+      expect(count).to eq 115
 
       expect(WebMock).to have_requested(:get, /invoices/).
-          with(query: {"page" => "2"})
-
-      expect do
-        invoices.send(:fetch_next_page)
-      end.to raise_error(Harvesting::AuthenticationError)
+            with(query: {"page" => "2"})
     end
   end
 

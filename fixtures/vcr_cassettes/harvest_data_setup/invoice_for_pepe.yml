@@ -1,0 +1,90 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.harvestapp.com/v2/invoices
+    body:
+      encoding: UTF-8
+      string: '{"client_id":"7754039","client":{"id":"7754039"},"line_items_import":{"project_ids":["20017226"],"time":{"summary_type":"task"},"expenses":{"summary_type":"category"}}}'
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 06 Feb 2019 19:00:45 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 201 Created
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app21
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      Location:
+      - https://api.harvestapp.com/api/v2/invoices/19154996
+      X-Request-Id:
+      - b5b35da78e681a3fbb7624a4f43c2512
+      X-Runtime:
+      - '0.516556'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb1
+    body:
+      encoding: UTF-8
+      string: '{"id":19154996,"client_key":"d271e3938bbabe53a4fdbfc42ca609abf3ef7707","number":"1","purchase_order":null,"amount":120.0,"due_amount":120.0,"tax":null,"tax_amount":0.0,"tax2":null,"tax2_amount":0.0,"discount":null,"discount_amount":0.0,"subject":null,"notes":null,"state":"draft","period_start":"2018-10-07","period_end":"2019-02-02","issue_date":"2019-02-07","due_date":"2019-02-07","payment_term":"custom","sent_at":null,"paid_at":null,"closed_at":null,"created_at":"2019-02-06T19:00:45Z","updated_at":"2019-02-06T19:00:45Z","paid_date":null,"currency":"USD","client":{"id":7754039,"name":"Pepe"},"estimate":null,"retainer":null,"creator":{"id":2528520,"name":"Chim
+        takpa"},"line_items":[{"id":84912311,"kind":"Service","description":"Castle
+        Building: Coding (07/10/2018 - 02/02/2019)","quantity":714.0,"unit_price":0.0,"amount":0.0,"taxed":false,"taxed2":false,"project":{"id":20017226,"name":"Castle
+        Building","code":null}},{"id":84912312,"kind":"Product","description":"Castle
+        Building: Meals ","quantity":1.0,"unit_price":100.0,"amount":100.0,"taxed":false,"taxed2":false,"project":{"id":20017226,"name":"Castle
+        Building","code":null}},{"id":84912313,"kind":"Product","description":"Castle
+        Building: Transportation ","quantity":1.0,"unit_price":20.0,"amount":20.0,"taxed":false,"taxed2":false,"project":{"id":20017226,"name":"Castle
+        Building","code":null}}]}'
+    http_version: 
+  recorded_at: Wed, 06 Feb 2019 19:00:46 GMT
+recorded_with: VCR 4.0.0

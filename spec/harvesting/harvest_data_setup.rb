@@ -190,29 +190,26 @@ RSpec.shared_context "harvest data setup" do
     result
   end
 
-  # let!(:toto_invoice) do
-  #   VCR.use_cassette('harvest_data_setup/invoice', :record => :once, :allow_playback_repeats => true) do
-  #     invoice = Harvesting::Models::Invoice.new(
-  #       {
-  #         "client" => {
-  #           "id" => client_pepe.id.to_s
-  #         },
-  #         "creator" => {
-  #           "id" => client_toto.id.to_s
-  #         },
-  #         "line_items" => [
-  #           {
-  #             "project" => {
-  #               "id" => project_castle_building.id.to_s
-  #             }
-  #           }
-  #         ]
-  #       },
-  #       client: harvest_client
-  #     )
-  #     invoice.save
-  #     invoice
-  #   end
-  # end
+  let!(:invoice_for_pepe) do
+    VCR.use_cassette('harvest_data_setup/invoice_for_pepe', :record => :once, :allow_playback_repeats => true) do
+      invoice = Harvesting::Models::Invoice.new(
+        {
+          "client" => {
+            "id" => client_pepe.id.to_s
+          },
+          "line_items" => [
+            {
+              "project" => {
+                "id" => project_castle_building.id.to_s
+              }
+            }
+          ]
+        },
+        client: harvest_client
+      )
+      invoice.save
+      invoice
+    end
+  end
 
 end
