@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 14 Jan 2019 05:29:39 GMT
+      - Fri, 25 Jan 2019 18:32:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -51,7 +51,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app19
+      - app9
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -64,17 +64,17 @@ http_interactions:
         https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
         style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       X-Request-Id:
-      - be7eaf580b74e6e3a85a89c95abcbbc6
+      - fbefb0ec67ea29ac293218dd24debdbe
       X-Runtime:
-      - '0.026585'
+      - '0.057106'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
-      - lb2
+      - lb4
     body:
       encoding: UTF-8
-      string: '{"id":2358956,"first_name":"John","last_name":"Smith","email":"scott+harvested-employee@corgibytes.com","telephone":"","timezone":"Eastern
-        Time (US & Canada)","weekly_capacity":126000,"has_access_to_all_future_projects":false,"is_contractor":false,"is_admin":false,"is_project_manager":false,"can_see_rates":false,"can_create_projects":false,"can_create_invoices":false,"is_active":true,"created_at":"2018-09-24T13:47:23Z","updated_at":"2018-09-24T13:48:15Z","roles":[],"avatar_url":"https://cache.harvestapp.com/assets/profile_images/abraj_albait_towers.png?1537796843"}'
+      string: '{"id":2516167,"first_name":"Aaron","last_name":"Burr","email":"scott+harvested-employee@corgibytes.com","telephone":"","timezone":"Eastern
+        Time (US & Canada)","weekly_capacity":126000,"has_access_to_all_future_projects":false,"is_contractor":false,"is_admin":false,"is_project_manager":false,"can_see_rates":false,"can_create_projects":false,"can_create_invoices":false,"is_active":true,"created_at":"2019-01-18T21:21:18Z","updated_at":"2019-01-18T21:25:16Z","roles":[],"avatar_url":"https://cache.harvestapp.com/assets/profile_images/abraj_albait_towers.png?1547846478"}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 05:29:39 GMT
+  recorded_at: Fri, 25 Jan 2019 18:32:09 GMT
 recorded_with: VCR 4.0.0

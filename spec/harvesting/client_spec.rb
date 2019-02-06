@@ -539,6 +539,50 @@ RSpec.describe Harvesting::Client, :vcr do
         end
       end
     end
+  end
 
+  describe "#user_assignments", :vcr do
+    context "as an admin user" do
+      subject { Harvesting::Client.new(access_token: admin_access_token, account_id: account_id) }
+
+      it 'retreives the accounts user assignments' do
+        user_assignments = subject.user_assignments
+
+        projects = user_assignments.map { |ua| ua.project.id }.uniq
+        expect(projects).to contain_exactly(
+          project_castle_building.id,
+          project_road_building.id
+        )
+
+        users = user_assignments.map { |ua| ua.user.id }.uniq
+        expect(users).to contain_exactly(
+          user_john_smith.id,
+          user_jane_doe.id,
+          user_me.id
+        )
+      end
+    end
+  end
+
+  describe '#task_assignments' do
+    context "as an admin user" do
+      subject { Harvesting::Client.new(access_token: admin_access_token, account_id: account_id) }
+
+      it 'retrieves the accounts task assignments' do
+        task_assignments = subject.task_assignments
+
+        projects = task_assignments.map { |ta| ta.project.id }.uniq
+        expect(projects).to contain_exactly(
+          project_castle_building.id,
+          project_road_building.id
+        )
+
+        tasks = task_assignments.map { |ta| ta.task.id }.uniq
+        expect(tasks).to contain_exactly(
+          task_coding.id,
+          task_writing.id
+        )
+      end
+    end
   end
 end

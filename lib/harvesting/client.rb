@@ -72,6 +72,20 @@ module Harvesting
       end
     end
 
+    # @return [Harvesting::Models::ProjectUserAssignments]
+    def user_assignments(opts = {})
+      project_id = opts.delete(:project_id)
+      path = project_id.nil? ? "user_assignments" : "projects/#{project_id}/user_assignments"
+      Harvesting::Models::ProjectUserAssignments.new(get(path, opts), opts, client: self)
+    end
+
+    # @return [Harvesting::Models::ProjectTaskAssignments]
+    def task_assignments(opts = {})
+      project_id = opts.delete(:project_id)
+      path = project_id.nil? ? "task_assignments" : "projects/#{project_id}/task_assignments"
+      Harvesting::Models::ProjectTaskAssignments.new(get(path, opts), opts, client: self)
+    end
+
     # Creates an `entity` in your Harvest account.
     #
     # @param entity [Harvesting::Models::Base] A new record in your Harvest account

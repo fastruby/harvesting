@@ -30,7 +30,6 @@ module Harvesting
 
       modeled client: Client
 
-
       def path
         @attributes['id'].nil? ? "projects" : "projects/#{@attributes['id']}"
       end
@@ -41,6 +40,18 @@ module Harvesting
 
       def time_entries
         harvest_client.time_entries(project_id: self.id)
+      end
+
+      # Provides access to the user assignments that are associated with this
+      # project.
+      def user_assignments
+        harvest_client.user_assignments(project_id: self.id)
+      end
+
+      # Provides access to the task assignments that are associated with this
+      # project.
+      def task_assignments
+        harvest_client.task_assignments(project_id: self.id)
       end
     end
   end

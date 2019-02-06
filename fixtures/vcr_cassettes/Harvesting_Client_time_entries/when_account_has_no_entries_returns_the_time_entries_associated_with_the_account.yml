@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 14 Jan 2019 05:29:41 GMT
+      - Fri, 25 Jan 2019 18:32:10 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -51,7 +51,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app11
+      - app20
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -64,16 +64,16 @@ http_interactions:
         https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
         style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       X-Request-Id:
-      - 225edfa66ca85fcedf170840dc7094c6
+      - '091fc0d42eaa40fd41e66a1478c3863c'
       X-Runtime:
-      - '0.059725'
+      - '0.045590'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
-      - lb2
+      - lb4
     body:
       encoding: UTF-8
       string: '{"time_entries":[],"per_page":100,"total_pages":1,"total_entries":0,"next_page":null,"previous_page":null,"page":1,"links":{"first":"https://api.harvestapp.com/v2/time_entries?page=1&per_page=100","next":null,"previous":null,"last":"https://api.harvestapp.com/v2/time_entries?page=1&per_page=100"}}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 05:29:41 GMT
+  recorded_at: Fri, 25 Jan 2019 18:32:10 GMT
 recorded_with: VCR 4.0.0

@@ -1,3 +1,37 @@
+require 'rspec/core'
+
+module RSpec::Core::MemoizedHelpers::ClassMethods
+  # Helper method to simplify defining let methods that are wrapped in a VCR
+  # cassette. Calling this method is equivalent to calling:
+  # ```
+  # let!(variable_name) do
+  #   VCR.use_cassette('harvest_data_setup/variable_name', :record => :once, :allow_playback_repeats => true) do
+  #     contents
+  #   end
+  # end
+  # ```
+  # The equivalent call would look like this:
+  # ```
+  # cassette_let!(variable_name) do
+  #   contents
+  # end
+  # ```
+  def cassette_let!(name, &block)
+    let!(name, &block)
+
+    # partially duplicates the implementation found at:
+    # https://github.com/rspec/rspec-core/blob/58f38210492cd369784d3fe1a849c0e81342a2f2/lib/rspec/core/memoized_helpers.rb
+    define_method(name) {
+      __memoized.fetch_or_store(name) {
+        VCR.insert_cassette("harvest_data_setup/#{name}", :record => :once, :allow_playback_repeats => true)
+        result = super(&nil)
+        VCR.eject_cassette
+        result
+      }
+    }
+  end
+end
+
 RSpec.shared_context "harvest data setup" do
 
   let(:account_first_name) { ENV["HARVEST_FIRST_NAME"] }
@@ -10,6 +44,7 @@ RSpec.shared_context "harvest data setup" do
   let(:non_admin_access_token) { ENV["HARVEST_NON_ADMIN_ACCESS_TOKEN"] }
 
   let(:admin_full_name) { ENV["HARVEST_ADMIN_FULL_NAME"] }
+  let(:non_admin_full_name) { ENV["HARVEST_NON_ADMIN_FULL_NAME"] }
 
   let(:access_token) { non_admin_access_token }
   let(:account_id) { non_admin_account_id }
@@ -47,7 +82,39 @@ RSpec.shared_context "harvest data setup" do
       harvest_client.clients.to_a.each do |client|
         client.delete
       end
+
+      harvest_client.users.to_a.each do |user|
+        unless [admin_full_name, non_admin_full_name].include?(user.name)
+          user.delete
+        end
+      end
     end
+  end
+
+  cassette_let!(:user_john_smith) do
+    john_smith = Harvesting::Models::User.new(
+      {
+        "first_name" => "John",
+        "last_name" => "Smith",
+        "email" => "john.smith@example.com"
+      },
+      client: harvest_client
+    )
+    john_smith.save
+    john_smith
+  end
+
+  cassette_let!(:user_jane_doe) do
+    jane_doe = Harvesting::Models::User.new(
+      {
+        "first_name" => "Jane",
+        "last_name" => "Doe",
+        "email" => "jane.doe@example.com"
+      },
+      client: harvest_client
+    )
+    jane_doe.save
+    jane_doe
   end
 
   let!(:client_pepe) do
@@ -99,6 +166,25 @@ RSpec.shared_context "harvest data setup" do
     end
   end
 
+  let!(:project_road_building) do
+    VCR.use_cassette('harvest_data_setup/project_road_building', :record => :once, :allow_playback_repeats => true) do
+      castle_building = Harvesting::Models::Project.new(
+        {
+          "client" => {
+              "id" => client_toto.id.to_s
+          },
+          "name" => "Road Building",
+          "is_billable" => "true",
+          "bill_by" => "Tasks",
+          "budget_by" => "person"
+        },
+        client: harvest_client
+      )
+      castle_building.save
+      castle_building
+    end
+  end
+
   let!(:project_castle_building) do
     VCR.use_cassette('harvest_data_setup/project_castle_building', :record => :once, :allow_playback_repeats => true) do
       castle_building = Harvesting::Models::Project.new(
@@ -131,9 +217,20 @@ RSpec.shared_context "harvest data setup" do
     end
   end
 
+  cassette_let!(:task_writing) do
+    writing = Harvesting::Models::Task.new(
+      {
+        "name" => "Writing"
+      },
+      client: harvest_client
+    )
+    writing.save
+    writing
+  end
+
   let!(:task_assigment_castle_building_coding) do
     VCR.use_cassette('harvest_data_setup/task_assigment_castle_building_coding', :record => :once, :allow_playback_repeats => true) do
-      castle_building_coding = Harvesting::Models::TaskAssignment.new(
+      castle_building_coding = Harvesting::Models::ProjectTaskAssignment.new(
         {
             "project" => {
                 "id" => project_castle_building.id.to_s
@@ -147,6 +244,56 @@ RSpec.shared_context "harvest data setup" do
       castle_building_coding.save
       castle_building_coding
     end
+  end
+
+  cassette_let!(:task_assignment_roading_building_writing) do
+    road_building_writing = Harvesting::Models::ProjectTaskAssignment.new(
+      {
+          "project" => {
+              "id" => project_road_building.id.to_s
+          },
+          "task" => {
+              "id" => task_writing.id.to_s
+          }
+      },
+      client: harvest_client
+    )
+    road_building_writing.save
+    road_building_writing
+  end
+
+  let!(:project_assignment_castle_building) do
+    VCR.use_cassette('harvest_data_setup/project_assignment_castle_building', :record => :once, :allow_playback_repeats => true) do
+      project_assignment = Harvesting::Models::ProjectUserAssignment.new(
+        {
+          "project" => {
+            "id" => project_castle_building.id.to_s
+          },
+          "user" => {
+            "id" => user_john_smith.id.to_s
+          }
+        },
+        client: harvest_client
+      )
+      project_assignment.save
+      project_assignment
+    end
+  end
+
+  cassette_let!(:project_assignment_road_building) do
+    project_assignment = Harvesting::Models::ProjectUserAssignment.new(
+      {
+        "project" => {
+          "id" => project_road_building.id.to_s
+        },
+        "user" => {
+          "id" => user_jane_doe.id.to_s
+        }
+      },
+      client: harvest_client
+    )
+    project_assignment.save
+    project_assignment
   end
 
   let!(:contact_cersei_lannister) do
