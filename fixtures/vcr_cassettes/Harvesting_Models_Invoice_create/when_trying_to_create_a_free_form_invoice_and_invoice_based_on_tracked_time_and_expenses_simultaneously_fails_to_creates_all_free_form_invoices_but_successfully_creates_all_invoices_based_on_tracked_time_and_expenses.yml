@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.harvestapp.com/v2/invoices
     body:
       encoding: UTF-8
-      string: '{"client_id":"7754039","client":{"id":"7754039"},"line_items":[{"kind":"Service","unit_price":20.0,"quantity":50}]}'
+      string: '{"client_id":"7822978","client":{"id":"7822978"},"line_items_import":{"project_ids":[20205567],"time":{"summary_type":"task"},"expenses":{"summary_type":"category"}}}'
     headers:
       User-Agent:
       - Harvesting Ruby Gem
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 06 Feb 2019 19:25:40 GMT
+      - Tue, 19 Feb 2019 15:19:00 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -53,7 +53,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app9
+      - app10
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -66,24 +66,26 @@ http_interactions:
         https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
         style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       Location:
-      - https://api.harvestapp.com/api/v2/invoices/19155375
+      - https://api.harvestapp.com/api/v2/invoices/19257800
       X-Request-Id:
-      - 0f2303bb24327bfb6c829b93f8dd6422
+      - f63fba43f845df0ec04781ba0c0f921b
       X-Runtime:
-      - '0.266574'
+      - '1.643644'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
-      - lb4
+      - lb3
     body:
       encoding: UTF-8
-      string: '{"id":19155375,"client_key":"29f837c7787992255e39dc46a1ddb3da1b2cc737","number":"2","purchase_order":null,"amount":1000.0,"due_amount":1000.0,"tax":null,"tax_amount":0.0,"tax2":null,"tax2_amount":0.0,"discount":null,"discount_amount":0.0,"subject":null,"notes":null,"state":"draft","period_start":null,"period_end":null,"issue_date":"2019-02-07","due_date":"2019-02-07","payment_term":"custom","sent_at":null,"paid_at":null,"closed_at":null,"created_at":"2019-02-06T19:25:40Z","updated_at":"2019-02-06T19:25:40Z","paid_date":null,"currency":"USD","client":{"id":7754039,"name":"Pepe"},"estimate":null,"retainer":null,"creator":{"id":2528520,"name":"Chim
-        takpa"},"line_items":[{"id":84914309,"kind":"Service","description":null,"quantity":50.0,"unit_price":20.0,"amount":1000.0,"taxed":false,"taxed2":false,"project":null}]}'
+      string: '{"id":19257800,"client_key":"8035b0e16fe47c662ea226ee4272376f2a1e6793","number":"1","purchase_order":null,"amount":0.0,"due_amount":0.0,"tax":null,"tax_amount":0.0,"tax2":null,"tax2_amount":0.0,"discount":null,"discount_amount":0.0,"subject":null,"notes":null,"state":"draft","period_start":"2018-10-23","period_end":"2019-02-18","issue_date":"2019-02-19","due_date":"2019-02-19","payment_term":"custom","sent_at":null,"paid_at":null,"closed_at":null,"created_at":"2019-02-19T15:18:58Z","updated_at":"2019-02-19T15:18:58Z","paid_date":null,"currency":"USD","client":{"id":7822978,"name":"Pepe"},"estimate":null,"retainer":null,"creator":{"id":2528520,"name":"Chim
+        takpa"},"line_items":[{"id":85500059,"kind":"Service","description":"Castle
+        Building: Coding (23/10/2018 - 18/02/2019)","quantity":714.0,"unit_price":0.0,"amount":0.0,"taxed":false,"taxed2":false,"project":{"id":20205567,"name":"Castle
+        Building","code":null}}]}'
     http_version: 
-  recorded_at: Wed, 06 Feb 2019 19:25:41 GMT
+  recorded_at: Tue, 19 Feb 2019 15:19:00 GMT
 - request:
     method: delete
-    uri: https://api.harvestapp.com/v2/invoices/19155375
+    uri: https://api.harvestapp.com/v2/invoices/19257800
     body:
       encoding: UTF-8
       string: ''
@@ -106,7 +108,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 06 Feb 2019 19:25:42 GMT
+      - Tue, 19 Feb 2019 15:19:02 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -132,7 +134,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app6
+      - app20
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -145,17 +147,17 @@ http_interactions:
         https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
         style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       X-Request-Id:
-      - f6bf1b5259956025698be98888ba49e4
+      - ab54edeed4ad8b71ecd6c96681850a99
       X-Runtime:
-      - '0.080874'
+      - '0.506202'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
-      - lb1
+      - lb3
     body:
       encoding: UTF-8
-      string: '{"id":19155375,"client_key":"29f837c7787992255e39dc46a1ddb3da1b2cc737","number":"2","purchase_order":null,"amount":1000.0,"due_amount":1000.0,"tax":null,"tax_amount":0.0,"tax2":null,"tax2_amount":0.0,"discount":null,"discount_amount":0.0,"subject":null,"notes":null,"state":"draft","period_start":null,"period_end":null,"issue_date":"2019-02-07","due_date":"2019-02-07","payment_term":"custom","sent_at":null,"paid_at":null,"closed_at":null,"created_at":"2019-02-06T19:25:40Z","updated_at":"2019-02-06T19:25:40Z","paid_date":null,"currency":"USD","client":{"id":7754039,"name":"Pepe"},"estimate":null,"retainer":null,"creator":{"id":2528520,"name":"Chim
+      string: '{"id":19257800,"client_key":"8035b0e16fe47c662ea226ee4272376f2a1e6793","number":"1","purchase_order":null,"amount":0.0,"due_amount":0.0,"tax":null,"tax_amount":0.0,"tax2":null,"tax2_amount":0.0,"discount":null,"discount_amount":0.0,"subject":null,"notes":null,"state":"draft","period_start":"2018-10-23","period_end":"2019-02-18","issue_date":"2019-02-19","due_date":"2019-02-19","payment_term":"custom","sent_at":null,"paid_at":null,"closed_at":null,"created_at":"2019-02-19T15:18:58Z","updated_at":"2019-02-19T15:18:58Z","paid_date":null,"currency":"USD","client":{"id":7822978,"name":"Pepe"},"estimate":null,"retainer":null,"creator":{"id":2528520,"name":"Chim
         takpa"},"line_items":[]}'
     http_version: 
-  recorded_at: Wed, 06 Feb 2019 19:25:42 GMT
+  recorded_at: Tue, 19 Feb 2019 15:19:02 GMT
 recorded_with: VCR 4.0.0

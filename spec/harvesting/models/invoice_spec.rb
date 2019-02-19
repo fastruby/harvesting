@@ -137,8 +137,8 @@ RSpec.describe Harvesting::Models::Invoice, :vcr do
         end.to raise_error(Harvesting::UnprocessableRequest, error)
       end
     end
-
-    context "when trying to create a invoice with the correct attributes" do
+      
+    context "when trying to create a free-form invoice" do
       let(:attrs) do
         {
           "client" => {
@@ -149,6 +149,11 @@ RSpec.describe Harvesting::Models::Invoice, :vcr do
               "kind" => "Service",
               "unit_price" => 20.0,
               "quantity" => 50
+            },
+            {
+              "kind" => "Product",
+              "unit_price" => 300.0,
+              "quantity" => 10
             }
           ]
         }
@@ -158,8 +163,65 @@ RSpec.describe Harvesting::Models::Invoice, :vcr do
         result = invoice.save
 
         expect(invoice.id).not_to be_nil
-        expect(invoice.amount).to eq 1000.0
+        expect(invoice.amount).to eq 4000.0
+        expect(invoice.line_items.count).to eq 2
 
+        invoice.delete
+      end
+    end
+
+    context "when trying to create an invoice based on tracked time and expenses" do
+      let(:attrs) do
+        {
+          "client" => {
+            "id" => client_id.to_s
+          },
+          "line_items" => [
+            {
+              "project" => {"id" => project_id},
+              "kind" => "Service"
+            }
+          ]
+        }
+      end
+
+      it "automatically sets the id of the invoice" do
+        result = invoice.save
+
+        expect(invoice.id).not_to be_nil
+        expect(invoice.line_items.count).to eq 1
+        expect(invoice.line_items[0]['project']['id']).to eq project_id
+
+        invoice.delete
+      end
+    end
+
+    context "when trying to create a free-form invoice and invoice based on tracked time and expenses simultaneously" do
+      let(:attrs) do
+        {
+          "client" => {
+            "id" => client_id.to_s
+          },
+          "line_items" => [
+            {
+              "kind" => "Service",
+              "unit_price" => 20.0,
+              "quantity" => 50
+            },
+            {
+              "project" => {"id" => project_id},
+              "kind" => "Service"
+            }
+          ]
+        }
+      end
+
+      it "fails to creates all free-form invoices but successfully creates all invoices based on tracked time and expenses" do
+        invoice.save
+        expect(invoice.id).not_to be_nil
+        expect(invoice.line_items.count).to eq 1
+        expect(invoice.amount).to eq 0.0
+        expect(invoice.line_items[0]['project']['id']).to eq project_id
         invoice.delete
       end
     end

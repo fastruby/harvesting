@@ -1,0 +1,161 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.harvestapp.com/v2/invoices
+    body:
+      encoding: UTF-8
+      string: '{"client_id":"7817471","client":{"id":"7817471"},"line_items":[{"kind":"Service","unit_price":20.0,"quantity":50},{"kind":"Product","unit_price":300.0,"quantity":10}]}'
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 18 Feb 2019 09:21:31 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 201 Created
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app19
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      Location:
+      - https://api.harvestapp.com/api/v2/invoices/19246385
+      X-Request-Id:
+      - e76fbe93409bd32774dabf508b5a9046
+      X-Runtime:
+      - '0.076055'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb3
+    body:
+      encoding: UTF-8
+      string: '{"id":19246385,"client_key":"95a0adb2d3c05702364f6140f8e7ddde52bd3deb","number":"1","purchase_order":null,"amount":4000.0,"due_amount":4000.0,"tax":null,"tax_amount":0.0,"tax2":null,"tax2_amount":0.0,"discount":null,"discount_amount":0.0,"subject":null,"notes":null,"state":"draft","period_start":null,"period_end":null,"issue_date":"2019-02-18","due_date":"2019-02-18","payment_term":"custom","sent_at":null,"paid_at":null,"closed_at":null,"created_at":"2019-02-18T09:21:31Z","updated_at":"2019-02-18T09:21:31Z","paid_date":null,"currency":"USD","client":{"id":7817471,"name":"Pepe"},"estimate":null,"retainer":null,"creator":{"id":2528520,"name":"Chim
+        takpa"},"line_items":[{"id":85435627,"kind":"Service","description":null,"quantity":50.0,"unit_price":20.0,"amount":1000.0,"taxed":false,"taxed2":false,"project":null},{"id":85435628,"kind":"Product","description":null,"quantity":10.0,"unit_price":300.0,"amount":3000.0,"taxed":false,"taxed2":false,"project":null}]}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 09:21:31 GMT
+- request:
+    method: delete
+    uri: https://api.harvestapp.com/v2/invoices/19246385
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 18 Feb 2019 09:21:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app9
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://js-agent.newrelic.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
+      X-Request-Id:
+      - 3f90e737d97b9b7f3bd8123819d66376
+      X-Runtime:
+      - '0.049339'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb3
+    body:
+      encoding: UTF-8
+      string: '{"id":19246385,"client_key":"95a0adb2d3c05702364f6140f8e7ddde52bd3deb","number":"1","purchase_order":null,"amount":4000.0,"due_amount":4000.0,"tax":null,"tax_amount":0.0,"tax2":null,"tax2_amount":0.0,"discount":null,"discount_amount":0.0,"subject":null,"notes":null,"state":"draft","period_start":null,"period_end":null,"issue_date":"2019-02-18","due_date":"2019-02-18","payment_term":"custom","sent_at":null,"paid_at":null,"closed_at":null,"created_at":"2019-02-18T09:21:31Z","updated_at":"2019-02-18T09:21:31Z","paid_date":null,"currency":"USD","client":{"id":7817471,"name":"Pepe"},"estimate":null,"retainer":null,"creator":{"id":2528520,"name":"Chim
+        takpa"},"line_items":[]}'
+    http_version: 
+  recorded_at: Mon, 18 Feb 2019 09:21:33 GMT
+recorded_with: VCR 4.0.0
