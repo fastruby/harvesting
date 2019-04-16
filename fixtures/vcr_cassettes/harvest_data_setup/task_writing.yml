@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.harvestapp.com/v2/projects/19919748/task_assignments
+    uri: https://api.harvestapp.com/v2/tasks
     body:
       encoding: UTF-8
-      string: '{"project_id":"19919748","task_id":"11399145","project":{"id":"19919748"},"task":{"id":"11399145"}}'
+      string: '{"name":"Writing"}'
     headers:
       User-Agent:
       - Harvesting Ruby Gem
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Fri, 25 Jan 2019 18:31:11 GMT
+      - Fri, 25 Jan 2019 19:05:24 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -53,7 +53,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app1
+      - app4
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -66,19 +66,18 @@ http_interactions:
         https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
         style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       Location:
-      - https://api.harvestapp.com/api/v2/projects/19919748/task_assignments/215014748
+      - https://api.harvestapp.com/api/v2/tasks/11399470
       X-Request-Id:
-      - a41e44a4e52ef52223fa8b9eb9bda942
+      - 360afc8704a4c05423bc40eaeffc8b17
       X-Runtime:
-      - '0.118818'
+      - '0.130892'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
       - lb2
     body:
       encoding: UTF-8
-      string: '{"id":215014748,"billable":true,"is_active":true,"created_at":"2019-01-25T18:31:11Z","updated_at":"2019-01-25T18:31:11Z","hourly_rate":null,"budget":null,"project":{"id":19919748,"name":"Castle
-        Building","code":null},"task":{"id":11399145,"name":"Coding"}}'
+      string: '{"id":11399470,"name":"Writing","billable_by_default":true,"default_hourly_rate":null,"is_default":false,"is_active":true,"created_at":"2019-01-25T19:05:24Z","updated_at":"2019-01-25T19:05:24Z"}'
     http_version: 
-  recorded_at: Fri, 25 Jan 2019 18:31:11 GMT
+  recorded_at: Fri, 25 Jan 2019 19:05:24 GMT
 recorded_with: VCR 4.0.0

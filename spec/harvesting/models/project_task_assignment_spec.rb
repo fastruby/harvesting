@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Harvesting::Models::TaskAssignment, :vcr do
+RSpec.describe Harvesting::Models::ProjectTaskAssignment, :vcr do
   let(:attrs) { Hash.new }
-  let(:task_assignment) { Harvesting::Models::TaskAssignment.new(attrs) }
+  let(:task_assignment) { Harvesting::Models::ProjectTaskAssignment.new(attrs) }
 
   describe '#path' do
     context 'without a task assignment id' do

@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.harvestapp.com/v2/time_entries
     body:
       encoding: UTF-8
-      string: '{"project_id":"19758856","task_id":"11308412","user_id":"2348607","project":{"id":"19758856"},"task":{"id":"11308412"},"spent_date":"2018-05-14","hours":"1.0","user":{"id":"2348607"},"is_running":"false","notes":"hacked
+      string: '{"project_id":"19919748","task_id":"11399145","user_id":"2348607","project":{"id":"19919748"},"task":{"id":"11399145"},"spent_date":"2018-05-14","hours":"1.0","user":{"id":"2348607"},"is_running":"false","notes":"hacked
         the things"}'
     headers:
       User-Agent:
@@ -28,7 +28,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 14 Jan 2019 05:30:01 GMT
+      - Fri, 25 Jan 2019 18:32:33 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -54,7 +54,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app2
+      - app1
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -67,26 +67,26 @@ http_interactions:
         https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
         style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       Location:
-      - https://api.harvestapp.com/api/v2/time_entries/925120567
+      - https://api.harvestapp.com/api/v2/time_entries/933385752
       X-Request-Id:
-      - 7a6e4cfbfd3e7767bcaa2fa0d2f2ded2
+      - 4cdff68bfe10ff824efe21022c9100fa
       X-Runtime:
-      - '0.226145'
+      - '0.282239'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
-      - lb2
+      - lb4
     body:
       encoding: UTF-8
-      string: '{"id":925120567,"spent_date":"2018-05-14","hours":1.0,"notes":"hacked
-        the things","is_locked":false,"locked_reason":null,"is_closed":false,"is_billed":false,"timer_started_at":null,"started_time":null,"ended_time":null,"is_running":false,"billable":true,"budgeted":false,"billable_rate":null,"cost_rate":null,"created_at":"2019-01-14T05:30:01Z","updated_at":"2019-01-14T05:30:01Z","user":{"id":2348607,"name":"Alexander
-        Hamilton"},"client":{"id":7664502,"name":"Pepe","currency":"USD"},"project":{"id":19758856,"name":"Castle
-        Building","code":null},"task":{"id":11308412,"name":"Coding"},"user_assignment":{"id":185245986,"is_project_manager":true,"is_active":true,"budget":null,"created_at":"2019-01-14T05:28:46Z","updated_at":"2019-01-14T05:28:46Z","hourly_rate":null},"task_assignment":{"id":213359852,"billable":true,"is_active":true,"created_at":"2019-01-14T05:28:47Z","updated_at":"2019-01-14T05:28:47Z","hourly_rate":null,"budget":null},"invoice":null,"external_reference":null}'
+      string: '{"id":933385752,"spent_date":"2018-05-14","hours":1.0,"notes":"hacked
+        the things","is_locked":false,"locked_reason":null,"is_closed":false,"is_billed":false,"timer_started_at":null,"started_time":null,"ended_time":null,"is_running":false,"billable":true,"budgeted":false,"billable_rate":null,"cost_rate":null,"created_at":"2019-01-25T18:32:33Z","updated_at":"2019-01-25T18:32:33Z","user":{"id":2348607,"name":"Alexander
+        Hamilton"},"client":{"id":7722246,"name":"Pepe","currency":"USD"},"project":{"id":19919748,"name":"Castle
+        Building","code":null},"task":{"id":11399145,"name":"Coding"},"user_assignment":{"id":186878706,"is_project_manager":true,"is_active":true,"budget":null,"created_at":"2019-01-25T18:31:10Z","updated_at":"2019-01-25T18:31:10Z","hourly_rate":null},"task_assignment":{"id":215014748,"billable":true,"is_active":true,"created_at":"2019-01-25T18:31:11Z","updated_at":"2019-01-25T18:31:11Z","hourly_rate":null,"budget":null},"invoice":null,"external_reference":null}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 05:30:01 GMT
+  recorded_at: Fri, 25 Jan 2019 18:32:33 GMT
 - request:
     method: delete
-    uri: https://api.harvestapp.com/v2/time_entries/925120567
+    uri: https://api.harvestapp.com/v2/time_entries/933385752
     body:
       encoding: UTF-8
       string: ''
@@ -109,7 +109,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 14 Jan 2019 05:30:01 GMT
+      - Fri, 25 Jan 2019 18:32:34 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -135,7 +135,7 @@ http_interactions:
       P3p:
       - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
       X-App-Server:
-      - app10
+      - app21
       X-Robots-Tag:
       - noindex, nofollow
       Content-Security-Policy:
@@ -148,19 +148,19 @@ http_interactions:
         https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com;
         style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com'
       X-Request-Id:
-      - ae83843857981bf984726909a74efbea
+      - 69daa6f4622aaed559401a8c91037314
       X-Runtime:
-      - '0.340208'
+      - '0.290300'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Server:
-      - lb2
+      - lb4
     body:
       encoding: UTF-8
-      string: '{"id":925120567,"spent_date":"2018-05-14","hours":1.0,"notes":"hacked
-        the things","is_locked":false,"locked_reason":null,"is_closed":false,"is_billed":false,"timer_started_at":null,"started_time":null,"ended_time":null,"is_running":false,"billable":true,"budgeted":false,"billable_rate":null,"cost_rate":null,"created_at":"2019-01-14T05:30:01Z","updated_at":"2019-01-14T05:30:01Z","user":{"id":2348607,"name":"Alexander
-        Hamilton"},"client":{"id":7664502,"name":"Pepe","currency":"USD"},"project":{"id":19758856,"name":"Castle
-        Building","code":null},"task":{"id":11308412,"name":"Coding"},"user_assignment":{"id":185245986,"is_project_manager":true,"is_active":true,"budget":null,"created_at":"2019-01-14T05:28:46Z","updated_at":"2019-01-14T05:28:46Z","hourly_rate":null},"task_assignment":{"id":213359852,"billable":true,"is_active":true,"created_at":"2019-01-14T05:28:47Z","updated_at":"2019-01-14T05:28:47Z","hourly_rate":null,"budget":null},"invoice":null,"external_reference":null}'
+      string: '{"id":933385752,"spent_date":"2018-05-14","hours":1.0,"notes":"hacked
+        the things","is_locked":false,"locked_reason":null,"is_closed":false,"is_billed":false,"timer_started_at":null,"started_time":null,"ended_time":null,"is_running":false,"billable":true,"budgeted":false,"billable_rate":null,"cost_rate":null,"created_at":"2019-01-25T18:32:33Z","updated_at":"2019-01-25T18:32:33Z","user":{"id":2348607,"name":"Alexander
+        Hamilton"},"client":{"id":7722246,"name":"Pepe","currency":"USD"},"project":{"id":19919748,"name":"Castle
+        Building","code":null},"task":{"id":11399145,"name":"Coding"},"user_assignment":{"id":186878706,"is_project_manager":true,"is_active":true,"budget":null,"created_at":"2019-01-25T18:31:10Z","updated_at":"2019-01-25T18:31:10Z","hourly_rate":null},"task_assignment":{"id":215014748,"billable":true,"is_active":true,"created_at":"2019-01-25T18:31:11Z","updated_at":"2019-01-25T18:31:11Z","hourly_rate":null,"budget":null},"invoice":null,"external_reference":null}'
     http_version: 
-  recorded_at: Mon, 14 Jan 2019 05:30:01 GMT
+  recorded_at: Fri, 25 Jan 2019 18:32:34 GMT
 recorded_with: VCR 4.0.0

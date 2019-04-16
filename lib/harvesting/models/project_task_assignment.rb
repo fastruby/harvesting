@@ -3,7 +3,7 @@ module Harvesting
     # A task assignment record from your Harvest account.
     #
     # For more information: https://help.getharvest.com/api-v2/projects-api/projects/task-assignments/
-    class TaskAssignment < HarvestRecord
+    class ProjectTaskAssignment < HarvestRecord
       attributed :id,
                  :is_active,
                  :billable,
@@ -14,7 +14,6 @@ module Harvesting
 
       modeled project: Project,
               task: Task
-
 
       def path
         base_url = "projects/#{project.id}/task_assignments"
