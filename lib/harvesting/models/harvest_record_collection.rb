@@ -1,3 +1,5 @@
+require 'forwardable'
+
 module Harvesting
   module Models
     class HarvestRecordCollection < Base
