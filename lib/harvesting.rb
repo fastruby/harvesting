@@ -15,6 +15,7 @@ require "harvesting/models/project_task_assignment"
 require "harvesting/models/invoice"
 require "harvesting/models/time_entry"
 # harvest record collections
+require "harvesting/models/clients"
 require "harvesting/models/tasks"
 require "harvesting/models/users"
 require "harvesting/models/contact"
