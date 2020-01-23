@@ -4,7 +4,7 @@ RSpec.describe Harvesting::Models::TimeEntry, :vcr do
   include_context "harvest data setup"
 
   let(:attrs) { Hash.new }
-  let(:time_entry) { Harvesting::Models::TimeEntry.new(attrs, client: harvest_client) }
+  let(:time_entry) { Harvesting::Models::TimeEntry.new(attrs, harvest_client: harvest_client) }
   let(:date) { "2018-05-14" }
   let(:started_time) { "8:00am" }
   let(:ended_time) { "9:00am" }

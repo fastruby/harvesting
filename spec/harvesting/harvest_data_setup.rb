@@ -98,7 +98,7 @@ RSpec.shared_context "harvest data setup" do
         "last_name" => "Smith",
         "email" => "john.smith@example.com"
       },
-      client: harvest_client
+      harvest_client: harvest_client
     )
     john_smith.save
     john_smith
@@ -111,7 +111,7 @@ RSpec.shared_context "harvest data setup" do
         "last_name" => "Doe",
         "email" => "jane.doe@example.com"
       },
-      client: harvest_client
+      harvest_client: harvest_client
     )
     jane_doe.save
     jane_doe
@@ -123,7 +123,7 @@ RSpec.shared_context "harvest data setup" do
         {
           "name" => "Pepe"
         },
-        client: harvest_client
+        harvest_client: harvest_client
       )
       pepe.save
       pepe
@@ -136,7 +136,7 @@ RSpec.shared_context "harvest data setup" do
         {
           "name" => "Toto"
         },
-        client: harvest_client
+        harvest_client: harvest_client
       )
       toto.save
       toto
@@ -159,7 +159,7 @@ RSpec.shared_context "harvest data setup" do
               "id" => client_pepe.id.to_s
           }
         },
-        client: harvest_client
+        harvest_client: harvest_client
       )
       jon_snow.save
       jon_snow
@@ -178,7 +178,7 @@ RSpec.shared_context "harvest data setup" do
           "bill_by" => "Tasks",
           "budget_by" => "person"
         },
-        client: harvest_client
+        harvest_client: harvest_client
       )
       castle_building.save
       castle_building
@@ -197,7 +197,7 @@ RSpec.shared_context "harvest data setup" do
           "bill_by" => "Tasks",
           "budget_by" => "person"
         },
-        client: harvest_client
+        harvest_client: harvest_client
       )
       castle_building.save
       castle_building
@@ -210,7 +210,7 @@ RSpec.shared_context "harvest data setup" do
         {
           "name" => "Coding"
         },
-        client: harvest_client
+        harvest_client: harvest_client
       )
       coding.save
       coding
@@ -222,7 +222,7 @@ RSpec.shared_context "harvest data setup" do
       {
         "name" => "Writing"
       },
-      client: harvest_client
+      harvest_client: harvest_client
     )
     writing.save
     writing
@@ -239,7 +239,7 @@ RSpec.shared_context "harvest data setup" do
                 "id" => task_coding.id.to_s
             }
         },
-        client: harvest_client
+        harvest_client: harvest_client
       )
       castle_building_coding.save
       castle_building_coding
@@ -256,7 +256,7 @@ RSpec.shared_context "harvest data setup" do
               "id" => task_writing.id.to_s
           }
       },
-      client: harvest_client
+      harvest_client: harvest_client
     )
     road_building_writing.save
     road_building_writing
@@ -273,7 +273,7 @@ RSpec.shared_context "harvest data setup" do
             "id" => user_john_smith.id.to_s
           }
         },
-        client: harvest_client
+        harvest_client: harvest_client
       )
       project_assignment.save
       project_assignment
@@ -290,7 +290,7 @@ RSpec.shared_context "harvest data setup" do
           "id" => user_jane_doe.id.to_s
         }
       },
-      client: harvest_client
+      harvest_client: harvest_client
     )
     project_assignment.save
     project_assignment
@@ -306,7 +306,7 @@ RSpec.shared_context "harvest data setup" do
               "id" => client_toto.id.to_s
           }
         },
-        client: harvest_client
+        harvest_client: harvest_client
       )
       cersei_lannister.save
       cersei_lannister
@@ -328,7 +328,7 @@ RSpec.shared_context "harvest data setup" do
             "spent_date" => (Time.now - one_day * (iteration + 1)).iso8601.to_s,
             "hours" => 6.to_s
           },
-          client: harvest_client
+          harvest_client: harvest_client
         )
         time.save
         result << time
