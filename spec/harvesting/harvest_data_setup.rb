@@ -336,5 +336,4 @@ RSpec.shared_context "harvest data setup" do
     end
     result
   end
-
 end

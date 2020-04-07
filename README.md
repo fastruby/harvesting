@@ -109,6 +109,23 @@ project = projects.first
 # => #<Harvesting::Models::Project:0x007ff718e1c618 @attributes={"id"=>17367712, "name"=>"Foo", "code"=>"", "is_active"=>true, "is_billable"=>true, "is_fixed_fee"=>false, "bill_by"=>"none", "budget"=>nil, "budget_by"=>"none", "budget_is_monthly"=>false, "notify_when_over_budget"=>false, "over_budget_notification_percentage"=>80.0, "show_budget_to_all"=>false, "created_at"=>"2018-05-13T03:30:06Z", ... >
 ```
 
+### Invoices
+```ruby
+invoices = client.invoices
+# => #<Harvesting::Models::Invoices:0x00007fc8905671f0 @models={}, @attributes={"per_page"=>100, "total_pages"=>1, "total_entries"=>3, "next_page"=>nil, "previous_page"=>nil, "page"=>1, "links"=>{"first"=>"https://api.harvestapp.com/v2/invoices?page=1&per_page=100", ... >
+
+invoice = invoices.first
+# => #<Harvesting::Models::Invoice:0x00007f8c37eb6d18 @models={}, @attributes={"id"=>23831208, "client_key"=>"73688e97a43ed497ace45939eb76db6b18427b80", "number"=>"3", "purchase_order"=>"", "amount"=>750.0, "due_amount"=>750.0, "tax"=>nil, "tax_amount"=>0.0, "tax2"=>nil, "tax2_amount"=>0.0, "discount"=>nil, "discount_amount"=>0.0, "subject"=>"", "notes"=>"", "state"=>"draft", "period_start"=>nil, ... >
+```
+
+An invoice can have many line items:
+```ruby
+line_items = invoice.line_items
+# => [#<Harvesting::Models::LineItem:0x00007f92617ce8e0 @models={}, @attributes={"id"=>109677268, "kind"=>"Service", "description"=>"", "quantity"=>3.0, "unit_price"=>250.0, "amount"=>750.0, "taxed"=>false, "taxed2"=>false, "project"=>{"id"=>24566828, "name"=>"Harvest Billing Automation", "code"=>""}}, ... >]
+```
+
+You can filter invoices by various attributes. E.g. `client.invoices(state: "draft")` only returns invoices in a draft state.
+
 ### Nested Attributes
 
 The Harvest v2 API embeds some data in JSON objects. You can access nested attributes quite naturally.
