@@ -336,7 +336,4 @@ RSpec.shared_context "harvest data setup" do
     end
     result
   end
-
-  let!(:invoices) do
-  end
 end
