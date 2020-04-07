@@ -585,4 +585,24 @@ RSpec.describe Harvesting::Client, :vcr do
       end
     end
   end
+
+  describe "#invoices", :vcr do
+    subject { Harvesting::Client.new(access_token: admin_access_token, account_id: admin_account_id) }
+
+    context "when account has no invoices" do
+      it "returns the invoices associated with the account" do
+        invoices = subject.invoices
+        expect(invoices.map(&:id)).to be_empty
+      end
+    end
+
+    context "when account has invoices" do
+      context 'with custom options' do
+        it "only returns the invoices mathing the options" do
+          invoices = subject.invoices(state: :draft)
+          expect(invoices.size).to eq(2)
+        end
+      end
+    end
+  end
 end
