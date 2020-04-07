@@ -33,7 +33,7 @@ module Harvesting
                  :updated_at
 
       def line_items
-        @line_items ||= @attributes['line_items'].map { |line_item_attributes| LineItem.new line_item_attributes }
+        @line_items ||= @attributes['line_items'].map { |line_item_attributes| LineItem.new line_item_attributes, { harvest_client: harvest_client } }
       end
 
       def path
