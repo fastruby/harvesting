@@ -6,7 +6,6 @@ module Harvesting
     class Invoice < HarvestRecord
       attributed :id,
                  :client_key,
-                 :line_items,
                  :number,
                  :purchase_order,
                  :amount,
@@ -32,6 +31,10 @@ module Harvesting
                  :closed_at,
                  :created_at,
                  :updated_at
+
+      def line_items
+        @line_items ||= @attributes['line_items'].map { |line_item_attributes| LineItem.new line_item_attributes }
+      end
 
       def path
         @attributes['id'].nil? ? "invoices" : "invoices/#{@attributes['id']}"

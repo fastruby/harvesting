@@ -13,6 +13,7 @@ require "harvesting/models/task"
 require "harvesting/models/project_user_assignment"
 require "harvesting/models/project_task_assignment"
 require "harvesting/models/invoice"
+require "harvesting/models/line_item"
 require "harvesting/models/time_entry"
 # harvest record collections
 require "harvesting/models/tasks"

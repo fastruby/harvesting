@@ -597,6 +597,16 @@ RSpec.describe Harvesting::Client, :vcr do
     end
 
     context "when account has invoices" do
+      it "returns the invoices associated with the account" do
+        invoices = subject.invoices
+        expect(invoices.size).to eq(3)
+      end
+
+      it "builds line items for invoices" do
+        invoices = subject.invoices
+        expect(invoices.first.line_items.first).to be_kind_of(Harvesting::Models::LineItem)
+      end
+
       context 'with custom options' do
         it "only returns the invoices mathing the options" do
           invoices = subject.invoices(state: :draft)

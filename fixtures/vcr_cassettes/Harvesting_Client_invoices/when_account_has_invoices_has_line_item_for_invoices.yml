@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.harvestapp.com/v2/invoices
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 07 Apr 2020 07:36:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app3
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://js.intercomcdn.com https://fonts.gstatic.com; script-src ''self''
+        ''unsafe-inline'' ''unsafe-eval'' https://*.google-analytics.com https://*.nr-data.net
+        https://ajax.googleapis.com cache.harvestapp.com https://platform.twitter.com
+        https://www.google.com https://www.googleadservices.com https://www.googletagmanager.com
+        https://connect.facebook.net https://googleads.g.doubleclick.net https://app.intercom.io
+        https://widget.intercom.io https://js.intercomcdn.com https://cdn.plaid.com
+        https://tagmanager.google.com https://bat.bing.com https://ct.capterra.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com
+        https://tagmanager.google.com https://fonts.googleapis.com'
+      X-Request-Id:
+      - 2bf206cbc99dd054031b28b1ba33f368
+      X-Runtime:
+      - '0.115310'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb3
+    body:
+      encoding: UTF-8
+      string: '{"invoices":[{"id":23831208,"client_key":"73688e97a43ed497ace45939eb76db6b18427b80","number":"3","purchase_order":"","amount":750.0,"due_amount":750.0,"tax":null,"tax_amount":0.0,"tax2":null,"tax2_amount":0.0,"discount":null,"discount_amount":0.0,"subject":"","notes":"","state":"draft","period_start":null,"period_end":null,"issue_date":"2020-04-07","due_date":"2020-04-07","payment_term":"upon
+        receipt","sent_at":null,"paid_at":null,"closed_at":null,"recurring_invoice_id":null,"created_at":"2020-04-07T07:27:13Z","updated_at":"2020-04-07T07:27:13Z","paid_date":null,"currency":"DKK","client":{"id":9343060,"name":"Traels.it"},"estimate":null,"retainer":null,"creator":{"id":3211810,"name":"Nicolai
+        Bach Woller"},"line_items":[{"id":109677268,"kind":"Service","description":"","quantity":3.0,"unit_price":250.0,"amount":750.0,"taxed":false,"taxed2":false,"project":{"id":24566828,"name":"Harvest
+        Billing Automation","code":""}}]},{"id":23831206,"client_key":"1da2f2458310563da46daebe4b732d2417458a05","number":"2","purchase_order":"","amount":750.0,"due_amount":0.0,"tax":null,"tax_amount":0.0,"tax2":null,"tax2_amount":0.0,"discount":null,"discount_amount":0.0,"subject":"","notes":"","state":"paid","period_start":null,"period_end":null,"issue_date":"2020-04-07","due_date":"2020-04-07","payment_term":"upon
+        receipt","sent_at":null,"paid_at":"2020-04-07T00:00:00Z","closed_at":null,"recurring_invoice_id":null,"created_at":"2020-04-07T07:26:55Z","updated_at":"2020-04-07T07:27:37Z","paid_date":"2020-04-07","currency":"DKK","client":{"id":9343060,"name":"Traels.it"},"estimate":null,"retainer":null,"creator":{"id":3211810,"name":"Nicolai
+        Bach Woller"},"line_items":[{"id":109677264,"kind":"Service","description":"","quantity":3.0,"unit_price":250.0,"amount":750.0,"taxed":false,"taxed2":false,"project":{"id":24566828,"name":"Harvest
+        Billing Automation","code":""}}]},{"id":23831195,"client_key":"ef41ef4e8ce6475fce47948bfc0aca88a9ab29e9","number":"1","purchase_order":"","amount":4500.0,"due_amount":4500.0,"tax":null,"tax_amount":0.0,"tax2":null,"tax2_amount":0.0,"discount":null,"discount_amount":0.0,"subject":"","notes":"","state":"draft","period_start":"2020-04-04","period_end":"2020-04-06","issue_date":"2020-04-07","due_date":"2020-04-07","payment_term":"upon
+        receipt","sent_at":null,"paid_at":null,"closed_at":null,"recurring_invoice_id":null,"created_at":"2020-04-07T07:25:33Z","updated_at":"2020-04-07T07:25:33Z","paid_date":null,"currency":"DKK","client":{"id":9343060,"name":"Traels.it"},"estimate":null,"retainer":null,"creator":{"id":3211810,"name":"Nicolai
+        Bach Woller"},"line_items":[{"id":109677238,"kind":"Service","description":"Harvest
+        Billing Automation - A note","quantity":3.0,"unit_price":300.0,"amount":900.0,"taxed":false,"taxed2":false,"project":{"id":24566828,"name":"Harvest
+        Billing Automation","code":""}},{"id":109677239,"kind":"Service","description":"Harvest
+        Billing Automation - Another note","quantity":2.0,"unit_price":300.0,"amount":600.0,"taxed":false,"taxed2":false,"project":{"id":24566828,"name":"Harvest
+        Billing Automation","code":""}},{"id":109677240,"kind":"Service","description":"Harvest
+        Billing Automation - A third note","quantity":2.0,"unit_price":300.0,"amount":600.0,"taxed":false,"taxed2":false,"project":{"id":24566828,"name":"Harvest
+        Billing Automation","code":""}},{"id":109677241,"kind":"Service","description":"Harvest
+        Billing Automation","quantity":5.0,"unit_price":300.0,"amount":1500.0,"taxed":false,"taxed2":false,"project":{"id":24566828,"name":"Harvest
+        Billing Automation","code":""}},{"id":109677242,"kind":"Service","description":"Harvest
+        Billing Automation - A note\r\nAnother note\r\nA third note","quantity":3.0,"unit_price":300.0,"amount":900.0,"taxed":false,"taxed2":false,"project":{"id":24566828,"name":"Harvest
+        Billing Automation","code":""}}]}],"per_page":100,"total_pages":1,"total_entries":3,"next_page":null,"previous_page":null,"page":1,"links":{"first":"https://api.harvestapp.com/v2/invoices?page=1&per_page=100","next":null,"previous":null,"last":"https://api.harvestapp.com/v2/invoices?page=1&per_page=100"}}'
+    http_version: 
+  recorded_at: Tue, 07 Apr 2020 07:36:09 GMT
+recorded_with: VCR 4.0.0
