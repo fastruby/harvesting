@@ -17,7 +17,7 @@ GEM
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.5.0)
-    ffi (1.9.23)
+    ffi (1.12.2)
     formatador (0.2.5)
     guard (2.14.2)
       formatador (>= 0.2.4)
