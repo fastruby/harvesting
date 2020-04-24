@@ -6,8 +6,8 @@ require "harvesting/version"
 Gem::Specification.new do |spec|
   spec.name          = "harvesting"
   spec.version       = Harvesting::VERSION
-  spec.authors       = ["Ernesto Tagwerker"]
-  spec.email         = ["ernesto+github@ombulabs.com"]
+  spec.authors       = ["Ernesto Tagwerker", "M. Scott Ford"]
+  spec.email         = ["ernesto+github@ombulabs.com", "scott@mscottford.com"]
 
   spec.summary       = %q{Ruby wrapper for the Harvest API v2.0}
   spec.description   = %q{Interact with the Harvest API v2.0 from your Ruby application}
