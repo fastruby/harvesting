@@ -1,6 +1,24 @@
 # RELEASE NOTES
 
-### Version 0.3.0 - Jan 22, 2018
+### Version 0.4.0 - June 10, 2020
+
+**Notes**
+- Added Ruby 2.5.1 to version matrix in Travis: https://github.com/ombulabs/harvesting/pull/31
+- Associated time entries for project: https://github.com/ombulabs/harvesting/pull/32
+- Add require forwardable in havest_record_collection model: https://github.com/ombulabs/harvesting/pull/40
+- Add syntax highlighting to readme examples: https://github.com/ombulabs/harvesting/pull/41
+- Rename the client key as harvest_client to avoid confusion: https://github.com/ombulabs/harvesting/pull/43
+- Update rake requirement from ~> 10.0 to ~> 13.0: https://github.com/ombulabs/harvesting/pull/44
+- Bump ffi from 1.9.23 to 1.12.2: https://github.com/ombulabs/harvesting/pull/45
+- Ability to supply filter options to the invoice end point and a model for line items on an invoice.: https://github.com/ombulabs/harvesting/pull/46
+
+**Bug Fixes**
+
+- Complete pending test: https://github.com/ombulabs/harvesting/pull/28
+- Fixed Code Climate link: https://github.com/ombulabs/harvesting/pull/38
+
+
+### Version 0.3.0 - Jan 22, 2019
 
 **Notes**
 
