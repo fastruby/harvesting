@@ -1,6 +1,6 @@
 # RELEASE NOTES
 
-### Version 0.4.0 - June 10, 2020
+### Version 0.4.0 - June 6, 2020
 
 **Notes**
 - Added Ruby 2.5.1 to version matrix in Travis: https://github.com/ombulabs/harvesting/pull/31
