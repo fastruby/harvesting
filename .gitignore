@@ -7,11 +7,13 @@
 /spec/reports/
 /tmp/
 
+# bundler
+Gemfile.lock
+
 # environment variables
 .env
 .env.*
 !.env.sample
-
 
 # rspec failure tracking
 .rspec_status
