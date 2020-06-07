@@ -6,8 +6,8 @@ require "harvesting/version"
 Gem::Specification.new do |spec|
   spec.name          = "harvesting"
   spec.version       = Harvesting::VERSION
-  spec.authors       = ["Ernesto Tagwerker"]
-  spec.email         = ["ernesto+github@ombulabs.com"]
+  spec.authors       = ["Ernesto Tagwerker", "M. Scott Ford"]
+  spec.email         = ["ernesto+github@ombulabs.com", "scott@mscottford.com"]
 
   spec.summary       = %q{Ruby wrapper for the Harvest API v2.0}
   spec.description   = %q{Interact with the Harvest API v2.0 from your Ruby application}
@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "http", "~> 3.3", ">= 3.3"
 
   spec.add_development_dependency "bundler", "~> 1.16"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "guard-rspec", "~> 4.7", ">= 4.7"
   spec.add_development_dependency "byebug", "~> 10.0", ">= 10.0"

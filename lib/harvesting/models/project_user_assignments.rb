@@ -5,7 +5,7 @@ module Harvesting
       def initialize(attrs, query_opts = {}, opts = {})
         super(attrs.reject {|k,v| k == "user_assignments" }, query_opts, opts)
         @entries = attrs["user_assignments"].map do |entry|
-          ProjectUserAssignment.new(entry, client: opts[:client])
+          ProjectUserAssignment.new(entry, harvest_client: opts[:harvest_client])
         end
       end
 

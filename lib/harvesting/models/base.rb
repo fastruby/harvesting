@@ -9,7 +9,7 @@ module Harvesting
       def initialize(attrs, opts = {})
         @models = {}
         @attributes = attrs.dup
-        @harvest_client = opts[:client] || Harvesting::Client.new(opts)
+        @harvest_client = opts[:harvest_client] || Harvesting::Client.new(opts)
       end
 
       # It calls `create` or `update` depending on the record's ID. If the ID
@@ -56,7 +56,7 @@ module Harvesting
       #
       # @return [Harvesting::Models::Base]
       def fetch
-        self.class.new(@harvest_client.get(path), client: @harvest_client)
+        self.class.new(@harvest_client.get(path), harvest_client: @harvest_client)
       end
 
       # Retrieves an instance of the object by ID
@@ -65,7 +65,7 @@ module Harvesting
       # @param opts [Hash] options to pass along to the `Harvesting::Client`
       #   instance
       def self.get(id, opts = {})
-        client = opts[:client] || Harvesting::Client.new(opts)
+        client = opts[:harvest_client] || Harvesting::Client.new(opts)
         self.new({ 'id' => id }, opts).fetch
       end
 
@@ -109,7 +109,7 @@ module Harvesting
         opts.each do |attribute_name, model|
           attribute_name_string = attribute_name.to_s
           Harvesting::Models::Base.send :define_method, attribute_name_string do
-            @models[attribute_name_string] ||= model.new(@attributes[attribute_name_string] || {}, client: harvest_client)
+            @models[attribute_name_string] ||= model.new(@attributes[attribute_name_string] || {}, harvest_client: harvest_client)
           end
         end
       end

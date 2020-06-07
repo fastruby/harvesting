@@ -28,60 +28,58 @@ module Harvesting
 
     # @return [Harvesting::Models::User]
     def me
-      Harvesting::Models::User.new(get("users/me"), client: self)
+      Harvesting::Models::User.new(get("users/me"), harvest_client: self)
     end
-
+    
     # @return [Harvesting::Models::Clients]
     def clients(opts = {})
-      Harvesting::Models::Clients.new(get("clients", opts), opts, client: self)
+      Harvesting::Models::Clients.new(get("clients", opts), opts, harvest_client: self)
     end
 
     # @return [Array<Harvesting::Models::Contact>]
     def contacts
       get("contacts")["contacts"].map do |result|
-        Harvesting::Models::Contact.new(result, client: self)
+        Harvesting::Models::Contact.new(result, harvest_client: self)
       end
     end
 
     # @return [Harvesting::Models::TimeEntries]
     def time_entries(opts = {})
-      Harvesting::Models::TimeEntries.new(get("time_entries", opts), opts, client: self)
+      Harvesting::Models::TimeEntries.new(get("time_entries", opts), opts, harvest_client: self)
     end
 
     # @return [Harvesting::Models::Projects]
     def projects(opts = {})
-      Harvesting::Models::Projects.new(get("projects", opts), opts, client: self)
+      Harvesting::Models::Projects.new(get("projects", opts), opts, harvest_client: self)
     end
 
     # @return [Harvesting::Models::Tasks]
     def tasks(opts = {})
-      Harvesting::Models::Tasks.new(get("tasks", opts), opts, client: self)
+      Harvesting::Models::Tasks.new(get("tasks", opts), opts, harvest_client: self)
     end
 
     # @return [Harvesting::Models::Users]
     def users(opts = {})
-      Harvesting::Models::Users.new(get("users", opts), opts, client: self)
+      Harvesting::Models::Users.new(get("users", opts), opts, harvest_client: self)
     end
 
     # @return [Array<Harvesting::Models::Invoice>]
-    def invoices
-      get("invoices")["invoices"].map do |result|
-        Harvesting::Models::Invoice.new(result, client: self)
-      end
+    def invoices(opts = {})
+      Harvesting::Models::Invoices.new(get("invoices", opts), opts, harvest_client: self)
     end
 
     # @return [Harvesting::Models::ProjectUserAssignments]
     def user_assignments(opts = {})
       project_id = opts.delete(:project_id)
       path = project_id.nil? ? "user_assignments" : "projects/#{project_id}/user_assignments"
-      Harvesting::Models::ProjectUserAssignments.new(get(path, opts), opts, client: self)
+      Harvesting::Models::ProjectUserAssignments.new(get(path, opts), opts, harvest_client: self)
     end
 
     # @return [Harvesting::Models::ProjectTaskAssignments]
     def task_assignments(opts = {})
       project_id = opts.delete(:project_id)
       path = project_id.nil? ? "task_assignments" : "projects/#{project_id}/task_assignments"
-      Harvesting::Models::ProjectTaskAssignments.new(get(path, opts), opts, client: self)
+      Harvesting::Models::ProjectTaskAssignments.new(get(path, opts), opts, harvest_client: self)
     end
 
     # Creates an `entity` in your Harvest account.
