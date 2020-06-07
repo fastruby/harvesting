@@ -94,6 +94,7 @@ RSpec.describe Harvesting::Client, :vcr do
       it "returns the clients associated with the account" do
         clients = subject.clients
 
+        expect(clients).to be_instance_of(Harvesting::Models::Clients)
         expect(clients.map(&:name)).to eq(["Toto", "Pepe"])
       end
     end

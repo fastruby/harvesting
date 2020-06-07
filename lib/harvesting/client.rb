@@ -30,12 +30,10 @@ module Harvesting
     def me
       Harvesting::Models::User.new(get("users/me"), harvest_client: self)
     end
-
-    # @return [Array<Harvesting::Models::Client>]
-    def clients
-      get("clients")["clients"].map do |result|
-        Harvesting::Models::Client.new(result, harvest_client: self)
-      end
+    
+    # @return [Harvesting::Models::Clients]
+    def clients(opts = {})
+      Harvesting::Models::Clients.new(get("clients", opts), opts, harvest_client: self)
     end
 
     # @return [Array<Harvesting::Models::Contact>]

@@ -75,7 +75,7 @@ user.id
 
 ```ruby
 client.clients
-# => [#<Harvesting::Models::Client:0x007ff718d65fd0 @attributes={"id"=>6760580, "name"=>"Toto", "is_active"=>true, "address"=>"" ... >
+# => #<Harvesting::Models::Clients:0x007ff718d65fd0>
 
 client = client.clients.first
 # => #<Harvesting::Models::Client:0x007ff718cf5fc8 @attributes={"id"=>6760580, "name"=>"Toto",
