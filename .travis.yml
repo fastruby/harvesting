@@ -1,9 +1,11 @@
 sudo: false
 language: ruby
 rvm:
-  - 2.4.1
-  - 2.5.1
+  - 2.4.10
+  - 2.5.8
+  - 2.6.6
+  - 2.7.1
 env:
   - HARVEST_FIRST_NAME=Aaron HARVEST_LAST_NAME=Burr HARVEST_ACCOUNT_ID=112341234 HARVEST_NON_ADMIN_ACCOUNT_ID=112341234 HARVEST_ACCESS_TOKEN=112341234 HARVEST_NON_ADMIN_ACCESS_TOKEN=112341234 HARVEST_ADMIN_FULL_NAME=112341234
 
-before_install: gem install bundler -v 1.17.3
+before_install: gem install bundler -v 2.1.4
