@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Ruby wrapper for the Harvest API v2.0}
   spec.description   = %q{Interact with the Harvest API v2.0 from your Ruby application}
-  spec.homepage      = "https://github.com/ombulabs/harvesting"
+  spec.homepage      = "https://github.com/fastruby/harvesting"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
