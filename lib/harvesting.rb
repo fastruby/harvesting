@@ -5,6 +5,7 @@ require "harvesting/errors"
 require "harvesting/models/base"
 require "harvesting/models/harvest_record"
 require "harvesting/models/harvest_record_collection"
+require "harvesting/active_support/attribute_accessors"
 # harvest records
 require "harvesting/models/client"
 require "harvesting/models/user"

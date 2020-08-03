@@ -1,0 +1,8 @@
+Description:
+    It creates Harvest initializer
+
+Example:
+    rails generate harvesting:install
+
+    This will create:
+        config/initializers/harvest.rb

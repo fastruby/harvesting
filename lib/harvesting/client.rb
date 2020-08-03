@@ -3,12 +3,16 @@ require "http"
 require "json"
 
 module Harvesting
-
   # A client for the Harvest API (version 2.0)
   class Client
+    extend Harvesting::ActiveSupport::AttributeAccessors
     DEFAULT_HOST = "https://api.harvestapp.com/v2"
 
-    attr_accessor :access_token, :account_id
+    mattr_accessor :access_token, :account_id
+
+    def self.setup
+      yield self
+    end
 
     # Returns a new instance of `Client`
     #
@@ -18,8 +22,8 @@ module Harvesting
     # @option opts [String] :access_token Harvest access token
     # @option opts [String] :account_id Harvest account id
     def initialize(access_token: ENV['HARVEST_ACCESS_TOKEN'], account_id: ENV['HARVEST_ACCOUNT_ID'])
-      @access_token = access_token.to_s
-      @account_id = account_id.to_s
+      @access_token = @@access_token.to_s || access_token.to_s
+      @account_id   = @@account_id.to_s || account_id.to_s
 
       if @account_id.length == 0 || @access_token.length == 0
         raise ArgumentError.new("Access token and account id are required. Access token: '#{@access_token}'. Account ID: '#{@account_id}'.")
@@ -30,7 +34,7 @@ module Harvesting
     def me
       Harvesting::Models::User.new(get("users/me"), harvest_client: self)
     end
-    
+
     # @return [Harvesting::Models::Clients]
     def clients(opts = {})
       Harvesting::Models::Clients.new(get("clients", opts), opts, harvest_client: self)
