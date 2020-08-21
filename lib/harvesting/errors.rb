@@ -4,4 +4,7 @@ module Harvesting
 
   class UnprocessableRequest < StandardError
   end
+
+  class RequestNotFound < StandardError
+  end
 end

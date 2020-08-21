@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.harvestapp.com/v2/projects/1234/user_assignments
+    body:
+      encoding: UTF-8
+      string: '{"project_id":"1234","user_id":"5678","project":{"id":"1234"},"user":{"id":"5678"}}'
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 201
+      message: ''
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 21 Aug 2020 20:25:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Status:
+      - 404 Not Found
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app1
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://fonts.gstatic.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://platform.twitter.com https://www.google.com https://www.googleadservices.com
+        https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
+        https://cdn.plaid.com https://tagmanager.google.com https://bat.bing.com https://ct.capterra.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com
+        https://tagmanager.google.com https://fonts.googleapis.com'
+      Hint:
+      - ''
+      X-Request-Id:
+      - 2efcf4ee8159d6a10335bc006dd1a214
+      X-Runtime:
+      - '0.044372'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"id":125068758,"is_project_manager":false,"is_active":true,"use_default_rates":false,"budget":null,"created_at":"2017-06-26T22:36:01Z","updated_at":"2017-06-26T22:36:01Z","hourly_rate":75.5,"project":{"id":1234,"name":"Online Store - Phase 1","code":"OS1"},"user":{"id":5678,"name":"Jim Allen"}}'
+    http_version: 
+  recorded_at: Fri, 21 Aug 2020 20:25:17 GMT
+recorded_with: VCR 4.0.0
