@@ -148,9 +148,7 @@ module Harvesting
 
       raise Harvesting::AuthenticationError.new(response.to_s) if auth_error?(response)
       raise Harvesting::UnprocessableRequest.new(response.to_s) if response.code.to_i == 422
-      if response.code.to_i == 404
-        raise Harvesting::RequestNotFound.new('The page you were looking for may have been moved or the address misspelled.')
-      end
+      raise Harvesting::RequestNotFound.new(uri) if response.code.to_i == 404
 
       response
     end
