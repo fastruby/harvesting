@@ -148,6 +148,7 @@ module Harvesting
 
       raise Harvesting::AuthenticationError.new(response.to_s) if auth_error?(response)
       raise Harvesting::UnprocessableRequest.new(response.to_s) if response.code.to_i == 422
+      raise Harvesting::ExceedRateLimit.new(response.to_s) if response.code.to_i == 429
 
       response
     end

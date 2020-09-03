@@ -4,4 +4,7 @@ module Harvesting
 
   class UnprocessableRequest < StandardError
   end
+
+  class ExceedRateLimit < StandardError
+  end
 end
