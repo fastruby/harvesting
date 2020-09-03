@@ -56,10 +56,10 @@ RSpec.describe Harvesting::Client, :vcr do
     context "when client reaches the API rate limit" do
       subject { Harvesting::Client.new(access_token: access_token, account_id: account_id) }
 
-      it "raises a Harvesting::ExceedRateLimit" do
+      it "raises a Harvesting::RateLimitExceeded" do
         expect do
           subject.me
-        end.to raise_error(Harvesting::ExceedRateLimit)
+        end.to raise_error(Harvesting::RateLimitExceeded)
       end
     end
   end
