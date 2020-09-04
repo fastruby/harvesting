@@ -1,7 +1,13 @@
-require "simplecov"
-SimpleCov.start do
-  track_files '{lib}/**/*.rb'
-  add_filter "/spec/"
+if ENV["COVERAGE"]
+  require "simplecov"
+  SimpleCov.start do
+    track_files "{lib}/**/*.rb"
+    add_filter "/spec/"
+  end
+  if ENV["CODECOV_TOKEN"]
+    require "codecov"
+    SimpleCov.formatter = SimpleCov::Formatter::Codecov
+  end
 end
 
 require "bundler/setup"
