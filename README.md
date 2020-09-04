@@ -1,7 +1,7 @@
 # Harvesting
 
-[![Build Status](https://travis-ci.org/fastruby/harvesting.svg?branch=master)](https://travis-ci.org/ombulabs/harvesting)
-[![Code Climate](https://codeclimate.com/github/fastruby/harvesting/badges/gpa.svg)](https://codeclimate.com/github/ombulabs/harvesting)
+[![Build Status](https://travis-ci.org/fastruby/harvesting.svg?branch=master)](https://travis-ci.org/fastruby/harvesting)
+[![Code Climate](https://codeclimate.com/github/fastruby/harvesting/badges/gpa.svg)](https://codeclimate.com/github/fastruby/harvesting)
 
 A Ruby gem to interact with the Harvest API v2.0 and forward.
 
@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Documentation
 
-The API is documented [here](https://www.rubydoc.info/github/ombulabs/harvesting)
+The API is documented [here](https://www.rubydoc.info/github/fastruby/harvesting)
 
 ## Usage
 
@@ -166,7 +166,7 @@ end
 
 ## Roadmap
 
-There are many things to be developed for this gem. For now they are tracked here: [TODO.md](https://github.com/ombulabs/harvesting/blob/master/TODO.md)
+There are many things to be developed for this gem. For now they are tracked here: [TODO.md](https://github.com/fastruby/harvesting/blob/master/TODO.md)
 
 ## Releases
 
@@ -240,7 +240,7 @@ We follow semantic versioning for version numbers: [https://semver.org](https://
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at [https://github.com/ombulabs/harvesting](https://github.com/ombulabs/harvesting). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/fastruby/harvesting](https://github.com/fastruby/harvesting). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -248,4 +248,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Harvesting project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ombulabs/harvesting/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Harvesting project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/fastruby/harvesting/blob/master/CODE_OF_CONDUCT.md).
