@@ -1,3 +1,9 @@
+require "simplecov"
+SimpleCov.start do
+  track_files '{lib}/**/*.rb'
+  add_filter "/spec/"
+end
+
 require "bundler/setup"
 require 'dotenv/load'
 require "harvesting"
