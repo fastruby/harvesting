@@ -1,6 +1,6 @@
 # Harvesting
 
-[![Build Status](https://travis-ci.org/fastruby/harvesting.svg?branch=master)](https://travis-ci.org/fastruby/harvesting)
+[![Build Status](https://travis-ci.org/fastruby/harvesting.svg?branch=main)](https://travis-ci.org/fastruby/harvesting)
 [![Code Climate](https://codeclimate.com/github/fastruby/harvesting/badges/gpa.svg)](https://codeclimate.com/github/fastruby/harvesting)
 
 A Ruby gem to interact with the Harvest API v2.0 and forward.
@@ -166,7 +166,7 @@ end
 
 ## Roadmap
 
-There are many things to be developed for this gem. For now they are tracked here: [TODO.md](https://github.com/fastruby/harvesting/blob/master/TODO.md)
+There are many things to be developed for this gem. For now they are tracked here: [TODO.md](https://github.com/fastruby/harvesting/blob/main/TODO.md)
 
 ## Releases
 
@@ -248,4 +248,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Harvesting project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/fastruby/harvesting/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Harvesting project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/fastruby/harvesting/blob/main/CODE_OF_CONDUCT.md).
