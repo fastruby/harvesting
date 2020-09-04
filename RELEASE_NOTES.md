@@ -1,9 +1,17 @@
 # RELEASE NOTES
 
-### master
+### main 
+
+**Notes**
+
+### Version 0.5.0 - September 3, 2020 
 
 **Notes**
 - Changed behavior of `client.clients` so that it returns an instance of `Harvesting::Models::Clients` instead of an `Array`: https://github.com/ombulabs/harvesting/pull/39
+
+**Bug Fixes**
+- Add support for Harvesting::RateLimitExceeded instead of a JSON::ParserError: https://github.com/fastruby/harvesting/pull/57
+- Add support for RequestNotFound instead of a JSON::ParserError: https://github.com/fastruby/harvesting/pull/54
 
 ### Version 0.4.0 - June 6, 2020
 
