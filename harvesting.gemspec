@@ -30,4 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "vcr", "~> 4.0", ">= 4.0"
   spec.add_development_dependency "webmock", "~> 3.4", ">= 3.4"
   spec.add_development_dependency "dotenv", "~> 2.5", ">= 2.5"
+  spec.add_development_dependency "simplecov", "~> 0.19.0"
+  spec.add_development_dependency "codecov", "~> 0.2.9"
 end
