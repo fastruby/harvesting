@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/fastruby/harvesting.svg?branch=main)](https://travis-ci.org/fastruby/harvesting)
 [![Code Climate](https://codeclimate.com/github/fastruby/harvesting/badges/gpa.svg)](https://codeclimate.com/github/fastruby/harvesting)
+[![codecov](https://codecov.io/gh/fastruby/harvesting/branch/main/graph/badge.svg)](https://codecov.io/gh/fastruby/harvesting)
 
 A Ruby gem to interact with the Harvest API v2.0 and forward.
 
