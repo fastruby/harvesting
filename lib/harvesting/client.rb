@@ -3,7 +3,6 @@ require "http"
 require "json"
 
 module Harvesting
-
   # A client for the Harvest API (version 2.0)
   class Client
     DEFAULT_HOST = "https://api.harvestapp.com/v2"
@@ -21,16 +20,18 @@ module Harvesting
       @access_token = access_token.to_s
       @account_id = account_id.to_s
 
-      if @account_id.length == 0 || @access_token.length == 0
-        raise ArgumentError.new("Access token and account id are required. Access token: '#{@access_token}'. Account ID: '#{@account_id}'.")
-      end
+      return unless @account_id.empty? || @access_token.empty?
+
+      raise ArgumentError.new(
+        "Access token and account id are required. Access token: '#{@access_token}'. Account ID: '#{@account_id}'."
+      )
     end
 
     # @return [Harvesting::Models::User]
     def me
       Harvesting::Models::User.new(get("users/me"), harvest_client: self)
     end
-    
+
     # @return [Harvesting::Models::Clients]
     def clients(opts = {})
       Harvesting::Models::Clients.new(get("clients", opts), opts, harvest_client: self)
@@ -135,15 +136,11 @@ module Harvesting
     private
 
     def http_response(method, uri, opts = {})
-      response = nil
-
       http = HTTP["User-Agent" => "Harvesting Ruby Gem",
                   "Authorization" => "Bearer #{@access_token}",
                   "Harvest-Account-ID" => @account_id]
       params = {}
-      if opts[:body]
-        params[:json] = opts[:body]
-      end
+      params[:json] = opts[:body] if opts[:body]
       response = http.send(method, uri, params)
 
       raise Harvesting::AuthenticationError.new(response.to_s) if auth_error?(response)
