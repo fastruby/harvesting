@@ -115,7 +115,8 @@ module Harvesting
       url = "#{DEFAULT_HOST}/#{entity.path}"
       uri = URI(url)
       response = http_response(:delete, uri)
-      raise UnprocessableRequest(response.to_s) unless response.code.to_i == 200
+      raise UnprocessableRequest.new(response.to_s) unless response.code.to_i == 200
+      
       JSON.parse(response.body)
     end
 
