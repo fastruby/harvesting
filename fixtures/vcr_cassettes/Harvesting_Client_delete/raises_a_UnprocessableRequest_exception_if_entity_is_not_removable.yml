@@ -1,0 +1,240 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.harvestapp.com/v2/clients
+    body:
+      encoding: UTF-8
+      string: '{"name":"Mr. Robot"}'
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 15 Jan 2021 02:39:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app3
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://fonts.gstatic.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://platform.twitter.com https://www.google.com https://www.googleadservices.com
+        https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
+        https://cdn.plaid.com https://tagmanager.google.com https://bat.bing.com https://ct.capterra.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com
+        https://tagmanager.google.com https://fonts.googleapis.com'
+      Location:
+      - https://api.harvestapp.com/api/v2/clients/10331953
+      Etag:
+      - W/"98188a5156309a3babc9ff7e0c4f98b0"
+      X-Request-Id:
+      - 237a3ab5d3d40ebf6b887bf18418ed3e
+      X-Runtime:
+      - '0.034833'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb4
+    body:
+      encoding: UTF-8
+      string: '{"id":10331953,"name":"Mr. Robot","is_active":true,"address":null,"statement_key":"b0e8f3951e5cd5b28ad3ea7a8f6311ab","created_at":"2021-01-15T02:39:10Z","updated_at":"2021-01-15T02:39:10Z","currency":"USD"}'
+    http_version:
+  recorded_at: Fri, 15 Jan 2021 02:39:10 GMT
+- request:
+    method: post
+    uri: https://api.harvestapp.com/v2/projects
+    body:
+      encoding: UTF-8
+      string: '{"client_id":10331953,"name":"E-Corp","client":{"id":10331953,"name":"Mr.
+        Robot","is_active":true,"address":null,"statement_key":"b0e8f3951e5cd5b28ad3ea7a8f6311ab","created_at":"2021-01-15T02:39:10Z","updated_at":"2021-01-15T02:39:10Z","currency":"USD"}}'
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 15 Jan 2021 02:39:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app2
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://fonts.gstatic.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://platform.twitter.com https://www.google.com https://www.googleadservices.com
+        https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
+        https://cdn.plaid.com https://tagmanager.google.com https://bat.bing.com https://ct.capterra.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com
+        https://tagmanager.google.com https://fonts.googleapis.com'
+      Location:
+      - https://api.harvestapp.com/api/v2/projects/27411968
+      Etag:
+      - W/"a4a511a182aa9acc5271d74d6c47f7d5"
+      X-Request-Id:
+      - e794b68cc5e45a379f640666ca0cc253
+      X-Runtime:
+      - '0.142711'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Server:
+      - lb2
+    body:
+      encoding: UTF-8
+      string: '{"id":27411968,"name":"E-Corp","code":null,"is_active":true,"is_billable":true,"is_fixed_fee":false,"bill_by":"none","budget":null,"budget_by":"none","budget_is_monthly":false,"notify_when_over_budget":false,"over_budget_notification_percentage":80.0,"show_budget_to_all":false,"created_at":"2021-01-15T02:39:27Z","updated_at":"2021-01-15T02:39:27Z","starts_on":null,"ends_on":null,"over_budget_notification_date":null,"notes":null,"cost_budget":null,"cost_budget_include_expenses":false,"hourly_rate":null,"fee":null,"client":{"id":10331953,"name":"Mr.
+        Robot","currency":"USD"}}'
+    http_version:
+  recorded_at: Fri, 15 Jan 2021 02:39:27 GMT
+- request:
+    method: delete
+    uri: https://api.harvestapp.com/v2/clients/10331953
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Harvesting Ruby Gem
+      Authorization:
+      - Bearer $HARVEST_ACCESS_TOKEN
+      Harvest-Account-Id:
+      - "$HARVEST_ACCOUNT_ID"
+      Connection:
+      - close
+      Host:
+      - api.harvestapp.com
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 15 Jan 2021 02:39:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Cache-Control:
+      - no-cache, no-store
+      P3p:
+      - 'CP="Our privacy policy is available online: https://www.getharvest.com/services/privacy-policy"'
+      X-App-Server:
+      - app3
+      X-Robots-Tag:
+      - noindex, nofollow
+      Content-Security-Policy:
+      - 'report-uri /csp_reports; default-src *; img-src * data:; font-src data: cache.harvestapp.com
+        https://fonts.gstatic.com; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        https://*.google-analytics.com https://*.nr-data.net https://ajax.googleapis.com
+        cache.harvestapp.com https://platform.twitter.com https://www.google.com https://www.googleadservices.com
+        https://www.googletagmanager.com https://connect.facebook.net https://googleads.g.doubleclick.net
+        https://cdn.plaid.com https://tagmanager.google.com https://bat.bing.com https://ct.capterra.com;
+        style-src ''self'' ''unsafe-inline'' cache.harvestapp.com https://www.google.com
+        https://tagmanager.google.com https://fonts.googleapis.com'
+      Hint:
+      - This client is not removable. It still has projects and/or invoices.
+      X-Request-Id:
+      - 03add25275ef5a884f8de7c5b28a2986
+      X-Runtime:
+      - '0.048734'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"message":"This client is not removable. It still has projects and/or
+        invoices."}'
+    http_version:
+  recorded_at: Fri, 15 Jan 2021 02:39:27 GMT
+recorded_with: VCR 4.0.0

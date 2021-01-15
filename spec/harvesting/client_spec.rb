@@ -112,6 +112,27 @@ RSpec.describe Harvesting::Client, :vcr do
     end
   end
 
+  describe "#delete", :vcr do
+    let(:message) do
+      '{"message":"This client is not removable. It still has projects and/or invoices."}'
+    end
+
+    it "raises a UnprocessableRequest exception if entity is not removable" do
+      client = Harvesting::Models::Client.new(name: "Mr. Robot")
+      client.save
+
+      project = Harvesting::Models::Project.new(
+        "name" => "E-Corp",
+        "client" => client.to_hash
+      )
+      project.save
+
+      expect do
+        client.delete
+      end.to raise_error(Harvesting::UnprocessableRequest, message)
+    end
+  end
+
   describe "#me", :vcr do
     subject { Harvesting::Client.new(access_token: access_token, account_id: account_id) }
 
