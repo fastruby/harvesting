@@ -1,10 +1,25 @@
 # RELEASE NOTES
 
-### main 
+### main
 
 **Notes**
 
-### Version 0.5.0 - September 3, 2020 
+**Bug Fixes**
+
+### Version 0.5.1 - January 14, 2021
+
+**Notes**
+- Add support for Codecov so that we can track code coverage over time in the
+library: https://github.com/fastruby/harvesting/pull/59
+
+**Bug Fixes**
+- Fix incompatibility with Ruby 3.0: https://github.com/fastruby/harvesting/pull/64
+- Relax `http` dependency declaration so that we can `bundle install` with more
+modern versions of that gem: https://github.com/fastruby/harvesting/pull/63
+- Fix issue when trying to remove an entity that is not removable:
+https://github.com/fastruby/harvesting/pull/61
+
+### Version 0.5.0 - September 3, 2020
 
 **Notes**
 - Changed behavior of `client.clients` so that it returns an instance of `Harvesting::Models::Clients` instead of an `Array`: https://github.com/fastruby/harvesting/pull/39
