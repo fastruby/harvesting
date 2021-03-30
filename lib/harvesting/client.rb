@@ -12,7 +12,7 @@ module Harvesting
 
     # Returns a new instance of `Client`
     #
-    #     client = Client.new(access_token: "12345678", account_id: "98764")
+    #     client = Client.new({ access_token: "12345678", account_id: "98764" })
     #
     # @param [Hash] opts the options to create an API client
     # @option opts [String] :access_token Harvest access token
@@ -30,7 +30,7 @@ module Harvesting
     def me
       Harvesting::Models::User.new(get("users/me"), harvest_client: self)
     end
-    
+
     # @return [Harvesting::Models::Clients]
     def clients(opts = {})
       Harvesting::Models::Clients.new(get("clients", opts), opts, harvest_client: self)
@@ -116,7 +116,7 @@ module Harvesting
       uri = URI(url)
       response = http_response(:delete, uri)
       raise UnprocessableRequest.new(response.to_s) unless response.code.to_i == 200
-      
+
       JSON.parse(response.body)
     end
 

@@ -9,7 +9,7 @@ module Harvesting
       def initialize(attrs, opts = {})
         @models = {}
         @attributes = attrs.dup
-        @harvest_client = opts[:harvest_client] || Harvesting::Client.new(opts)
+        @harvest_client = opts[:harvest_client] || Harvesting::Client.new(**opts)
       end
 
       # It calls `create` or `update` depending on the record's ID. If the ID
@@ -65,7 +65,7 @@ module Harvesting
       # @param opts [Hash] options to pass along to the `Harvesting::Client`
       #   instance
       def self.get(id, opts = {})
-        client = opts[:harvest_client] || Harvesting::Client.new(opts)
+        client = opts[:harvest_client] || Harvesting::Client.new(**opts)
         self.new({ 'id' => id }, opts).fetch
       end
 
