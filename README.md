@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ## Documentation
 
-The API is documented [here](https://www.rubydoc.info/github/fastruby/harvesting)
+The API is documented [here](https://www.rubydoc.info/gems/harvesting)
 
 ## Usage
 
