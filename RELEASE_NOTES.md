@@ -6,6 +6,12 @@
 
 **Bug Fixes**
 
+### Version 0.6.0 - July 17, 2023
+
+**Notes**
+
+**Bug Fixes**
+
 - Fix incompatibility with Ruby 3.0 and kwargs: https://github.com/fastruby/harvesting/pull/68
 
 ### Version 0.5.1 - January 14, 2021
