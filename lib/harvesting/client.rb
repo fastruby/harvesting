@@ -43,6 +43,11 @@ module Harvesting
       end
     end
 
+    # @return [Harvesting::Models::TimeEntry]
+    def time_entry(id, opts = {})
+      Harvesting::Models::TimeEntry.new(get("time_entries/#{id}", opts), harvest_client: self)
+    end
+
     # @return [Harvesting::Models::TimeEntries]
     def time_entries(opts = {})
       Harvesting::Models::TimeEntries.new(get("time_entries", opts), opts, harvest_client: self)

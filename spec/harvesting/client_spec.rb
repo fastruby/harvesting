@@ -158,6 +158,29 @@ RSpec.describe Harvesting::Client, :vcr do
     context "when account has entries" do
       let(:access_token) { admin_access_token }
       let(:account_id) { admin_account_id }
+      let(:first_time_entry) { subject.time_entries.first } # the first of all time entries
+
+      it "retrieves a specific time entry by ID" do
+        # retrieve one specific time entry
+        expect(subject.time_entry(first_time_entry.id).attributes).to eq(first_time_entry.attributes)
+      end
+  
+      context "when the time entry doesn't exist" do
+        it "raises a Harvesting::RequestNotFound error" do
+          expect do
+            subject.time_entry(9999999999) # a non-existent ID
+          end.to raise_error(Harvesting::RequestNotFound)
+        end
+      end
+
+      it "updates a time entry" do
+        original_notes = first_time_entry.notes
+        new_notes = "Client meeting"
+        first_time_entry.notes = new_notes
+        expect(original_notes).to_not eq(first_time_entry.notes)
+        first_time_entry.save
+        expect(subject.time_entry(first_time_entry.id).notes).to eq(new_notes)
+      end
 
       it "returns the time_entries associated with the account" do
         time_entries = subject.time_entries
